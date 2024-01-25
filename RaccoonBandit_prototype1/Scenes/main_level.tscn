@@ -994,6 +994,8 @@ position = Vector2(457.5, 329)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_h31yn")
 
+[node name="CharacterBody2D" type="CharacterBody2D" parent="BackgroundLayer1"]
+
 [node name="BackgroundLayer2" type="Sprite2D" parent="."]
 position = Vector2(461.5, 328)
 scale = Vector2(0.2, 0.2)
