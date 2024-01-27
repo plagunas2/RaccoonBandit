@@ -1,43 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://chxxrbcs7fo7e"]
+[gd_scene load_steps=2 format=3 uid="uid://chxxrbcs7fo7e"]
 
-[ext_resource type="Texture2D" uid="uid://ckrgn3n5t4te1" path="res://Assets/Background_Layer_1.png" id="1_h31yn"]
-[ext_resource type="Script" path="res://Scenes/scrollingScript.gd" id="1_jxkel"]
-[ext_resource type="Texture2D" uid="uid://cv1i084v4xww" path="res://Assets/Background_Layer_2.png" id="2_xin5n"]
-[ext_resource type="Texture2D" uid="uid://caobqhbefna5f" path="res://Assets/Background_Layer_3.png" id="3_o30as"]
+[ext_resource type="PackedScene" uid="uid://cv0j6kgntrc6w" path="res://Scenes/parallax_background.tscn" id="1_v75gu"]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-script = ExtResource("1_jxkel")
-
-[node name="BackgroundLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2(900, 0)
-
-[node name="BackgroundLayer1" type="Sprite2D" parent="ParallaxBackground/BackgroundLayer"]
-texture_filter = 1
-position = Vector2(445.5, 256)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("1_h31yn")
-
-[node name="BuildingLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.5, 0.5)
-motion_mirroring = Vector2(900, 0)
-
-[node name="BackgroundLayer2" type="Sprite2D" parent="ParallaxBackground/BuildingLayer"]
-texture_filter = 1
-position = Vector2(435, 269)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_xin5n")
-
-[node name="Building2Layer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2(900, 0)
-
-[node name="BackgroundLayer3" type="Sprite2D" parent="ParallaxBackground/Building2Layer"]
-texture_filter = 1
-position = Vector2(437.5, 431)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("3_o30as")
-
-[node name="GroundLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-
-[node name="GroundSprite" type="Sprite2D" parent="ParallaxBackground/GroundLayer"]
+[node name="ParallaxBackground" parent="." instance=ExtResource("1_v75gu")]
