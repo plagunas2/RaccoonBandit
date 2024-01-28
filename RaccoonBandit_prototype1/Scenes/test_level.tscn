@@ -10,4 +10,4 @@ script = ExtResource("1_ajqhn")
 [node name="ParallaxBackground" parent="." instance=ExtResource("2_ck2cr")]
 
 [node name="obs_generator" parent="." instance=ExtResource("3_0ui1k")]
-position = Vector2(1757, 834)
+position = Vector2(1636, 847)
