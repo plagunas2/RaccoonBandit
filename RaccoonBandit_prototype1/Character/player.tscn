@@ -1,0 +1,85 @@
+[gd_scene load_steps=18 format=3 uid="uid://bl1oakyavckov"]
+
+[ext_resource type="Script" path="res://Character/player.gd" id="1_5evjr"]
+[ext_resource type="Texture2D" uid="uid://degutt6ewm00k" path="res://Assets/Raccoon/PNG/PNG Sequences/Idle/Idle_000.png" id="1_sbm6y"]
+[ext_resource type="Texture2D" uid="uid://dv3mdafvcaxl1" path="res://Assets/Raccoon/PNG/PNG Sequences/Idle/Idle_001.png" id="3_1tgir"]
+[ext_resource type="Texture2D" uid="uid://cjw8sva4nk5k2" path="res://Assets/Raccoon/PNG/PNG Sequences/Idle/Idle_002.png" id="4_a8kv0"]
+[ext_resource type="Texture2D" uid="uid://bnbh2ygufgun1" path="res://Assets/Raccoon/PNG/PNG Sequences/Idle/Idle_003.png" id="5_bgd1k"]
+[ext_resource type="Texture2D" uid="uid://csrt4rbnoolss" path="res://Assets/Raccoon/PNG/PNG Sequences/Idle/Idle_004.png" id="6_23je3"]
+[ext_resource type="Texture2D" uid="uid://dkdlsfbdvlie6" path="res://Assets/Raccoon/PNG/PNG Sequences/Idle/Idle_006.png" id="7_ies1n"]
+[ext_resource type="Texture2D" uid="uid://c0antmqpxvteg" path="res://Assets/Raccoon/PNG/PNG Sequences/Idle/Idle_005.png" id="8_61e7o"]
+[ext_resource type="Texture2D" uid="uid://je2o8bs06tda" path="res://Assets/Raccoon/PNG/PNG Sequences/Idle/Idle_007.png" id="9_ju2nd"]
+[ext_resource type="Texture2D" uid="uid://vluenm0ifo2u" path="res://Assets/Raccoon/PNG/PNG Sequences/Idle/Idle_009.png" id="10_q7yj6"]
+[ext_resource type="Texture2D" uid="uid://bf788wkwij16v" path="res://Assets/Raccoon/PNG/PNG Sequences/Idle/Idle_010.png" id="11_xst8c"]
+[ext_resource type="Texture2D" uid="uid://nd17wmtx1l42" path="res://Assets/Raccoon/PNG/PNG Sequences/Idle/Idle_008.png" id="12_6lr7m"]
+[ext_resource type="Texture2D" uid="uid://c1c6qxea4rf5c" path="res://Assets/Raccoon/PNG/PNG Sequences/Idle/Idle_012.png" id="13_tcb72"]
+[ext_resource type="Texture2D" uid="uid://bnfqc32ps724i" path="res://Assets/Raccoon/PNG/PNG Sequences/Idle/Idle_011.png" id="14_lq024"]
+[ext_resource type="Texture2D" uid="uid://fwg44d4asbks" path="res://Assets/Raccoon/PNG/PNG Sequences/Idle/Idle_013.png" id="15_cioq0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_57wnc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_sbm6y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_1tgir")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_a8kv0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_bgd1k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_23je3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ies1n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_61e7o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ju2nd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_q7yj6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_xst8c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_6lr7m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_tcb72")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_lq024")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_cioq0")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0rsjk"]
+radius = 43.0
+height = 118.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_5evjr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.35, 0.35)
+sprite_frames = SubResource("SpriteFrames_57wnc")
+animation = &"idle"
+frame = 10
+frame_progress = 0.0659741
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 1)
+shape = SubResource("CapsuleShape2D_0rsjk")
