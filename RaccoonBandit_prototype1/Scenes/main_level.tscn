@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://chxxrbcs7fo7e"]
 
-[ext_resource type="Texture2D" uid="uid://ckrgn3n5t4te1" path="res://Assets/Background_Layer_1.png" id="1_h31yn"]
-[ext_resource type="Texture2D" uid="uid://cv1i084v4xww" path="res://Assets/Background_Layer_2.png" id="2_xin5n"]
-[ext_resource type="Texture2D" uid="uid://caobqhbefna5f" path="res://Assets/Background_Layer_3.png" id="3_o30as"]
-[ext_resource type="Texture2D" uid="uid://dd1qxwh8dpm6a" path="res://Assets/_Spritesheet_Tileset.png" id="4_kt3r3"]
+[ext_resource type="Texture2D" path="res://Assets/Background_Layer_1.png" id="1_h31yn"]
+[ext_resource type="Texture2D" path="res://Assets/Background_Layer_2.png" id="2_xin5n"]
+[ext_resource type="Texture2D" path="res://Assets/Background_Layer_3.png" id="3_o30as"]
+[ext_resource type="Texture2D" path="res://Assets/_Spritesheet_Tileset.png" id="4_kt3r3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nydy1"]
 texture = ExtResource("4_kt3r3")
