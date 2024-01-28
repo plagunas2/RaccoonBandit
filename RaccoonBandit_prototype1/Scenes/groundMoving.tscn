@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvbp8bqvy87sx"]
+
+[ext_resource type="Texture2D" path="res://Assets/Tile_27.png" id="1_m8omi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qp63s"]
+size = Vector2(1920, 140)
+
+[node name="Ground" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(0, 834)
+texture = ExtResource("1_m8omi")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 1920, 250)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(960, 1018)
+shape = SubResource("RectangleShape2D_qp63s")
