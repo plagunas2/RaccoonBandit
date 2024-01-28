@@ -10,22 +10,32 @@ var obstacles : Array
 
 #game variables
 #todo: player position, score, etc,
-var last_obstacle
+var last_obs
+var generatorPos
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	 # Replace with function body.
+	generatorPos = $obs_generator.position
+	#new_game()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
 	generate_obs()
-	pass
+	
 	
 	
 func generate_obs():
 	#generate obstacles
 	if obstacles.is_empty():
 		var obs_type = obstacle_types[randi() % obstacle_types.size()]
+		var obs
+		obs = obs_type.instantiate()
+		last_obs = obs
+		obs.position.x = generatorPos.x
+		obs.position.y = generatorPos.y
+		add_child(obs)
+		obstacles.append(obs)

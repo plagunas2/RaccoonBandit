@@ -1,9 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxjjg8eg6248s"]
+[gd_scene load_steps=4 format=3 uid="uid://cxjjg8eg6248s"]
 
 [ext_resource type="Script" path="res://Scenes/test_level.gd" id="1_ajqhn"]
 [ext_resource type="PackedScene" uid="uid://cv0j6kgntrc6w" path="res://Scenes/parallax_background.tscn" id="2_ck2cr"]
+[ext_resource type="PackedScene" uid="uid://dnw4bgmjccngu" path="res://Scenes/obstacles/obs_generator.tscn" id="3_0ui1k"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_ajqhn")
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("2_ck2cr")]
+
+[node name="obs_generator" parent="." instance=ExtResource("3_0ui1k")]
+position = Vector2(1757, 834)
