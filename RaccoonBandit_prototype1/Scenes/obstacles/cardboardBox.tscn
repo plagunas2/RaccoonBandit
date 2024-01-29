@@ -2,6 +2,11 @@
 
 [ext_resource type="Texture2D" path="res://Assets/Obstacles/Cardboard_Box.png" id="1_d8kjx"]
 
+[gd_scene load_steps=2 format=3 uid="uid://chxkoc4hg3y8s"]
+
+[ext_resource type="Texture2D" uid="uid://dawbkmsevavii" path="res://Assets/Obstacles/Cardboard_Box.png" id="1_d8kjx"]
+
+
 [node name="cardboard_box" type="Area2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

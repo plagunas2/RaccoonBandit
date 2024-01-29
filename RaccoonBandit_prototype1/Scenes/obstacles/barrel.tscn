@@ -2,6 +2,11 @@
 
 [ext_resource type="Texture2D" path="res://Assets/Obstacles/Barrel.png" id="1_1wstd"]
 
+[gd_scene load_steps=2 format=3 uid="uid://cocdi4pbmbud1"]
+
+[ext_resource type="Texture2D" uid="uid://4noy7pb3r24k" path="res://Assets/Obstacles/Barrel.png" id="1_1wstd"]
+
+
 [node name="Barrel" type="Area2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

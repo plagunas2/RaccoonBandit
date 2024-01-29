@@ -2,6 +2,11 @@
 
 [ext_resource type="Texture2D" path="res://Assets/Obstacles/Garbage_Bag.png" id="1_x881d"]
 
+[gd_scene load_steps=2 format=3 uid="uid://d016bph5na7m0"]
+
+[ext_resource type="Texture2D" uid="uid://mxyltokbc0j1" path="res://Assets/Obstacles/Garbage_Bag.png" id="1_x881d"]
+
+
 [node name="trashBag" type="Area2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

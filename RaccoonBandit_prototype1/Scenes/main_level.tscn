@@ -1013,3 +1013,11 @@ layer_0/tile_data = PackedInt32Array(524288, 131074, 13, 589824, 131074, 14, 524
 
 [node name="Player" parent="." instance=ExtResource("5_ls0oc")]
 position = Vector2(98, 509)
+
+[gd_scene load_steps=2 format=3 uid="uid://chxxrbcs7fo7e"]
+
+[ext_resource type="PackedScene" uid="uid://cv0j6kgntrc6w" path="res://Scenes/parallax_background.tscn" id="1_v75gu"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("1_v75gu")]
