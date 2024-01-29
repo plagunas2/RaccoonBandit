@@ -1,3 +1,36 @@
+[gd_scene load_steps=8 format=3 uid="uid://chxxrbcs7fo7e"]
+[gd_scene load_steps=2 format=3 uid="uid://chxxrbcs7fo7e"]
+
+[ext_resource type="Texture2D" uid="uid://ckrgn3n5t4te1" path="res://Assets/Background/Background_Layer_1.png" id="1_h31yn"]
+[ext_resource type="Texture2D" uid="uid://cv1i084v4xww" path="res://Assets/Background/Background_Layer_2.png" id="2_xin5n"]
+[ext_resource type="Texture2D" uid="uid://caobqhbefna5f" path="res://Assets/Background/Background_Layer_3.png" id="3_o30as"]
+[ext_resource type="Texture2D" uid="uid://dd1qxwh8dpm6a" path="res://Assets/TileSets/_Spritesheet_Tileset.png" id="4_kt3r3"]
+[ext_resource type="PackedScene" uid="uid://bl1oakyavckov" path="res://Character/player.tscn" id="5_ls0oc"]
+[ext_resource type="PackedScene" uid="uid://cv0j6kgntrc6w" path="res://Scenes/parallax_background.tscn" id="1_v75gu"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("1_v75gu")]
+
+[node name="BackgroundLayer2" type="Sprite2D" parent="."]
+position = Vector2(461.5, 328)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_xin5n")
+
+[node name="BackgroundLayer3" type="Sprite2D" parent="."]
+position = Vector2(464, 490)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_o30as")
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(-12, 35)
+tile_set = SubResource("TileSet_8ibq6")
+format = 2
+layer_0/tile_data = PackedInt32Array(524288, 131074, 13, 589824, 131074, 14, 524289, 196610, 13, 589825, 196610, 14, 524290, 262146, 13, 589826, 262146, 14, 524291, 327682, 13, 589827, 327682, 14, 524292, 393218, 13, 589828, 393218, 14, 524293, 458754, 13, 589829, 458754, 14, 524294, 524290, 13, 589830, 524290, 14, 524295, 589826, 13, 589831, 589826, 14, 524296, 131074, 13, 589832, 131074, 14, 524297, 196610, 13, 589833, 196610, 14, 524298, 262146, 13, 589834, 262146, 14, 524299, 327682, 13, 589835, 327682, 14, 524300, 393218, 13, 589836, 393218, 14, 524301, 458754, 13, 589837, 458754, 14, 524302, 524290, 13, 589838, 524290, 14, 524303, 589826, 13, 589839, 589826, 14, 524304, 131074, 13, 589840, 131074, 14, 524305, 196610, 13, 589841, 196610, 14, 524306, 262146, 13, 589842, 262146, 14, 524307, 327682, 13, 589843, 327682, 14, 524308, 393218, 13, 589844, 393218, 14, 524309, 458754, 13, 589845, 458754, 14, 524310, 524290, 13, 589846, 524290, 14, 524311, 589826, 13, 589847, 589826, 14)
+
+[node name="Player" parent="." instance=ExtResource("5_ls0oc")]
+position = Vector2(98, 509)
+
 [gd_scene load_steps=2 format=3 uid="uid://chxxrbcs7fo7e"]
 
 [ext_resource type="PackedScene" uid="uid://cv0j6kgntrc6w" path="res://Scenes/parallax_background.tscn" id="1_v75gu"]
