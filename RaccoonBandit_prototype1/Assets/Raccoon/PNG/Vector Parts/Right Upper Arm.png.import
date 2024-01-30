@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://dkto155omuas4"
+=======
+uid="uid://dbq4qfbhoj3m2"
+>>>>>>> 54f64131bca6b2990a3a6a104435adeffe1e4110
 path="res://.godot/imported/Right Upper Arm.png-508483d2de866011b6721de243b1738b.ctex"
 metadata={
 "vram_texture": false
