@@ -1,0 +1,117 @@
+[gd_scene load_steps=7 format=3 uid="uid://bhjnd5n5y7gqg"]
+
+[ext_resource type="Script" path="res://Scenes/Menus/Mainmenu.gd" id="1_t6wwb"]
+[ext_resource type="Texture2D" uid="uid://ckrgn3n5t4te1" path="res://Assets/Background/Background_Layer_1.png" id="2_wanis"]
+[ext_resource type="FontFile" uid="uid://dumj75rt8ukae" path="res://Assets/Fonts/Kaph-Regular.ttf" id="3_t13eg"]
+[ext_resource type="FontFile" uid="uid://ct5tickuppry1" path="res://Assets/Fonts/Kaph-Italic.ttf" id="4_d81cj"]
+
+[sub_resource type="FontVariation" id="FontVariation_oyc3k"]
+base_font = ExtResource("3_t13eg")
+
+[sub_resource type="FontVariation" id="FontVariation_lblnd"]
+base_font = ExtResource("4_d81cj")
+
+[node name="Mainmenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t6wwb")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_wanis")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="Start" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.92549, 0.666667, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_constants/h_separation = 22
+theme_override_fonts/font = SubResource("FontVariation_oyc3k")
+theme_override_font_sizes/font_size = 30
+text = "Start"
+flat = true
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.92549, 0.666667, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_constants/h_separation = 2
+theme_override_font_sizes/font_size = 30
+text = "Quit "
+flat = true
+clip_text = true
+icon_alignment = 1
+
+[node name="Tutorial" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.92549, 0.666667, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_constants/h_separation = 2
+theme_override_font_sizes/font_size = 30
+text = "Tutorial"
+flat = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer2"]
+layout_direction = 1
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.95
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.545098, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.92549, 0.666667, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = SubResource("FontVariation_lblnd")
+theme_override_font_sizes/font_size = 75
+text = "Raccoon Bandit"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer2"]
+layout_direction = 1
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Tutorial" to="." method="_on_tutorial_pressed"]
