@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
+uid="uid://djuwnlsekglfs"
+=======
 uid="uid://bpa07fjvvjogn"
+>>>>>>> 54f64131bca6b2990a3a6a104435adeffe1e4110
 path="res://.godot/imported/Falling Down_002.png-8ecc9085a5f0595ccce019a9f6d1b1e2.ctex"
 metadata={
 "vram_texture": false

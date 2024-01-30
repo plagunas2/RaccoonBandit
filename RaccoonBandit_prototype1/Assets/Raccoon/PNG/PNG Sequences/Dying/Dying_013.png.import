@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
+uid="uid://dq6rts5eegs2y"
+=======
 uid="uid://c181yuu00hlj6"
+>>>>>>> 54f64131bca6b2990a3a6a104435adeffe1e4110
 path="res://.godot/imported/Dying_013.png-16f03a505cf8fa2c6058029f10c126ef.ctex"
 metadata={
 "vram_texture": false

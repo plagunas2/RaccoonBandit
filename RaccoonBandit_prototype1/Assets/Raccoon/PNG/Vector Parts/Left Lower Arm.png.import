@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
+uid="uid://bla4iikkipjvj"
+=======
 uid="uid://cnd8qj50a0eo2"
+>>>>>>> 54f64131bca6b2990a3a6a104435adeffe1e4110
 path="res://.godot/imported/Left Lower Arm.png-4331acc987a1638c049e8630ad0aa1d5.ctex"
 metadata={
 "vram_texture": false

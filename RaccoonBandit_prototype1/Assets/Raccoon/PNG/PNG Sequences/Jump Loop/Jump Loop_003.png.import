@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
+uid="uid://dwvv25wxbaj6j"
+=======
 uid="uid://csl7jea0vbpte"
+>>>>>>> 54f64131bca6b2990a3a6a104435adeffe1e4110
 path="res://.godot/imported/Jump Loop_003.png-ed0c011f570551d57e55d0cda4d077dc.ctex"
 metadata={
 "vram_texture": false
