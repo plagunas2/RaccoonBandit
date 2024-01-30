@@ -10,6 +10,7 @@ base_font = ExtResource("3_t13eg")
 
 [sub_resource type="FontVariation" id="FontVariation_lblnd"]
 base_font = ExtResource("4_d81cj")
+spacing_top = 150
 
 [node name="Mainmenu" type="Control"]
 layout_mode = 3
@@ -52,12 +53,16 @@ alignment = 1
 
 [node name="Start" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+mouse_force_pass_scroll_events = false
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0.92549, 0.666667, 0, 1)
 theme_override_constants/outline_size = 5
-theme_override_constants/h_separation = 22
+theme_override_constants/h_separation = 0
 theme_override_fonts/font = SubResource("FontVariation_oyc3k")
 theme_override_font_sizes/font_size = 50
+toggle_mode = true
+action_mode = 0
+button_mask = 7
 text = "Start"
 flat = true
 
@@ -88,8 +93,12 @@ flat = true
 layout_mode = 2
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer2"]
+visible = false
+modulate = Color(0.117647, 0.117647, 0.137255, 1)
+self_modulate = Color(0.176471, 0.027451, 1, 1)
 layout_direction = 1
 layout_mode = 2
+mouse_force_pass_scroll_events = false
 theme_override_constants/separation = 100
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer2"]
