@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ckswj14xxdfxm"]
 
-[ext_resource type="Script" path="res://tutorial page.gd" id="1_bruds"]
+[ext_resource type="Script" path="res://Scenes/Menus/tutorial page.gd" id="1_bruds"]
 
 [node name="TutorialPage" type="Control"]
 layout_mode = 3
