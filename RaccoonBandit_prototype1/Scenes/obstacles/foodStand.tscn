@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dcepmldwimg5m" path="res://Assets/Obstacles/Food_Stand.png" id="1_3klor"]
 
-[node name="Area2D" type="Area2D"]
+[node name="Area2D2" type="Area2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_3klor")

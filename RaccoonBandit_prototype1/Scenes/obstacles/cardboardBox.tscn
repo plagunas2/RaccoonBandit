@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r1dmb"]
 size = Vector2(99, 74)
 
-[node name="Area2D" type="Area2D"]
+[node name="Area2D2" type="Area2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_wggdy")

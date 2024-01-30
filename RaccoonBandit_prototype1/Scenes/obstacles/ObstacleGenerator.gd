@@ -12,7 +12,7 @@ var generatorPos
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	generatorPos = $obs_generator.position # Replace with function body.
+	generatorPos = $Obs_generator.pos # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
