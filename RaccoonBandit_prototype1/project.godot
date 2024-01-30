@@ -15,9 +15,18 @@ run/main_scene="res://Scenes/main_level.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
+
 [gui]
 
 theme/custom_font="res://Assets/Fonts/Kaph-Regular.ttf"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/window_width_override=1920
+window/size/window_height_override=1080
+
 
 [input]
 
@@ -45,13 +54,6 @@ jump={
 [physics]
 
 2d/default_gravity=490.0
-
-[display]
-
-window/size/viewport_width=1920
-window/size/viewport_height=1080
-window/size/window_width_override=1920
-window/size/window_height_override=1080
 
 [rendering]
 
