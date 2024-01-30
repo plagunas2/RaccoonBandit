@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dei8g5ul1uts2"]
+
+[ext_resource type="Script" path="res://UI/HUD/HUD.gd" id="1_sif55"]
+
+[sub_resource type="SystemFont" id="SystemFont_f3v4l"]
+font_names = PackedStringArray("Impact")
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_sif55")
+
+[node name="trashcount" type="Label" parent="."]
+offset_right = 142.0
+offset_bottom = 46.0
+theme_override_fonts/font = SubResource("SystemFont_f3v4l")
+theme_override_font_sizes/font_size = 30
+text = "Trash: "
