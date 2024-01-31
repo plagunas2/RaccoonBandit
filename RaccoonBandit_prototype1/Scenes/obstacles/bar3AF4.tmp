@@ -6,8 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0q6a4"]
 size = Vector2(100, 128)
 
-[node name="barrel" type="Area2D"]
-position = Vector2(0, -40)
+[node name="Node" type="Area2D"]
 scale = Vector2(1.25, 1.25)
 script = ExtResource("1_fqxci")
 

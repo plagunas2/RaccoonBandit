@@ -1,12 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://dnw4bgmjccngu"]
+[gd_scene load_steps=2 format=3 uid="uid://dnw4bgmjccngu"]
 
 [ext_resource type="Script" path="res://Scenes/obstacles/ObstacleGenerator.gd" id="1_se36l"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lbl43"]
-
-[node name="obs_generator" type="Area2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(10, 10)
-shape = SubResource("RectangleShape2D_lbl43")
+[node name="ObGenerator" type="Node2D"]
+z_index = 1
 script = ExtResource("1_se36l")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
