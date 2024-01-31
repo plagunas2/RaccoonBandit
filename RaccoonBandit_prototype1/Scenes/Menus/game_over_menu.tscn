@@ -1,16 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://cchg0xy6ahlqh"]
+[gd_scene load_steps=7 format=3 uid="uid://cchg0xy6ahlqh"]
 
-[ext_resource type="Script" path="res://UI/GameOver/Game Over Menu.gd" id="1_7hun4"]
-[ext_resource type="Texture2D" uid="uid://ckrgn3n5t4te1" path="res://Assets/Background_Layer_1.png" id="2_2jssk"]
+[ext_resource type="Script" path="res://Scenes/Menus/Game Over Menu.gd" id="1_7hun4"]
+[ext_resource type="Texture2D" uid="uid://ckrgn3n5t4te1" path="res://Assets/Background/Background_Layer_1.png" id="2_2jssk"]
+[ext_resource type="FontFile" uid="uid://dumj75rt8ukae" path="res://Assets/Fonts/Kaph-Regular.ttf" id="3_t2t50"]
 
-[sub_resource type="SystemFont" id="SystemFont_6y5kr"]
-font_names = PackedStringArray("Impact")
+[sub_resource type="FontVariation" id="FontVariation_2ja0q"]
+base_font = ExtResource("3_t2t50")
 
-[sub_resource type="SystemFont" id="SystemFont_4iibr"]
-font_names = PackedStringArray("Impact")
+[sub_resource type="FontVariation" id="FontVariation_pkwmq"]
+base_font = ExtResource("3_t2t50")
 
-[sub_resource type="SystemFont" id="SystemFont_yajq8"]
-font_names = PackedStringArray("Impact", "", "", "", "", "", "", "", "", "", "", "")
+[sub_resource type="FontVariation" id="FontVariation_grft5"]
+base_font = ExtResource("3_t2t50")
 
 [node name="Game Over Menu" type="Control"]
 layout_mode = 3
@@ -53,13 +54,17 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 24
-theme_override_fonts/font = SubResource("SystemFont_6y5kr")
-theme_override_font_sizes/font_size = 55
-text = "YOUR  END  HAS  COME  RACCOON!"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.545098, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.92549, 0.666667, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = SubResource("FontVariation_2ja0q")
+theme_override_font_sizes/font_size = 70
+text = "YOUR END HAS COME RACCOON!"
 horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -78,9 +83,13 @@ custom_minimum_size = Vector2(120, 32)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_fonts/font = SubResource("SystemFont_4iibr")
-theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.92549, 0.666667, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = SubResource("FontVariation_pkwmq")
+theme_override_font_sizes/font_size = 50
 text = "Play Again"
+flat = true
 
 [node name="Separator3" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -90,9 +99,13 @@ custom_minimum_size = Vector2(120, 32)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_fonts/font = SubResource("SystemFont_yajq8")
-theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.92549, 0.666667, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = SubResource("FontVariation_grft5")
+theme_override_font_sizes/font_size = 50
 text = "Quit Game"
+flat = true
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Retry" to="." method="_on_retry_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
