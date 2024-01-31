@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cv0j6kgntrc6w" path="res://Scenes/parallax_background.tscn" id="2_ck2cr"]
 [ext_resource type="PackedScene" uid="uid://dnw4bgmjccngu" path="res://Scenes/obstacles/obs_generator.tscn" id="3_0ui1k"]
+[ext_resource type="PackedScene" uid="uid://bl1oakyavckov" path="res://Character/player.tscn" id="4_dhvrx"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -9,3 +10,7 @@
 
 [node name="ObGenerator" parent="." instance=ExtResource("3_0ui1k")]
 position = Vector2(1215, 717)
+
+[node name="Player" parent="." instance=ExtResource("4_dhvrx")]
+position = Vector2(1000, 850)
+scale = Vector2(1.5, 1.5)
