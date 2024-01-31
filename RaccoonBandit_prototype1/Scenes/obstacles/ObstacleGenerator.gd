@@ -13,7 +13,9 @@ var last_obs
 var screen_size : Vector2i
 var ground_height : int
 
-var min_spawn_interval = 3.0
+#spawn intervals determine the time between obstacle spawns
+#change this for longer or shorter distances between obstacles
+var min_spawn_interval = 3.0 
 var max_spawn_interval = 8.0
 
 var parallax_layer
@@ -28,37 +30,18 @@ func _ready():
 	parallax_layer =  parallax_background.get_node("ParallaxLayer")
 	groundNode = parallax_layer.get_node("Ground")
 	ground = groundNode.get_node("Sprite2D")
-
-	screen_size = get_window().size
-	ground_height = ground.texture.get_height()
-	print("ready")
 	
 	$Timer.start()
 
-#func _on_Timer_timeout():
-	# Create a new obstacle instance
-
-
 func _on_timer_timeout():
 	# Create a new obstacle instance
-	print("timeout")
 	var obs_type = obstacle_types[randi() % obstacle_types.size()].instantiate()
-	print(obs_type)
+	print(obs_type) #debugging print statement
 	
-	print("add")
-	
-	var obs_height = obs_type.get_node("Sprite2D").texture.get_height()
-	var obs_scale = obs_type.get_node("Sprite2D").scale
-	var obs_x : int = ground.texture.get_size().x + 100
-	#var obs_y : int = ground.texture.get_size().y - ground_height - (obs_height * obs_scale.y / 2) + 5
-	obs_type.position = Vector2(800, 100)
+	obs_type.position = Vector2(800, 100) #positions obs to the left of the screen
 	
 	# Add the obstacle to the scene
 	add_child(obs_type)
-
-	print('pos') #testing
-	print(obs_type.position)
-	
 
 	# Set a new random spawn interval for the next obstacle
 	$Timer.wait_time = randf_range(min_spawn_interval, max_spawn_interval)
