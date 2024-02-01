@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cchg0xy6ahlqh"]
 
 [ext_resource type="Script" path="res://Scenes/Menus/Game Over Menu.gd" id="1_7hun4"]
-[ext_resource type="Texture2D" path="res://Assets/Background/Screenshot 2024-01-31 at 16.51.25.png" id="2_hg2pa"]
+[ext_resource type="Texture2D" uid="uid://bp43pmkrcu7uh" path="res://Assets/Background/Background_Layer_Combined.png" id="2_hg2pa"]
 [ext_resource type="FontFile" uid="uid://dumj75rt8ukae" path="res://Assets/Fonts/Kaph-Regular.ttf" id="3_t2t50"]
 
 [sub_resource type="FontVariation" id="FontVariation_2ja0q"]
