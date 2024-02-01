@@ -5,7 +5,6 @@ extends CharacterBody2D
 
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 
-
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var has_double_jumped : bool = false
@@ -35,6 +34,10 @@ func _physics_process(delta):
 		elif not has_double_jumped:
 			 #double jump
 			double_jump()
+	
+	# Handle slide
+	if Input.is_action_pressed("down"):
+		slide()
 
 	move_and_slide()
 	update_animation()
@@ -61,7 +64,11 @@ func double_jump():
 func land():
 	animated_sprite.play("Jump End")
 	animation_locked = true
+	
+func slide():
+	animated_sprite.play("Sliding")
+	animation_locked = true
 
 func _on_animated_sprite_2d_animation_finished():
-	if(["Jump End", "Jump Start", "Jump Double"].has(animated_sprite.animation)):
+	if(["Jump End", "Jump Start", "Jump Double", "Sliding"].has(animated_sprite.animation)):
 		animation_locked = false

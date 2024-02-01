@@ -481,7 +481,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("79_og10p")
 }],
-"loop": true,
+"loop": false,
 "name": &"Sliding",
 "speed": 20.0
 }, {
@@ -620,7 +620,7 @@ script = ExtResource("1_5evjr")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.35, 0.35)
 sprite_frames = SubResource("SpriteFrames_57wnc")
-animation = &"Jump Start"
+animation = &"Sliding"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
