@@ -1,4 +1,4 @@
-[gd_scene load_steps=132 format=3 uid="uid://bl1oakyavckov"]
+[gd_scene load_steps=138 format=3 uid="uid://bl1oakyavckov"]
 
 [ext_resource type="Script" path="res://Character/player.gd" id="1_5evjr"]
 [ext_resource type="Texture2D" uid="uid://s8x12ndkgllp" path="res://Assets/Raccoon/PNG/PNG Sequences/Idle/Idle_000.png" id="1_sbm6y"]
@@ -30,11 +30,17 @@
 [ext_resource type="Texture2D" uid="uid://bhrwwhm8lchdl" path="res://Assets/Raccoon/PNG/PNG Sequences/Idle/Idle_013.png" id="15_cioq0"]
 [ext_resource type="Texture2D" uid="uid://boshmamutb3tp" path="res://Assets/Raccoon/PNG/PNG Sequences/Dying/Dying_013.png" id="15_o41yl"]
 [ext_resource type="Texture2D" uid="uid://cq20a4r2y40c3" path="res://Assets/Raccoon/PNG/PNG Sequences/Dying/Dying_014.png" id="16_yav7k"]
+[ext_resource type="Texture2D" uid="uid://dva3iegthejds" path="res://Assets/Raccoon/PNG/PNG Sequences/Falling Down/Falling Down_000.png" id="17_kvowp"]
 [ext_resource type="Texture2D" uid="uid://cfepbq605akua" path="res://Assets/Raccoon/PNG/PNG Sequences/Hurt/Hurt_000.png" id="17_uqavu"]
+[ext_resource type="Texture2D" uid="uid://dwikv3i41c4a6" path="res://Assets/Raccoon/PNG/PNG Sequences/Falling Down/Falling Down_001.png" id="18_0enwb"]
 [ext_resource type="Texture2D" uid="uid://qtrvpoodyjs5" path="res://Assets/Raccoon/PNG/PNG Sequences/Hurt/Hurt_001.png" id="18_3gn4b"]
+[ext_resource type="Texture2D" uid="uid://b746t068d8f2o" path="res://Assets/Raccoon/PNG/PNG Sequences/Falling Down/Falling Down_002.png" id="19_87ii1"]
 [ext_resource type="Texture2D" uid="uid://gv7oxi4trclv" path="res://Assets/Raccoon/PNG/PNG Sequences/Hurt/Hurt_002.png" id="19_bvpq5"]
 [ext_resource type="Texture2D" uid="uid://bpxgk5rlpcbfm" path="res://Assets/Raccoon/PNG/PNG Sequences/Hurt/Hurt_003.png" id="20_3ww8k"]
+[ext_resource type="Texture2D" uid="uid://d0g3memjdjusn" path="res://Assets/Raccoon/PNG/PNG Sequences/Falling Down/Falling Down_003.png" id="20_jflmo"]
 [ext_resource type="Texture2D" uid="uid://d4nwq3vr0lln6" path="res://Assets/Raccoon/PNG/PNG Sequences/Hurt/Hurt_004.png" id="21_rxjjh"]
+[ext_resource type="Texture2D" uid="uid://dc0m5k54s0r4j" path="res://Assets/Raccoon/PNG/PNG Sequences/Falling Down/Falling Down_004.png" id="21_v65ia"]
+[ext_resource type="Texture2D" uid="uid://i3ts7taa7pry" path="res://Assets/Raccoon/PNG/PNG Sequences/Falling Down/Falling Down_005.png" id="22_jexd5"]
 [ext_resource type="Texture2D" uid="uid://btebpctvyljyy" path="res://Assets/Raccoon/PNG/PNG Sequences/Hurt/Hurt_005.png" id="22_yal05"]
 [ext_resource type="Texture2D" uid="uid://d1bt7fsf4qp2s" path="res://Assets/Raccoon/PNG/PNG Sequences/Hurt/Hurt_006.png" id="23_q340t"]
 [ext_resource type="Texture2D" uid="uid://dvy8ya5ivu3d7" path="res://Assets/Raccoon/PNG/PNG Sequences/Hurt/Hurt_007.png" id="24_chd16"]
@@ -180,6 +186,29 @@ animations = [{
 }],
 "loop": true,
 "name": &"Dying",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_kvowp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_0enwb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_87ii1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_jflmo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_v65ia")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_jexd5")
+}],
+"loop": true,
+"name": &"Falling Down",
 "speed": 15.0
 }, {
 "frames": [{
@@ -620,8 +649,9 @@ script = ExtResource("1_5evjr")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.35, 0.35)
 sprite_frames = SubResource("SpriteFrames_57wnc")
-animation = &"Sliding"
+animation = &"Falling Down"
 autoplay = "idle"
+frame_progress = 0.397894
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(4, 1)
