@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hm8fa"]
 size = Vector2(68, 95)
 
-[node name="mailbox" type="Area2D"]
+[node name="mailbox" type="CharacterBody2D"]
 script = ExtResource("1_rnmfe")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

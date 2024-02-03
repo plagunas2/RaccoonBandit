@@ -3,8 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/ObstacleBehavior.gd" id="1_nadgf"]
 [ext_resource type="Texture2D" uid="uid://mxyltokbc0j1" path="res://Assets/Obstacles/Garbage_Bag.png" id="1_x881d"]
 
-[node name="trashBag" type="Area2D"]
-scale = Vector2(1.25, 1.25)
+[node name="trashBag" type="CharacterBody2D"]
 script = ExtResource("1_nadgf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
