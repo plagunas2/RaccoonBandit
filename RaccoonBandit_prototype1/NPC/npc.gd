@@ -1,13 +1,12 @@
 extends CharacterBody2D
 
 enum CharacterState {
-	IDLE,
 	RUNNING,
 	CAUGHT,
 	GAME_OVER
 }
 
-var character_state : CharacterState = CharacterState.IDLE
+var character_state : CharacterState = CharacterState.RUNNING
 var police_officer : AnimatedSprite2D
 
 # Ensure to set these variables in the inspector
@@ -19,14 +18,6 @@ func _ready():
 
 func _process(delta):
 	match character_state:
-		CharacterState.IDLE:
-			# Handle start button press
-			if Input.is_action_just_pressed("ui_accept"): # Assuming "ui_accept" is the input action for your start button
-				character_state = CharacterState.RUNNING
-				reset_police_animation()
-				# Play "run" animation for the police officer
-				police_animated_sprite.play("run")
-
 		CharacterState.RUNNING:
 			# Your existing code for the raccoon movement
 
