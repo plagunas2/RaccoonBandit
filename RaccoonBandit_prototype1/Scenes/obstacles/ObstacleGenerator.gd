@@ -22,7 +22,6 @@ var parallax_layer
 var groundNode
 var ground
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Start the timer when the scene is ready
