@@ -274,7 +274,8 @@ sources/0 = SubResource("TileSetAtlasSource_thk3j")
 [node name="ParallaxBackground" parent="." instance=ExtResource("1_qa4be")]
 
 [node name="Player" parent="." instance=ExtResource("2_c6vkw")]
-position = Vector2(219, 864)
+position = Vector2(800, 850)
+scale = Vector2(1.75, 1.75)
 
 [node name="TileMap" type="TileMap" parent="."]
 visible = false

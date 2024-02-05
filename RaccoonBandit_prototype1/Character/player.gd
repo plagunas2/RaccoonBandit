@@ -15,7 +15,7 @@ var animation_locked : bool = false
 var was_in_air : bool = false
 
 #[0] = x, [1] = y
-var home_position = Vector2(1000.0, 850.0)
+var home_position = Vector2(750.0, 850.0)
 var character_positon = self.global_position
 
 func _ready():
