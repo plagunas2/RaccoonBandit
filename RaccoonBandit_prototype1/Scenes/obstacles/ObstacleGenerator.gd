@@ -38,7 +38,7 @@ func _on_timer_timeout():
 	var obs_type = obstacle_types[randi() % obstacle_types.size()].instantiate()
 	print(obs_type) #debugging print statement
 	
-	obs_type.position = Vector2(800, 100) #positions obs to the left of the screen
+	obs_type.position = Vector2(0,0) #positions obs to the left of the screen
 	
 	# Add the obstacle to the scene
 	add_child(obs_type)
