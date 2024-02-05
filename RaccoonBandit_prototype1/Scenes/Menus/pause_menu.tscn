@@ -1,52 +1,81 @@
-[gd_scene load_steps=2 format=3 uid="uid://o3ujw3rh2i6u"]
+[gd_scene load_steps=6 format=3 uid="uid://o3ujw3rh2i6u"]
 
 [ext_resource type="Script" path="res://Scenes/Menus/pause_Menu.gd" id="1_kcu1v"]
+[ext_resource type="Shader" path="res://Scenes/Menus/pause_Menu.gdshader" id="1_yb13n"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6krp1"]
+shader = ExtResource("1_yb13n")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3pvdg"]
+
+[sub_resource type="Theme" id="Theme_itons"]
+default_font_size = 50
 
 [node name="PauseMenu" type="Node2D"]
+process_mode = 3
+visible = false
+material = SubResource("ShaderMaterial_6krp1")
 position = Vector2(902, 498)
 script = ExtResource("1_kcu1v")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-offset_left = -1003.0
-offset_top = -483.0
-offset_right = 1142.0
-offset_bottom = 596.0
-size_flags_horizontal = 4
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CompressedTexture2D_3pvdg")
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
+[node name="GridContainer" type="GridContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/v_separation = 50
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer2"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 100
-text = "what happened?"
-horizontal_alignment = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-
-[node name="retry_button" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="GridContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0.92549, 0.666667, 0, 1)
 theme_override_constants/outline_size = 10
-theme_override_constants/h_separation = 5
-theme_override_font_sizes/font_size = 50
-text = "retry"
-flat = true
+theme_override_font_sizes/font_size = 90
+text = "What Happened?"
 
-[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 30
-
-[node name="quit_button" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="resume_Button" type="Button" parent="GridContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0.92549, 0.666667, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 50
-text = "quit"
+text = "Resume "
 flat = true
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/retry_button" to="." method="_on_retry_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/quit_button" to="." method="_on_quit_button_pressed"]
+[node name="settings_button" type="Button" parent="GridContainer"]
+layout_mode = 2
+theme = SubResource("Theme_itons")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.92549, 0.666667, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 50
+text = "Settings "
+flat = true
+
+[node name="quit_button" type="Button" parent="GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.92549, 0.666667, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 50
+text = "Quit"
+flat = true
+
+[connection signal="pressed" from="GridContainer/resume_Button" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="GridContainer/quit_button" to="." method="_on_quit_button_pressed"]
