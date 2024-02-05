@@ -4,7 +4,6 @@ extends CharacterBody2D
 @export var double_jump_velocity : float =-475
 signal caught_by_police
 
-
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 @onready var police_animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 
@@ -94,21 +93,12 @@ func slide():
 	animated_sprite.play("Sliding")
 	animation_locked = true
 	
-#func collide():
+#func update_deadly_collision():
 	#if collide
-		#hurt animation
-		#check position
-		#if in default position
-			#push character back, maybe one quarter of screen back
-			#bring out officer
-		#if not in default position
-			#die animation
-			#officer stops running
-	
-#movement
-	#default position is ....(stay static here)
-	#if not in default position
-		#"pick up speed" until back into default position
+		#hurt animation(blink in and out) for 5 secs and invincible
+		#next time die 
+			#and stop background		
+
 func update_position():
 	if (character_positon.x == home_position.x):
 		velocity.x = 5
