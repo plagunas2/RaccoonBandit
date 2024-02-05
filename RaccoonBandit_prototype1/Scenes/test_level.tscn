@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bl1oakyavckov" path="res://Character/player.tscn" id="4_dhvrx"]
 [ext_resource type="Texture2D" uid="uid://bjln262f4xs6l" path="res://icon.svg" id="4_u3c6t"]
 [ext_resource type="PackedScene" uid="uid://ex06u32pjcji" path="res://NPC/npc.tscn" id="5_hm7e4"]
-[ext_resource type="PackedScene" uid="uid://o3ujw3rh2i6u" path="res://Scenes/Menus/pause_Menu.tscn" id="6_661a0"]
+[ext_resource type="PackedScene" uid="uid://o3ujw3rh2i6u" path="res://Scenes/Menus/pause_menu.tscn" id="6_661a0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pclf4"]
 texture = ExtResource("4_u3c6t")
