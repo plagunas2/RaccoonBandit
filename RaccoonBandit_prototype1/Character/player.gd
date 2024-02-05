@@ -2,8 +2,11 @@ extends CharacterBody2D
 
 @export var jump_velocity : float = -600.0
 @export var double_jump_velocity : float =-475
+signal caught_by_police
+
 
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
+@onready var police_animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -14,6 +17,18 @@ var was_in_air : bool = false
 #[0] = x, [1] = y
 var home_position = Vector2(1000.0, 850.0)
 var character_positon = self.global_position
+
+func _ready():
+	add_to_group("player")
+	connect("caught_by_police", Callable(self, "_on_caught_by_police"))
+	
+func _on_caught_by_police():
+	print("Player caught by police, playing dying animation.")
+	play_dying_animation()
+
+func play_dying_animation():
+	print("Playing dying animation.")
+	animated_sprite.play("Dying")
 
 func _physics_process(delta):
 	character_positon = self.global_position
