@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://cfqinw7vm0j5f"]
+[gd_scene load_steps=3 format=3 uid="uid://cfqinw7vm0j5f"]
 
 [ext_resource type="Texture2D" uid="uid://cbwbwq04ntigx" path="res://Assets/Food/Cheese_Sandwich.png" id="1_5rghp"]
+[ext_resource type="Script" path="res://Scripts/foodMovement2.gd" id="1_osije"]
 
 [node name="CheeseSand" type="Area2D"]
+script = ExtResource("1_osije")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.2, 0.2)

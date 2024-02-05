@@ -11,9 +11,11 @@ script = ExtResource("1_lkifi")
 
 [node name="Banana" parent="." instance=ExtResource("1_qs43u")]
 position = Vector2(-289, 9)
+script = null
 
 [node name="CheeseSand" parent="." instance=ExtResource("2_fyui1")]
 position = Vector2(-113, -99)
+script = null
 
 [node name="SalamiEggSand" parent="." instance=ExtResource("3_j8lqn")]
 position = Vector2(100, -149)

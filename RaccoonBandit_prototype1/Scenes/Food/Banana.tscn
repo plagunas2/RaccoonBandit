@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://67mmkg8gns3t"]
+[gd_scene load_steps=3 format=3 uid="uid://67mmkg8gns3t"]
 
 [ext_resource type="Texture2D" uid="uid://p4jqtgftyrbm" path="res://Assets/Food/Baked_Banana.png" id="1_5x544"]
+[ext_resource type="Script" path="res://Scripts/foodMovement2.gd" id="1_s60g6"]
 
 [node name="Banana" type="Area2D"]
+script = ExtResource("1_s60g6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.2, 0.2)
