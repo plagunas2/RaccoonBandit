@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dxoduqoma00oh"]
+[gd_scene load_steps=9 format=3 uid="uid://cde4vl2l1j71"]
 
 [ext_resource type="PackedScene" uid="uid://cv0j6kgntrc6w" path="res://Scenes/parallax_background.tscn" id="1_qa4be"]
 [ext_resource type="PackedScene" uid="uid://bl1oakyavckov" path="res://Character/player.tscn" id="2_c6vkw"]
 [ext_resource type="Texture2D" uid="uid://bjln262f4xs6l" path="res://icon.svg" id="3_jw32g"]
 [ext_resource type="PackedScene" uid="uid://dnw4bgmjccngu" path="res://Scenes/obstacles/obs_generator.tscn" id="4_md4bb"]
 [ext_resource type="PackedScene" uid="uid://dwre4s3tegjwg" path="res://Scenes/Food/food_generator.tscn" id="5_15tit"]
+[ext_resource type="PackedScene" uid="uid://o3ujw3rh2i6u" path="res://Scenes/Menus/pause_menu.tscn" id="6_scobm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_thk3j"]
 texture = ExtResource("3_jw32g")
@@ -288,3 +289,7 @@ position = Vector2(2056, 815)
 
 [node name="FoodGenerator" parent="." instance=ExtResource("5_15tit")]
 position = Vector2(2051, 640)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("6_scobm")]
