@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dcepmldwimg5m" path="res://Assets/Obstacles/Food_Stand.png" id="1_3klor"]
 [ext_resource type="Script" path="res://Scripts/ObstacleBehavior.gd" id="1_t31x6"]
 
-[node name="foodstand" type="Area2D"]
+[node name="foodstand" type="CharacterBody2D"]
 script = ExtResource("1_t31x6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

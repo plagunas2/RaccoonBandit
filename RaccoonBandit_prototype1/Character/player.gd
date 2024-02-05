@@ -37,7 +37,10 @@ func _physics_process(delta):
 	
 	# Handle slide
 	if Input.is_action_pressed("down"):
+		if not is_on_floor():
+			velocity.y = velocity.y * -2
 		slide()
+		velocity.y += gravity * delta
 
 	move_and_slide()
 	update_animation()
@@ -68,6 +71,31 @@ func land():
 func slide():
 	animated_sprite.play("Sliding")
 	animation_locked = true
+	
+#func collide():
+	#if collide
+		#hurt animation
+		#check position
+		#if in default position
+			#push character back, maybe one quarter of screen back
+			#bring out officer
+		#if not in default position
+			#die animation
+			#officer stops running
+	
+#movement
+	#default position is ....(stay static here)
+	#if not in default position
+		#"pick up speed" until back into default position
+	
+#collect powerup(attack, invincible)
+	#change running animation to run attacking with bat animation
+	#timer to switch back to default
+	#destroy obstacles in the way
+	
+#integrate officer npc into player scene
+	#
+	
 
 func _on_animated_sprite_2d_animation_finished():
 	if(["Jump End", "Jump Start", "Jump Double", "Sliding"].has(animated_sprite.animation)):

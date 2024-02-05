@@ -1,0 +1,50 @@
+[gd_scene load_steps=2 format=3 uid="uid://c63piy8fm58og"]
+
+[ext_resource type="Script" path="res://Scenes/Menus/pause_menu.gd" id="1_c157b"]
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_c157b")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="resume" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.92549, 0.666667, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 50
+text = "Resume"
+flat = true
+
+[node name="quit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.92549, 0.666667, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 50
+text = "quit
+"
+flat = true
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/quit" to="." method="_on_quit_pressed"]
