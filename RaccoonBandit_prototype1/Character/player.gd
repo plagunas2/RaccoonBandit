@@ -13,6 +13,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var has_double_jumped : bool = false
 var animation_locked : bool = false
 var was_in_air : bool = false
+var is_dead : bool = false
 
 
 #[0] = x, [1] = y
@@ -44,20 +45,22 @@ func _physics_process(delta):
 			land()
 		
 		was_in_air = false
-
-	# Handle jump
-	if Input.is_action_just_pressed("jump"):
-		if is_on_floor():
-			#normal jump
-			jump()
-			
-		elif not has_double_jumped:
-			 #double jump
-			double_jump()
 	
-	# Handle slide
-	if Input.is_action_pressed("down"):
-		slide()
+	#if not dead
+	if not is_dead:
+		# Handle jump
+		if Input.is_action_just_pressed("jump"):
+			if is_on_floor():
+				#normal jump
+				jump()
+			
+			elif not has_double_jumped:
+				 #double jump
+				double_jump()
+	
+		# Handle slide
+		if Input.is_action_pressed("down"):
+			slide()
 
 	move_and_slide()
 	update_animation()
@@ -74,6 +77,7 @@ func update_animation():
 func dying():
 	animated_sprite.play("Dying")
 	animation_locked = true
+	is_dead = true
 	#var timer = get_tree().create_timer(2.0)
 	#await timer.timeout
 	#get_tree().change_scene_to_file("res://Scenes/Menus/game_over_menu.tscn")
