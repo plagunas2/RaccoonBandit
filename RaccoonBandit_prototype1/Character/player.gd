@@ -14,8 +14,9 @@ var has_double_jumped : bool = false
 var animation_locked : bool = false
 var was_in_air : bool = false
 
+
 #[0] = x, [1] = y
-var home_position = Vector2(1000.0, 850.0)
+var home_position = Vector2(750.0, 850.0)
 var character_positon = self.global_position
 
 func _ready():
@@ -56,16 +57,13 @@ func _physics_process(delta):
 	
 	# Handle slide
 	if Input.is_action_pressed("down"):
-		if not is_on_floor():
-			velocity.y = velocity.y * -2
 		slide()
-		velocity.y += gravity * delta
 
 	move_and_slide()
 	update_animation()
 	update_position()
 
-func update_animation():
+func update_animation():		
 	if not animation_locked:
 		if not is_on_floor():
 			animated_sprite.play("Jump Loop")
@@ -97,24 +95,21 @@ func land():
 	animation_locked = true
 	
 func slide():
+	if not is_on_floor():
+		velocity.y = velocity.y + 1000
 	animated_sprite.play("Sliding")
 	animation_locked = true
 	
-#func collide():
-	#if collide
-		#hurt animation
-		#check position
-		#if in default position
-			#push character back, maybe one quarter of screen back
-			#bring out officer
-		#if not in default position
-			#die animation
-			#officer stops running
+func idle():
+	animated_sprite.play("Idle")
+	animation_locked = true
 	
-#movement
-	#default position is ....(stay static here)
-	#if not in default position
-		#"pick up speed" until back into default position
+#func update_deadly_collision():
+	#if collide
+		#hurt animation(blink in and out) for 5 secs and invincible
+		#next time die 
+			#and stop background		
+
 func update_position():
 	if (character_positon.x == home_position.x):
 		velocity.x = 5

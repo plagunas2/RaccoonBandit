@@ -282,6 +282,7 @@ script = ExtResource("1_q5ohh")
 
 [node name="Player" parent="." instance=ExtResource("2_c6vkw")]
 position = Vector2(800, 850)
+scale = Vector2(1.75, 1.75)
 
 [node name="TileMap" type="TileMap" parent="."]
 visible = false
