@@ -13,11 +13,11 @@ func _ready():
 		scoreCounter = get_parent().get_parent().get_node("HUD")
 		audio = get_parent().get_parent().get_node("AudioStreamPlayer2D")
 	else: #if node is NOT in FoodGen node (aka, in FoodArc node) -> the node is a level further 
-		#down so it needs to get another parent_node to access the parallax, score, & audio nodes
+		#down so it needs to get another parent node to access the parallax, score, & audio nodes
 		parallax_background = get_parent().get_parent().get_parent().get_node("ParallaxBackground")
 		scoreCounter = get_parent().get_parent().get_parent().get_node("HUD")
 		audio = get_parent().get_parent().get_parent().get_node("AudioStreamPlayer2D")
-	print(parallax_background)
+	
 	speed = parallax_background.scroll_speed
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
