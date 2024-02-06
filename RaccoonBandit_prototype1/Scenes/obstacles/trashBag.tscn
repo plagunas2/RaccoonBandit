@@ -9,9 +9,9 @@ script = ExtResource("1_nadgf")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)
 texture = ExtResource("1_x881d")
-offset = Vector2(0, 20)
+offset = Vector2(0, 30)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(0, 38.4)
+position = Vector2(0, 56)
 scale = Vector2(2, 2)
 polygon = PackedVector2Array(10.5, -27.5, 13.5, -30.5, 17.5, -32, 19.5, -31, 21, -27.5, 15.5, -24, 26, -25, 33, -16.5, 33.5, -9.5, 37.5, 2, 36.5, 31.5, 38, 37.5, 35, 39, 31, 39, 4, 39.5, -4, 39.5, -17.5, 36.5, -18.5, 30.5, -16, 25.5, -16, -8.5, -13.5, -13, -8.5, -20.5, -5, -25, 3, -24, 5, -25.5, 1.5, -32, 3, -35, 5, -34.5, 8, -32.5)
