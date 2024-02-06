@@ -1,11 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://cde4vl2l1j71"]
+[gd_scene load_steps=11 format=3 uid="uid://bge261ahp73gb"]
 
+[ext_resource type="Script" path="res://Scenes/npc_player_connection.gd" id="1_q5ohh"]
 [ext_resource type="PackedScene" uid="uid://cv0j6kgntrc6w" path="res://Scenes/parallax_background.tscn" id="1_qa4be"]
 [ext_resource type="PackedScene" uid="uid://bl1oakyavckov" path="res://Character/player.tscn" id="2_c6vkw"]
 [ext_resource type="Texture2D" uid="uid://bjln262f4xs6l" path="res://icon.svg" id="3_jw32g"]
 [ext_resource type="PackedScene" uid="uid://dnw4bgmjccngu" path="res://Scenes/obstacles/obs_generator.tscn" id="4_md4bb"]
 [ext_resource type="PackedScene" uid="uid://dwre4s3tegjwg" path="res://Scenes/Food/food_generator.tscn" id="5_15tit"]
 [ext_resource type="PackedScene" uid="uid://o3ujw3rh2i6u" path="res://Scenes/Menus/pause_menu.tscn" id="6_scobm"]
+[ext_resource type="PackedScene" uid="uid://ex06u32pjcji" path="res://NPC/npc.tscn" id="7_yfiwp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_thk3j"]
 texture = ExtResource("3_jw32g")
@@ -271,11 +273,12 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_thk3j")
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_q5ohh")
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("1_qa4be")]
 
 [node name="Player" parent="." instance=ExtResource("2_c6vkw")]
-position = Vector2(219, 864)
+position = Vector2(800, 850)
 
 [node name="TileMap" type="TileMap" parent="."]
 visible = false
@@ -292,3 +295,7 @@ position = Vector2(2051, 640)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("6_scobm")]
+
+[node name="npc" parent="." instance=ExtResource("7_yfiwp")]
+position = Vector2(523, 860)
+scale = Vector2(3.75, 3.75)
