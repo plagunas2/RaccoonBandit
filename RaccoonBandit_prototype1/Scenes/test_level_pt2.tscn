@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cde4vl2l1j71"]
+[gd_scene load_steps=14 format=3 uid="uid://dxoduqoma00oh"]
 
 [ext_resource type="Script" path="res://Scenes/npc_player_connection.gd" id="1_q5ohh"]
 [ext_resource type="PackedScene" uid="uid://cv0j6kgntrc6w" path="res://Scenes/parallax_background.tscn" id="1_qa4be"]
@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://Scripts/AudioScript.gd" id="7_k0fiu"]
 [ext_resource type="PackedScene" uid="uid://ex06u32pjcji" path="res://NPC/npc.tscn" id="7_yfiwp"]
 [ext_resource type="AudioStream" uid="uid://bn1olh38hgngo" path="res://Sounds/swingMusic.mp3" id="8_6qowf"]
-[ext_resource type="PackedScene" uid="uid://o3ujw3rh2i6u" path="res://Scenes/Menus/pause_menu.tscn" id="9_2bejn"]
+[ext_resource type="PackedScene" path="res://Scenes/Menus/pause_menu.tscn" id="9_2bejn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_thk3j"]
 texture = ExtResource("3_jw32g")
@@ -281,8 +281,7 @@ script = ExtResource("1_q5ohh")
 [node name="ParallaxBackground" parent="." instance=ExtResource("1_qa4be")]
 
 [node name="Player" parent="." instance=ExtResource("2_c6vkw")]
-position = Vector2(800, 850)
-scale = Vector2(1.75, 1.75)
+position = Vector2(800, 892)
 
 [node name="TileMap" type="TileMap" parent="."]
 visible = false
@@ -307,7 +306,6 @@ stream = ExtResource("8_6qowf")
 autoplay = true
 
 [node name="npc" parent="." instance=ExtResource("7_yfiwp")]
-position = Vector2(523, 860)
-scale = Vector2(3.75, 3.75)
+position = Vector2(498, 846)
 
 [node name="PauseMenu" parent="." instance=ExtResource("9_2bejn")]
