@@ -9,7 +9,7 @@ func _process(delta):
 		_on_retry_pressed()
 
 func _on_retry_pressed():
-	get_tree().change_scene_to_file("res://Scenes/test_level.tscn")
+	get_tree().change_scene_to_file("res://Scenes/test_level_pt2.tscn")
 
 func _on_quit_pressed():
 	get_tree().quit()

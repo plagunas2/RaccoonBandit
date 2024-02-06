@@ -6,6 +6,8 @@ enum CharacterState {
 	GAME_OVER
 }
 
+signal police_attack
+
 var character_state : CharacterState = CharacterState.RUNNING
 var police_officer : AnimatedSprite2D
 
@@ -21,32 +23,47 @@ func _ready():
 func reset_police_animation():
 	police_animated_sprite.play("run")
 
+#func _on_body_entered(body: PhysicsBody2D):
+	#if body.is_in_group("player"):
+		#print("NPC detected player, emitting signal.")
+		#body.emit_signal("caught_by_police")  # Emitting signal that the player script should catch.
+#
+#func _on_player_caught():
+	#character_state = CharacterState.CAUGHT
+	#reset_police_animation()
+	#print("Playing attacking animation.")
+	#police_animated_sprite.play("attack")
+
 func _on_body_entered(body: PhysicsBody2D):
 	if body.is_in_group("player"):
-		print("NPC detected player, emitting signal.")
-		body.emit_signal("caught_by_police")  # Emitting signal that the player script should catch.
+		print("NPC detected player.")
+		#character_state = CharacterState.CAUGHT
+		police_animated_sprite.play("attack")
+		emit_signal("police_attack")
+		#var timer = get_tree().create_timer(3.0)
+		#await timer.timeout
+		#get_tree().change_scene_to_file("res://Scenes/game_over_screen.tscn")
+		_after_police_attack()
 
-func _on_player_caught():
-	character_state = CharacterState.CAUGHT
-	reset_police_animation()
-	print("Playing attacking animation.")
-	police_animated_sprite.play("attack")
-
-func _process(delta):
-	match character_state:
-		CharacterState.RUNNING:
-			# Your existing code for the raccoon movement
-			pass
-			
-		CharacterState.CAUGHT:
-			# Handle caught state (e.g., display game over screen)
-			if Input.is_action_just_pressed("retry"):
-				character_state = CharacterState.GAME_OVER
-				get_tree().change_scene("res://Scenes/game_over_screen.tscn")
-
-		CharacterState.GAME_OVER:
-			# You can handle any additional logic for the game over state here
-			pass
+func _after_police_attack():
+	var timer = get_tree().create_timer(2.0)
+	await timer.timeout
+	get_tree().change_scene_to_file("res://Scenes/Menus/game_over_menu.tscn")
+	print("switch to game over screen")
+	
+#func _process(delta):
+	#match character_state:
+		#CharacterState.RUNNING:
+			## Your existing code for the raccoon movement
+			#pass
+			#
+		#CharacterState.CAUGHT:
+			## Handle caught state (e.g., display game over screen)
+			#pass
+#
+		#CharacterState.GAME_OVER:
+			## You can handle any additional logic for the game over state here
+			#pass
 
 ## Signal handler for when the player is caught by the police
 #func _on_player_caught_by_police():

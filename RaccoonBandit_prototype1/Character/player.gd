@@ -2,11 +2,11 @@ extends CharacterBody2D
 
 @export var jump_velocity : float = -600.0
 @export var double_jump_velocity : float =-475
-signal caught_by_police
-
 
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 @onready var police_animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
+
+@onready var parallax = get_parent().get_node("ParallaxBackground")
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -20,15 +20,13 @@ var character_positon = self.global_position
 
 func _ready():
 	add_to_group("player")
-	connect("caught_by_police", Callable(self, "_on_caught_by_police"))
+	#connect("caught_by_police", Callable(self, "_on_caught_by_police"))
 	
-func _on_caught_by_police():
+func _on_police_attack():
 	print("Player caught by police, playing dying animation.")
-	play_dying_animation()
-
-func play_dying_animation():
-	print("Playing dying animation.")
-	animated_sprite.play("Dying")
+	#parallax.scroll_speed = 0
+	dying()
+	
 
 func _physics_process(delta):
 	character_positon = self.global_position
@@ -74,6 +72,14 @@ func update_animation():
 		
 		else:
 			animated_sprite.play("Running")
+	
+func dying():
+	animated_sprite.play("Dying")
+	animation_locked = true
+	#var timer = get_tree().create_timer(2.0)
+	#await timer.timeout
+	#get_tree().change_scene_to_file("res://Scenes/Menus/game_over_menu.tscn")
+	#print("switch to game over screen")
 	
 func jump():
 	velocity.y = jump_velocity
