@@ -18,10 +18,14 @@ func _ready():
 		scoreCounter = get_parent().get_parent().get_parent().get_node("HUD")
 		audio = get_parent().get_parent().get_parent().get_node("AudioStreamPlayer2D")
 	
-	speed = parallax_background.scroll_speed
+	#speed = parallax_background.scroll_speed
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if(parallax_background.scroll_speed != 0):
+		speed = parallax_background.scroll_speed
+	else:
+		speed = 0
 	position += Vector2.LEFT * speed * delta
 	
 #when player collects the food, food disappears and score goes up by one
