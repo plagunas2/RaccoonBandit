@@ -24,7 +24,6 @@ func _ready():
 	
 func _on_police_attack():
 	print("Player caught by police, playing dying animation.")
-	#parallax.scroll_speed = 0
 	dying()
 	
 

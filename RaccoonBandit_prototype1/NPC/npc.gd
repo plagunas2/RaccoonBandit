@@ -46,7 +46,7 @@ func _on_body_entered(body: PhysicsBody2D):
 		_after_police_attack()
 
 func _after_police_attack():
-	var timer = get_tree().create_timer(2.0)
+	var timer = get_tree().create_timer(1.5)
 	await timer.timeout
 	get_tree().change_scene_to_file("res://Scenes/Menus/game_over_menu.tscn")
 	print("switch to game over screen")
