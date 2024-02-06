@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dxoduqoma00oh"]
+[gd_scene load_steps=10 format=3 uid="uid://dxoduqoma00oh"]
 
 [ext_resource type="PackedScene" uid="uid://cv0j6kgntrc6w" path="res://Scenes/parallax_background.tscn" id="1_qa4be"]
 [ext_resource type="PackedScene" uid="uid://bl1oakyavckov" path="res://Character/player.tscn" id="2_c6vkw"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dnw4bgmjccngu" path="res://Scenes/obstacles/obs_generator.tscn" id="4_md4bb"]
 [ext_resource type="PackedScene" uid="uid://dwre4s3tegjwg" path="res://Scenes/Food/food_generator.tscn" id="5_15tit"]
 [ext_resource type="PackedScene" uid="uid://dei8g5ul1uts2" path="res://HUD/hud.tscn" id="6_7rpvi"]
+[ext_resource type="Script" path="res://Scripts/AudioScript.gd" id="7_k0fiu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_thk3j"]
 texture = ExtResource("3_jw32g")
@@ -290,3 +291,6 @@ position = Vector2(2056, 815)
 position = Vector2(2088, 640)
 
 [node name="HUD" parent="." instance=ExtResource("6_7rpvi")]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+script = ExtResource("7_k0fiu")
