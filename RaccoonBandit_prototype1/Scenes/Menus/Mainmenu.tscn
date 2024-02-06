@@ -499,6 +499,7 @@ clip_text = true
 icon_alignment = 1
 
 [node name="Tutorial" type="Button" parent="MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0.92549, 0.666667, 0, 1)
