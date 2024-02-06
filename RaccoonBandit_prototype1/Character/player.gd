@@ -13,6 +13,7 @@ var has_double_jumped : bool = false
 var animation_locked : bool = false
 var was_in_air : bool = false
 
+
 #[0] = x, [1] = y
 var home_position = Vector2(750.0, 850.0)
 var character_positon = self.global_position
@@ -57,16 +58,13 @@ func _physics_process(delta):
 	
 	# Handle slide
 	if Input.is_action_pressed("down"):
-		if not is_on_floor():
-			velocity.y = velocity.y * -2
 		slide()
-		velocity.y += gravity * delta
 
 	move_and_slide()
 	update_animation()
 	update_position()
 
-func update_animation():
+func update_animation():		
 	if not animation_locked:
 		if not is_on_floor():
 			animated_sprite.play("Jump Loop")
@@ -90,7 +88,13 @@ func land():
 	animation_locked = true
 	
 func slide():
+	if not is_on_floor():
+		velocity.y = velocity.y + 1000
 	animated_sprite.play("Sliding")
+	animation_locked = true
+	
+func idle():
+	animated_sprite.play("Idle")
 	animation_locked = true
 	
 #func update_deadly_collision():
