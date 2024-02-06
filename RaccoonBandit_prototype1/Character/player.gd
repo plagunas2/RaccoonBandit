@@ -27,8 +27,13 @@ func _ready():
 func _on_police_attack():
 	print("Player caught by police, playing dying animation.")
 	parallax.scroll_speed = 0
-	dying()
-	
+	is_dead = true
+	if is_on_floor():
+		dying()
+	else:
+		dying()
+		#explode midair animation
+		#dying_mid_air
 
 func _physics_process(delta):
 	character_positon = self.global_position
@@ -42,7 +47,8 @@ func _physics_process(delta):
 		
 		#Handle Jump landing
 		if was_in_air == true:
-			land()
+			if not is_dead:
+				land()
 		
 		was_in_air = false
 	
@@ -77,7 +83,6 @@ func update_animation():
 func dying():
 	animated_sprite.play("Dying")
 	animation_locked = true
-	is_dead = true
 	#var timer = get_tree().create_timer(2.0)
 	#await timer.timeout
 	#get_tree().change_scene_to_file("res://Scenes/Menus/game_over_menu.tscn")
