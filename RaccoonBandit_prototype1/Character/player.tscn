@@ -184,7 +184,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("16_yav7k")
 }],
-"loop": true,
+"loop": false,
 "name": &"Dying",
 "speed": 15.0
 }, {
@@ -644,12 +644,13 @@ radius = 43.0
 height = 118.0
 
 [node name="Player" type="CharacterBody2D"]
+scale = Vector2(1.5, 1.5)
 script = ExtResource("1_5evjr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.35, 0.35)
 sprite_frames = SubResource("SpriteFrames_57wnc")
-animation = &"idle"
+animation = &"Running"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
