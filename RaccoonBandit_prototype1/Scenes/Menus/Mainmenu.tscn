@@ -510,7 +510,7 @@ text = "Tutorial"
 flat = true
 
 [node name="MainScreenPlayer" parent="." instance=ExtResource("5_s4duc")]
-position = Vector2(800, 865)
+position = Vector2(825, 869)
 motion_mode = 1
 script = SubResource("GDScript_i84wp")
 
