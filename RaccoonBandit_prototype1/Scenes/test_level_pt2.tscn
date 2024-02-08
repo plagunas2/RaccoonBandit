@@ -281,7 +281,7 @@ script = ExtResource("1_q5ohh")
 [node name="ParallaxBackground" parent="." instance=ExtResource("1_qa4be")]
 
 [node name="Player" parent="." instance=ExtResource("2_c6vkw")]
-position = Vector2(800, 869)
+position = Vector2(825, 869)
 
 [node name="TileMap" type="TileMap" parent="."]
 visible = false
@@ -306,6 +306,6 @@ stream = ExtResource("8_6qowf")
 autoplay = true
 
 [node name="npc" parent="." instance=ExtResource("7_yfiwp")]
-position = Vector2(375, 825)
+position = Vector2(325, 800)
 
 [node name="PauseMenu" parent="." instance=ExtResource("9_2bejn")]
