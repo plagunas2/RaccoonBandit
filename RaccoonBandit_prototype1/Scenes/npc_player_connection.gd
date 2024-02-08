@@ -9,5 +9,5 @@ func _ready():
 	npc.connect("police_attack", Callable(player, "_on_police_attack"))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass

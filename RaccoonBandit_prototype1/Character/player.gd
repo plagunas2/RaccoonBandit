@@ -110,7 +110,7 @@ func slide():
 	animation_locked = true
 	
 func idle():
-	animated_sprite.play("Idle")
+	animated_sprite.play("idle")
 	animation_locked = true
 	
 #func update_deadly_collision():
