@@ -22,8 +22,8 @@ script = ExtResource("1_q5ohh")
 position = Vector2(825, 869)
 
 [node name="ground" parent="." instance=ExtResource("4_h6uak")]
-position = Vector2(1012, 1022)
-scale = Vector2(15, 1)
+position = Vector2(1098, 1022)
+scale = Vector2(16, 1)
 
 [node name="ObGenerator" parent="." instance=ExtResource("4_md4bb")]
 position = Vector2(2056, 815)
@@ -32,7 +32,7 @@ position = Vector2(2056, 815)
 position = Vector2(2088, 640)
 
 [node name="GNDGenerator" parent="." instance=ExtResource("7_1ougk")]
-position = Vector2(2056, 1020)
+position = Vector2(2056, 1023)
 
 [node name="HUD" parent="." instance=ExtResource("6_7rpvi")]
 

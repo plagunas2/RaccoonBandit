@@ -12,8 +12,7 @@ var ground_height : int
 
 #spawn intervals determine the time between obstacle spawns
 #change this for longer or shorter distances between obstacles
-var min_spawn_interval = 0.0 
-var max_spawn_interval = 0.0
+var spawn_interval = 0.0
 
 var parallax_layer
 var groundNode
@@ -28,7 +27,7 @@ func _ready():
 	groundNode = parallax_layer.get_node("Ground")
 	ground = groundNode.get_node("Sprite2D")
 	
-	$Timer.start()
+	#$Timer.start()
 
 func _on_timer_timeout():
 	# Create a new obstacle instance
@@ -41,5 +40,5 @@ func _on_timer_timeout():
 	add_child(ground_type)
 
 	# Set a new random spawn interval for the next obstacle
-	$Timer.wait_time = randf_range(min_spawn_interval, max_spawn_interval)
+	#$Timer.wait_time = spawn_interval
 	
