@@ -13,6 +13,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var has_double_jumped : bool = false
 var animation_locked : bool = false
 var was_in_air : bool = false
+var is_dead : bool = false
 
 
 #[0] = x, [1] = y
@@ -26,8 +27,13 @@ func _ready():
 func _on_police_attack():
 	print("Player caught by police, playing dying animation.")
 	parallax.scroll_speed = 0
-	dying()
-	
+	is_dead = true
+	if is_on_floor():
+		dying()
+	else:
+		dying()
+		#explode midair animation
+		#dying_mid_air
 
 func _physics_process(delta):
 	character_positon = self.global_position
@@ -41,23 +47,26 @@ func _physics_process(delta):
 		
 		#Handle Jump landing
 		if was_in_air == true:
-			land()
+			if not is_dead:
+				land()
 		
 		was_in_air = false
-
-	# Handle jump
-	if Input.is_action_just_pressed("jump"):
-		if is_on_floor():
-			#normal jump
-			jump()
-			
-		elif not has_double_jumped:
-			 #double jump
-			double_jump()
 	
-	# Handle slide
-	if Input.is_action_pressed("down"):
-		slide()
+	#if not dead
+	if not is_dead:
+		# Handle jump
+		if Input.is_action_just_pressed("jump"):
+			if is_on_floor():
+				#normal jump
+				jump()
+			
+			elif not has_double_jumped:
+				 #double jump
+				double_jump()
+	
+		# Handle slide
+		if Input.is_action_pressed("down"):
+			slide()
 
 	move_and_slide()
 	update_animation()

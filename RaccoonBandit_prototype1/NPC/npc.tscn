@@ -113,7 +113,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"run",
-"speed": 5.0
+"speed": 7.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ixrvv"]
@@ -124,14 +124,15 @@ height = 60.0
 radius = 17.4617
 
 [node name="npc" type="CharacterBody2D"]
-scale = Vector2(3.75, 3.75)
+scale = Vector2(5.5, 5.5)
 script = ExtResource("1_pn30m")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_bh507")
-animation = &"attack"
-frame_progress = 0.67291
+animation = &"run"
+frame = 2
+frame_progress = 0.182522
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_ixrvv")
