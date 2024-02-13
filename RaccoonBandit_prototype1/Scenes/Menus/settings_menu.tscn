@@ -1,0 +1,70 @@
+[gd_scene load_steps=5 format=3 uid="uid://c63a2dyaj6w84"]
+
+[ext_resource type="Script" path="res://Scenes/Menus/settings_menu.gd" id="1_2ga0s"]
+[ext_resource type="FontFile" uid="uid://ct5tickuppry1" path="res://Assets/Fonts/Kaph-Italic.ttf" id="1_h1h5q"]
+[ext_resource type="Texture2D" uid="uid://bp43pmkrcu7uh" path="res://Assets/Background/Background_Layer_Combined.png" id="2_i17vh"]
+
+[sub_resource type="FontVariation" id="FontVariation_pkp8l"]
+base_font = ExtResource("1_h1h5q")
+spacing_top = 150
+
+[node name="Settings_Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2ga0s")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_i17vh")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="back_button" type="Button" parent="MarginContainer"]
+process_mode = 3
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.92549, 0.666667, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 50
+text = "back"
+flat = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = -48
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.545098, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.92549, 0.666667, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = SubResource("FontVariation_pkp8l")
+theme_override_font_sizes/font_size = 130
+text = "Settings"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="MarginContainer/back_button" to="." method="_on_back_button_pressed"]

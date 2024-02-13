@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://Scripts/AudioScript.gd" id="7_k0fiu"]
 [ext_resource type="PackedScene" uid="uid://ex06u32pjcji" path="res://NPC/npc.tscn" id="7_yfiwp"]
 [ext_resource type="AudioStream" uid="uid://bn1olh38hgngo" path="res://Sounds/swingMusic.mp3" id="8_6qowf"]
-[ext_resource type="PackedScene" path="res://Scenes/Menus/pause_menu.tscn" id="9_2bejn"]
+[ext_resource type="PackedScene" uid="uid://o3ujw3rh2i6u" path="res://Scenes/Menus/pause_menu.tscn" id="9_2bejn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_thk3j"]
 texture = ExtResource("3_jw32g")
