@@ -299,13 +299,16 @@ position = Vector2(2088, 640)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 volume_db = 16.994
+bus = &"sfx"
 script = ExtResource("7_k0fiu")
 
 [node name="BackgroundAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_6qowf")
 autoplay = true
+bus = &"bgrnd_music"
 
 [node name="npc" parent="." instance=ExtResource("7_yfiwp")]
 position = Vector2(523, 860)
 scale = Vector2(3.75, 3.75)
+
 [node name="PauseMenu" parent="." instance=ExtResource("9_2bejn")]
