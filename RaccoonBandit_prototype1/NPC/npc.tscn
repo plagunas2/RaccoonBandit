@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://ex06u32pjcji"]
+[gd_scene load_steps=30 format=3 uid="uid://ex06u32pjcji"]
 
 [ext_resource type="Texture2D" uid="uid://bcuaqjh4e07qq" path="res://Assets/PolicePack/PNG Sequences Police/idle/1_police_Idle_000.png" id="1_fi5bn"]
 [ext_resource type="Script" path="res://NPC/npc.gd" id="1_pn30m"]
@@ -123,6 +123,9 @@ height = 60.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_v22ui"]
 radius = 17.4617
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_gwbii"]
+radius = 43.6367
+
 [node name="npc" type="CharacterBody2D"]
 scale = Vector2(5.5, 5.5)
 script = ExtResource("1_pn30m")
@@ -143,3 +146,12 @@ disable_mode = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(13.3333, 1.06667)
 shape = SubResource("CircleShape2D_v22ui")
+
+[node name="ChatDetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChatDetectionArea"]
+position = Vector2(47.4545, 2)
+shape = SubResource("CircleShape2D_gwbii")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true

@@ -23,26 +23,12 @@ func _ready():
 func reset_police_animation():
 	police_animated_sprite.play("run")
 
-#func _on_body_entered(body: PhysicsBody2D):
-	#if body.is_in_group("player"):
-		#print("NPC detected player, emitting signal.")
-		#body.emit_signal("caught_by_police")  # Emitting signal that the player script should catch.
-#
-#func _on_player_caught():
-	#character_state = CharacterState.CAUGHT
-	#reset_police_animation()
-	#print("Playing attacking animation.")
-	#police_animated_sprite.play("attack")
-
 func _on_body_entered(body: PhysicsBody2D):
 	if body.is_in_group("player"):
 		print("NPC detected player.")
 		#character_state = CharacterState.CAUGHT
 		police_animated_sprite.play("attack")
 		emit_signal("police_attack")
-		#var timer = get_tree().create_timer(3.0)
-		#await timer.timeout
-		#get_tree().change_scene_to_file("res://Scenes/game_over_screen.tscn")
 		_after_police_attack()
 
 func _after_police_attack():
@@ -64,10 +50,3 @@ func _after_police_attack():
 		#CharacterState.GAME_OVER:
 			## You can handle any additional logic for the game over state here
 			#pass
-
-## Signal handler for when the player is caught by the police
-#func _on_player_caught_by_police():
-	#character_state = CharacterState.CAUGHT
-	#reset_police_animation()
-	## Play "attack" animation for the police officer
-	#police_animated_sprite.play("attack")
