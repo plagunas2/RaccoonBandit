@@ -306,6 +306,6 @@ stream = ExtResource("8_6qowf")
 autoplay = true
 
 [node name="npc" parent="." instance=ExtResource("7_yfiwp")]
-position = Vector2(325, 800)
-
+position = Vector2(523, 860)
+scale = Vector2(3.75, 3.75)
 [node name="PauseMenu" parent="." instance=ExtResource("9_2bejn")]
