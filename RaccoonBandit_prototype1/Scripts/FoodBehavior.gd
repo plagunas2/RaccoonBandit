@@ -15,6 +15,7 @@ func _ready():
 	else: #if node is NOT in FoodGen node (aka, in FoodArc node) -> the node is a level further 
 		#down so it needs to get another parent node to access the parallax, score, & audio nodes
 		parallax_background = get_parent().get_parent().get_parent().get_node("ParallaxBackground")
+		#print("background!!!! ", parallax_background)
 		scoreCounter = get_parent().get_parent().get_parent().get_node("HUD")
 		audio = get_parent().get_parent().get_parent().get_node("AudioStreamPlayer2D")
 	
