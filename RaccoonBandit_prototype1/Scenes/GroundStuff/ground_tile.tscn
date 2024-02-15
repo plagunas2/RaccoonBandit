@@ -10,6 +10,7 @@ size = Vector2(128, 128)
 script = ExtResource("1_fogcg")
 
 [node name="Icon" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("1_4h388")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -1,17 +1,12 @@
 extends CharacterBody2D
 
-var parallax_background
 var speed
+var gen
 
 func _ready():
-	parallax_background = get_parent().get_parent().get_node("ParallaxBackground")
-	#speed = parallax_background.scroll_speed
+	speed = 200
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	#if(parallax_background != null):
-	#speed = parallax_background.scroll_speed
-	#else:
-		#speed = 0
-	speed = 200;
+	speed = get_parent().global_speed
 	position += Vector2.LEFT * speed * delta
