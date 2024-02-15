@@ -418,12 +418,15 @@ texture = ExtResource("2_6irju")
 expand_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
+layout_direction = 1
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -736.5
+offset_right = 736.5
+offset_bottom = 473.0
 grow_horizontal = 2
-grow_vertical = 2
 theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
@@ -431,6 +434,8 @@ theme_override_constants/margin_bottom = 12
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer2"]
 visible = false
@@ -457,14 +462,19 @@ text = "Raccoon Bandit"
 horizontal_alignment = 1
 uppercase = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
+offset_left = 513.0
+offset_top = 444.0
+offset_right = 836.0
+offset_bottom = 639.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
+size_flags_stretch_ratio = 2.28
 theme_override_constants/separation = 40
 alignment = 1
 
-[node name="Start" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Start" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 mouse_force_pass_scroll_events = false
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -479,8 +489,9 @@ button_mask = 7
 text = "Start"
 flat = true
 
-[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0.92549, 0.666667, 0, 1)
 theme_override_constants/outline_size = 5
@@ -492,7 +503,24 @@ flat = true
 clip_text = true
 icon_alignment = 1
 
-[node name="Tutorial" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+visible = false
+layout_direction = 1
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="."]
+layout_mode = 2
+offset_left = 1087.0
+offset_top = 450.0
+offset_right = 1407.0
+offset_bottom = 641.0
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="Tutorial" type="Button" parent="VBoxContainer3"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0.92549, 0.666667, 0, 1)
@@ -502,8 +530,7 @@ theme_override_font_sizes/font_size = 50
 text = "Tutorial"
 flat = true
 
-[node name="Settings" type="Button" parent="MarginContainer/VBoxContainer"]
-visible = false
+[node name="Settings" type="Button" parent="VBoxContainer3"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0.92549, 0.666667, 0, 1)
@@ -513,7 +540,7 @@ theme_override_font_sizes/font_size = 50
 text = "Settings"
 flat = true
 
-[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer3"]
 visible = false
 layout_direction = 1
 layout_mode = 2
@@ -531,8 +558,7 @@ tile_set = SubResource("TileSet_p4wif")
 format = 2
 layer_0/tile_data = PackedInt32Array(3997742, 0, 0, 4063278, 0, 1, 4128814, 0, 2, 4194350, 0, 3, 4259886, 0, 4, 4325422, 0, 5, 4390958, 0, 6, 4456494, 0, 7, 3997743, 65536, 0, 4063279, 65536, 1, 4128815, 65536, 2, 4194351, 65536, 3, 4259887, 65536, 4, 4325423, 65536, 5, 4390959, 65536, 6, 4456495, 65536, 7, 3997744, 131072, 0, 4063280, 131072, 1, 4128816, 131072, 2, 4194352, 131072, 3, 4259888, 131072, 4, 4325424, 131072, 5, 4390960, 131072, 6, 4456496, 131072, 7, 3997745, 196608, 0, 4063281, 196608, 1, 4128817, 196608, 2, 4194353, 196608, 3, 4259889, 196608, 4, 4325425, 196608, 5, 4390961, 196608, 6, 4456497, 196608, 7, 3997746, 262144, 0, 4063282, 262144, 1, 4128818, 262144, 2, 4194354, 262144, 3, 4259890, 262144, 4, 4325426, 262144, 5, 4390962, 262144, 6, 4456498, 262144, 7, 3997747, 327680, 0, 4063283, 327680, 1, 4128819, 327680, 2, 4194355, 327680, 3, 4259891, 327680, 4, 4325427, 327680, 5, 4390963, 327680, 6, 4456499, 327680, 7, 3997748, 393216, 0, 4063284, 393216, 1, 4128820, 393216, 2, 4194356, 393216, 3, 4259892, 393216, 4, 4325428, 393216, 5, 4390964, 393216, 6, 4456500, 393216, 7, 3997749, 458752, 0, 4063285, 458752, 1, 4128821, 458752, 2, 4194357, 458752, 3, 4259893, 458752, 4, 4325429, 458752, 5, 4390965, 458752, 6, 4456501, 458752, 7, 3997734, 0, 0, 4063270, 0, 1, 4128806, 0, 2, 4194342, 0, 3, 4259878, 0, 4, 4325414, 0, 5, 4390950, 0, 6, 4456486, 0, 7, 3997735, 65536, 0, 4063271, 65536, 1, 4128807, 65536, 2, 4194343, 65536, 3, 4259879, 65536, 4, 4325415, 65536, 5, 4390951, 65536, 6, 4456487, 65536, 7, 3997736, 131072, 0, 4063272, 131072, 1, 4128808, 131072, 2, 4194344, 131072, 3, 4259880, 131072, 4, 4325416, 131072, 5, 4390952, 131072, 6, 4456488, 131072, 7, 3997737, 196608, 0, 4063273, 196608, 1, 4128809, 196608, 2, 4194345, 196608, 3, 4259881, 196608, 4, 4325417, 196608, 5, 4390953, 196608, 6, 4456489, 196608, 7, 3997738, 262144, 0, 4063274, 262144, 1, 4128810, 262144, 2, 4194346, 262144, 3, 4259882, 262144, 4, 4325418, 262144, 5, 4390954, 262144, 6, 4456490, 262144, 7, 3997739, 327680, 0, 4063275, 327680, 1, 4128811, 327680, 2, 4194347, 327680, 3, 4259883, 327680, 4, 4325419, 327680, 5, 4390955, 327680, 6, 4456491, 327680, 7, 3997740, 393216, 0, 4063276, 393216, 1, 4128812, 393216, 2, 4194348, 393216, 3, 4259884, 393216, 4, 4325420, 393216, 5, 4390956, 393216, 6, 4456492, 393216, 7, 3997741, 458752, 0, 4063277, 458752, 1, 4128813, 458752, 2, 4194349, 458752, 3, 4259885, 458752, 4, 4325421, 458752, 5, 4390957, 458752, 6, 4456493, 458752, 7, 3997750, 0, 0, 4063286, 0, 1, 4128822, 0, 2, 4194358, 0, 3, 4259894, 0, 4, 4325430, 0, 5, 4390966, 0, 6, 4456502, 0, 7, 3997751, 65536, 0, 4063287, 65536, 1, 4128823, 65536, 2, 4194359, 65536, 3, 4259895, 65536, 4, 4325431, 65536, 5, 4390967, 65536, 6, 4456503, 65536, 7, 3997752, 131072, 0, 4063288, 131072, 1, 4128824, 131072, 2, 4194360, 131072, 3, 4259896, 131072, 4, 4325432, 131072, 5, 4390968, 131072, 6, 4456504, 131072, 7, 3997753, 196608, 0, 4063289, 196608, 1, 4128825, 196608, 2, 4194361, 196608, 3, 4259897, 196608, 4, 4325433, 196608, 5, 4390969, 196608, 6, 4456505, 196608, 7, 3997754, 262144, 0, 4063290, 262144, 1, 4128826, 262144, 2, 4194362, 262144, 3, 4259898, 262144, 4, 4325434, 262144, 5, 4390970, 262144, 6, 4456506, 262144, 7, 3997755, 327680, 0, 4063291, 327680, 1, 4128827, 327680, 2, 4194363, 327680, 3, 4259899, 327680, 4, 4325435, 327680, 5, 4390971, 327680, 6, 4456507, 327680, 7, 3997756, 393216, 0, 4063292, 393216, 1, 4128828, 393216, 2, 4194364, 393216, 3, 4259900, 393216, 4, 4325436, 393216, 5, 4390972, 393216, 6, 4456508, 393216, 7, 3997757, 458752, 0, 4063293, 458752, 1, 4128829, 458752, 2, 4194365, 458752, 3, 4259901, 458752, 4, 4325437, 458752, 5, 4390973, 458752, 6, 4456509, 458752, 7)
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Tutorial" to="." method="_on_tutorial_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Settings" to="." method="_on_tutorial_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="VBoxContainer3/Tutorial" to="." method="_on_tutorial_pressed"]
+[connection signal="pressed" from="VBoxContainer3/Settings" to="." method="_on_settings_pressed"]
