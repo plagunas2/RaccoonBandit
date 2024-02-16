@@ -90,13 +90,11 @@ func dying():
 	#print("switch to game over screen")
 	
 func jump():
-	#velocity = Vector2(0, jump_velocity).normalized()
 	velocity.y = jump_velocity
 	animated_sprite.play("Jump Start")
 	animation_locked = true
 
 func double_jump():
-	#velocity = Vector2(0, double_jump_velocity).normalized()
 	velocity.y = double_jump_velocity
 	animated_sprite.play("Jump Double")
 	animation_locked = true	
@@ -126,7 +124,7 @@ func update_position(delta):
 	if (character_positon.x >= home_position.x):
 		velocity.x = 0
 	elif (character_positon.x < home_position.x):
-		velocity.x = 5
+		velocity.x += 3
 	
 	if is_on_floor():
 		position += Vector2(200, 0) * delta
