@@ -441,7 +441,8 @@ layout_mode = 2
 theme_override_constants/separation = 40
 
 [node name="MainScreenPlayer" parent="." instance=ExtResource("5_s4duc")]
-position = Vector2(825, 869)
+position = Vector2(825, 865)
+scale = Vector2(1.65, 1.65)
 motion_mode = 1
 script = SubResource("GDScript_i84wp")
 
