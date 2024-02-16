@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var jump_velocity : float = -600.0
-@export var double_jump_velocity : float =-475
+@export var double_jump_velocity : float = -475
 
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 @onready var police_animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
@@ -37,10 +37,10 @@ func _on_police_attack():
 
 func _physics_process(delta):
 	character_positon = self.global_position
-	
 	# Add the gravity.
 	if not is_on_floor():
-		velocity.y += gravity * delta
+		velocity.x = 0
+		velocity += Vector2(0, gravity) * delta
 		was_in_air = true
 	else: 
 		has_double_jumped = false
@@ -49,6 +49,7 @@ func _physics_process(delta):
 		if was_in_air == true:
 			if not is_dead:
 				land()
+				velocity.y = 0
 		
 		was_in_air = false
 	
@@ -70,7 +71,7 @@ func _physics_process(delta):
 
 	move_and_slide()
 	update_animation()
-	update_position()
+	update_position(delta)
 
 func update_animation():		
 	if not animation_locked:
@@ -89,14 +90,16 @@ func dying():
 	#print("switch to game over screen")
 	
 func jump():
+	#velocity = Vector2(0, jump_velocity).normalized()
 	velocity.y = jump_velocity
 	animated_sprite.play("Jump Start")
 	animation_locked = true
-		
+
 func double_jump():
+	#velocity = Vector2(0, double_jump_velocity).normalized()
 	velocity.y = double_jump_velocity
 	animated_sprite.play("Jump Double")
-	animation_locked = true
+	animation_locked = true	
 	has_double_jumped = true
 	
 func land():
@@ -110,7 +113,7 @@ func slide():
 	animation_locked = true
 	
 func idle():
-	animated_sprite.play("Idle")
+	animated_sprite.play("idle")
 	animation_locked = true
 	
 #func update_deadly_collision():
@@ -119,13 +122,14 @@ func idle():
 		#next time die 
 			#and stop background		
 
-func update_position():
-	if (character_positon.x == home_position.x):
-		velocity.x = 5
-	elif (character_positon.x < home_position.x):
-		velocity.x += 5
-	elif (character_positon.x > home_position.x):
+func update_position(delta):
+	if (character_positon.x >= home_position.x):
 		velocity.x = 0
+	elif (character_positon.x < home_position.x):
+		velocity.x = 5
+	
+	if is_on_floor():
+		position += Vector2(200, 0) * delta
  
 #collect powerup(attack, invincible)
 	#change running animation to run attacking with bat animation
