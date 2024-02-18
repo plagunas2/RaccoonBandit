@@ -147,8 +147,8 @@ func getPowerup(string):
 	if(string == "magnet"):
 		print("magnet power up!")
 		magnet = true
-		$Timer.start()
+		$MagnetTimer.start()
 		
 
 func _on_timer_timeout():
-	pass
+	magnet = false
