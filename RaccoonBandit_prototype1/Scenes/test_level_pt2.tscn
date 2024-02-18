@@ -23,9 +23,8 @@ position = Vector2(825, 860)
 scale = Vector2(1.65, 1.65)
 
 [node name="ground" parent="." instance=ExtResource("4_h6uak")]
-visible = false
-position = Vector2(1098, 1026)
-scale = Vector2(16, 1)
+position = Vector2(646, 1026)
+scale = Vector2(8, 1)
 
 [node name="ObGenerator" parent="." instance=ExtResource("4_md4bb")]
 position = Vector2(2056, 815)
@@ -51,3 +50,7 @@ position = Vector2(250, 785)
 scale = Vector2(6, 6)
 
 [node name="PauseMenu" parent="." instance=ExtResource("9_2bejn")]
+
+[node name="ground2" parent="." instance=ExtResource("4_h6uak")]
+position = Vector2(1616, 1026)
+scale = Vector2(8, 1)
