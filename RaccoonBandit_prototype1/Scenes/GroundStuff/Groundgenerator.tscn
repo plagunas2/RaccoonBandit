@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/GroundStuff/grnd_generator.gd" id="1_6mslu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d0fab"]
-size = Vector2(128, 128)
+size = Vector2(71, 128)
 
 [node name="GNDGenerator" type="Node2D"]
 z_index = 1
@@ -12,4 +12,5 @@ script = ExtResource("1_6mslu")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(28.5, 0)
 shape = SubResource("RectangleShape2D_d0fab")

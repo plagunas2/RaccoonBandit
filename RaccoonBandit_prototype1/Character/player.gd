@@ -17,12 +17,11 @@ var is_dead : bool = false
 
 
 #[0] = x, [1] = y
-var home_position = Vector2(750.0, 850.0)
+var home_position = Vector2(825.0, 860.0)
 var character_positon = self.global_position
 
 func _ready():
 	add_to_group("player")
-	#connect("caught_by_police", Callable(self, "_on_caught_by_police"))
 	
 func _on_police_attack():
 	print("Player caught by police, playing dying animation.")
@@ -50,6 +49,7 @@ func _physics_process(delta):
 			if not is_dead:
 				land()
 				velocity.y = 0
+				velocity.x = 0
 		
 		was_in_air = false
 	
@@ -84,10 +84,6 @@ func update_animation():
 func dying():
 	animated_sprite.play("Dying")
 	animation_locked = true
-	#var timer = get_tree().create_timer(2.0)
-	#await timer.timeout
-	#get_tree().change_scene_to_file("res://Scenes/Menus/game_over_menu.tscn")
-	#print("switch to game over screen")
 	
 func jump():
 	velocity.y = jump_velocity
@@ -121,13 +117,16 @@ func idle():
 			#and stop background		
 
 func update_position(delta):
-	if (character_positon.x >= home_position.x):
+	if (character_positon.x == home_position.x):
 		velocity.x = 0
 	elif (character_positon.x < home_position.x):
 		velocity.x += 3
-	
+	elif (character_positon.x > home_position.x):
+		var offset = character_positon.x - home_position.x
+		position -= Vector2(offset, 0) * delta
+		
 	if is_on_floor():
-		position += Vector2(200, 0) * delta
+		position += Vector2(parallax.scroll_speed, 0) * delta
  
 #collect powerup(attack, invincible)
 	#change running animation to run attacking with bat animation
