@@ -8,7 +8,7 @@ var audio
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if (get_parent().name == "FoodGenerator"): #if node is within FoodGen node
-		print(get_parent().name)
+		#print(get_parent().name)
 		parallax_background = get_parent().get_parent().get_node("ParallaxBackground")
 		scoreCounter = get_parent().get_parent().get_node("HUD")
 		audio = get_parent().get_parent().get_node("AudioStreamPlayer2D")
