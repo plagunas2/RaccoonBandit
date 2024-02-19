@@ -37,10 +37,6 @@ func _ready():
  	# Assuming the signal is connected through the Godot editor. If not, uncomment the next line.
 	$Area2D.connect("body_entered", Callable(self, "_on_body_entered"))
 	$ChatDetectionArea.connect("body_entered", Callable(self, "_on_body_entered_chat"))
-	#$ChatDetectionArea.connect("body_exited", Callable(self, "_on_body_exited_chat"))
-	
-	#connect the score_8 signal to a function that displays the new dialogue
-	#connect("score_8", Callable(self, "_on_score_8"))
 	
 func reset_police_animation():
 	police_animated_sprite.play("run")
