@@ -38,7 +38,10 @@ func _ready():
 	$Area2D.connect("body_entered", Callable(self, "_on_body_entered"))
 	$ChatDetectionArea.connect("body_entered", Callable(self, "_on_body_entered_chat"))
 	#$ChatDetectionArea.connect("body_exited", Callable(self, "_on_body_exited_chat"))
-
+	
+	#connect the score_8 signal to a function that displays the new dialogue
+	#connect("score_8", Callable(self, "_on_score_8"))
+	
 func reset_police_animation():
 	police_animated_sprite.play("run")
 	
@@ -71,6 +74,15 @@ func _after_police_attack():
 	await timer.timeout
 	get_tree().change_scene_to_file("res://Scenes/Menus/game_over_menu.tscn")
 	print("switch to game over screen")
+	
+# function to display the new dialogue when the score reaches 8
+func _on_score_6():
+	print("Dialogue when score is 6")
+	chat_bubble.update_text("This raccoon is taking too much trash! Time to clean up the streets.")
+	chat_bubble.show_dialogue()
+	var timer = get_tree().create_timer(6) 
+	await timer.timeout
+	chat_bubble.hide_dialogue()
 	
 #func _process(delta):
 	#match character_state:
