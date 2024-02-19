@@ -15,6 +15,10 @@ run/main_scene="res://Scenes/Menus/Mainmenu.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+DialogueManager="*res://singletons/DialogueManager.gd"
+
 [display]
 
 window/size/viewport_width=1920
