@@ -10,28 +10,40 @@ var obstacles : Array
 
 var last_obs
 
-var screen_size : Vector2i
+var screen_size : Vector2
 var ground_height : int
 
 #spawn intervals determine the time between obstacle spawns
 #change this for longer or shorter distances between obstacles
-var min_spawn_interval = 3.0 
-var max_spawn_interval = 8.0
+var min_spawn_interval 
+var max_spawn_interval
 
+var parallax_background
 var parallax_layer
 var groundNode
 var ground
+var scroll_speed
+var seconds_in_screen
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Start the timer when the scene is ready
-	
-	var parallax_background = get_parent().get_node("ParallaxBackground")
+	parallax_background = get_parent().get_node("ParallaxBackground")
 	parallax_layer =  parallax_background.get_node("ParallaxLayer")
 	groundNode = parallax_layer.get_node("Ground")
 	ground = groundNode.get_node("Sprite2D")
+	screen_size = get_viewport().content_scale_size
+	
+	min_spawn_interval = 3.0 
+	max_spawn_interval = 8.0
 	
 	$Timer.start()
+	
+func _process(_delta):
+	scroll_speed = parallax_background.scroll_speed
+	seconds_in_screen = screen_size.x/scroll_speed
+	min_spawn_interval = seconds_in_screen * 0.3
+	max_spawn_interval = seconds_in_screen * 0.9
 
 func _on_timer_timeout():
 	# Create a new obstacle instance
