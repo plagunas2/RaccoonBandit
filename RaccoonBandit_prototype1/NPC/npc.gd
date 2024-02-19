@@ -10,18 +10,53 @@ signal police_attack
 
 var character_state : CharacterState = CharacterState.RUNNING
 var police_officer : AnimatedSprite2D
+var chat_bubble : Control
 
 # Ensure to set these variables in the inspector
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 @onready var police_animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 
+const lines: Array[String] = [
+	"Hey, you seem pretty strong!",
+	"Wanna spar?",
+	"Wait...",
+	"I shouldn't waste my energy before an important battle...",
+	"Well, I'll see you at the buffet!",
+]
+
 func _ready():
 	reset_police_animation()
+	chat_bubble = $Dialogue
+	chat_bubble.hide_dialogue()
+	chat_bubble.update_text("Control, this is Officer Trashley. We've got a dumpster diver on the loose. I'm on my way. Over.")
+	chat_bubble.show_dialogue()
+	var timer = get_tree().create_timer(6) 
+	await timer.timeout
+	chat_bubble.hide_dialogue()
+	
  	# Assuming the signal is connected through the Godot editor. If not, uncomment the next line.
 	$Area2D.connect("body_entered", Callable(self, "_on_body_entered"))
+	$ChatDetectionArea.connect("body_entered", Callable(self, "_on_body_entered_chat"))
+	#$ChatDetectionArea.connect("body_exited", Callable(self, "_on_body_exited_chat"))
 
 func reset_police_animation():
 	police_animated_sprite.play("run")
+	
+func _on_body_entered_chat(body: PhysicsBody2D):
+	if body.is_in_group("player"):
+		print("NPC Chat Box")
+		#DialogueManager.start_dialog(global_position, lines)
+		chat_bubble.update_text("I'm gaining on you, little rascal! You can't outrun the long arm of the law!")
+		chat_bubble.show_dialogue()
+		var timer = get_tree().create_timer(6) 
+		await timer.timeout
+		chat_bubble.hide_dialogue()
+		
+#func _on_body_exited_chat(body: PhysicsBody2D):
+	#if body.is_in_group("player"):
+		#var timer = get_tree().create_timer(3) 
+		#await timer.timeout
+		#chat_bubble.hide_dialogue()
 
 func _on_body_entered(body: PhysicsBody2D):
 	if body.is_in_group("player"):
