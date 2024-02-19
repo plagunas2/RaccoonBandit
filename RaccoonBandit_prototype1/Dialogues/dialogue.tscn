@@ -12,6 +12,7 @@ offset_bottom = 84.0
 script = ExtResource("1_s5v7e")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
+modulate = Color(0.631373, 0.87451, 0.85098, 1)
 layout_mode = 0
 offset_left = -231.0
 offset_top = -288.0
