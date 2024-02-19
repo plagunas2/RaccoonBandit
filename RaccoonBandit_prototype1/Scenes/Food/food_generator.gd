@@ -16,6 +16,7 @@ var screen_size : Vector2
 func _ready():
 	min_spawn_interval = 10.0 
 	max_spawn_interval = 15.0
+	screen_size = get_viewport().content_scale_size
 	#print("timer starts!")
 	$Timer.wait_time = 3.0
 	$Timer.start()
@@ -27,13 +28,12 @@ func _process(_delta):
 	max_spawn_interval = seconds_in_screen * 0.9
 
 func _on_timer_timeout():
-	print("timer timeour!")
+	#print("timer timeour!")
 	var food_type = food_types[randi() % food_types.size()].instantiate()
-	print(food_type) #debugging print statement
+	#print(food_type) #debugging print statement
 	
 	food_type.global_position = Vector2(0,0)
-	print("food pos ", food_type.global_position)
-	
+	#print("food pos ", food_type.global_position)
 	add_child(food_type)
 	
 	$Timer.wait_time = randf_range(min_spawn_interval, max_spawn_interval)
