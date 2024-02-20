@@ -30,7 +30,7 @@ func _process(delta):
 		speed = parallax_background.scroll_speed
 		position += Vector2.LEFT * speed * delta
 	else:
-		speed = 400
+		speed = parallax_background.scroll_speed * 2
 		moveToPlayer(delta)
 	
 	xpos = self.global_position.x
