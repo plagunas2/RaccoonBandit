@@ -5,7 +5,8 @@ var cardboardBox_scene = preload("res://Scenes/obstacles/cardboardBox.tscn")
 var trashBag_scene = preload("res://Scenes/obstacles/trashBag.tscn")
 var mailbox_scene = preload("res://Scenes/obstacles/mailBox.tscn")
 var foodStand_scene = preload("res://Scenes/obstacles/foodStand.tscn")
-var obstacle_types := [barrel_scene, cardboardBox_scene, trashBag_scene, mailbox_scene, foodStand_scene]
+var dumpster1 = preload("res://Scenes/obstacles/dumpCol.tscn")
+var obstacle_types := [barrel_scene, cardboardBox_scene, dumpster1, trashBag_scene, mailbox_scene, foodStand_scene]
 var obstacles : Array
 
 var last_obs
