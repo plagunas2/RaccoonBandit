@@ -8,6 +8,7 @@ var sound
 var root
 var player
 var speed
+var powerPop
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,6 +16,7 @@ func _ready():
 	sound = get_parent().get_parent().get_node("AudioStreamPlayer2D")
 	root = get_parent().get_parent()
 	player = root.get_node("Player")
+	powerPop = root.get_node("PowerupPopUp")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -36,6 +38,7 @@ func _on_body_entered(body):
 		if(yDistance < -100): #make sure player is ABOVE the dumpster to destroy it
 			
 			var power_type = powerups[randi() % powerups.size()]
+			powerPop.PowerPop(power_type)
 			player.getPowerup(power_type)
 			sound.playSmash()
 			queue_free()
