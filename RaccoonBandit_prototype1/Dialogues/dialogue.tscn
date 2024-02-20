@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnrso0j647owu"]
+
+[ext_resource type="Texture2D" uid="uid://bnxlrm2wx0011" path="res://Assets/TextBubbles/panels/panel_05.png" id="1_066tf"]
+[ext_resource type="Script" path="res://Dialogues/dialogue_npc.gd" id="1_s5v7e"]
+[ext_resource type="FontFile" uid="uid://dumj75rt8ukae" path="res://Assets/Fonts/Kaph-Regular.ttf" id="3_ybrxe"]
+
+[node name="Dialogue" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 81.0
+offset_bottom = 84.0
+script = ExtResource("1_s5v7e")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+modulate = Color(0.631373, 0.87451, 0.85098, 1)
+layout_mode = 0
+offset_left = -231.0
+offset_top = -288.0
+offset_right = 234.0
+offset_bottom = -152.0
+texture = ExtResource("1_066tf")
+
+[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 5.0
+offset_right = 462.0
+offset_bottom = 135.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Text" type="RichTextLabel" parent="NinePatchRect/MarginContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_ybrxe")
+theme_override_font_sizes/normal_font_size = 20
+text = "Chatting..."
