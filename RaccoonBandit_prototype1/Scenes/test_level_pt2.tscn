@@ -3,11 +3,11 @@
 [ext_resource type="Script" path="res://Scenes/npc_player_connection.gd" id="1_q5ohh"]
 [ext_resource type="PackedScene" uid="uid://cv0j6kgntrc6w" path="res://Scenes/parallax_background.tscn" id="1_qa4be"]
 [ext_resource type="PackedScene" uid="uid://bl1oakyavckov" path="res://Character/player.tscn" id="2_c6vkw"]
-[ext_resource type="PackedScene" uid="uid://4dfn8auyjbgg" path="res://Scenes/GroundStuff/ground_tile.tscn" id="4_h6uak"]
+[ext_resource type="PackedScene" path="res://Scenes/GroundStuff/ground_tile.tscn" id="4_h6uak"]
 [ext_resource type="PackedScene" uid="uid://dnw4bgmjccngu" path="res://Scenes/obstacles/obs_generator.tscn" id="4_md4bb"]
 [ext_resource type="PackedScene" uid="uid://dwre4s3tegjwg" path="res://Scenes/Food/food_generator.tscn" id="5_15tit"]
 [ext_resource type="PackedScene" uid="uid://dei8g5ul1uts2" path="res://HUD/hud.tscn" id="6_7rpvi"]
-[ext_resource type="PackedScene" uid="uid://dfcmymrykuvva" path="res://Scenes/GroundStuff/Groundgenerator.tscn" id="7_1ougk"]
+[ext_resource type="PackedScene" path="res://Scenes/GroundStuff/Groundgenerator.tscn" id="7_1ougk"]
 [ext_resource type="Script" path="res://Scripts/AudioScript.gd" id="7_k0fiu"]
 [ext_resource type="PackedScene" uid="uid://ex06u32pjcji" path="res://NPC/npc.tscn" id="7_yfiwp"]
 [ext_resource type="AudioStream" uid="uid://bn1olh38hgngo" path="res://Sounds/swingMusic.mp3" id="8_6qowf"]
@@ -50,6 +50,7 @@ bus = &"bgrnd_music"
 [node name="npc" parent="." instance=ExtResource("7_yfiwp")]
 position = Vector2(250, 785)
 scale = Vector2(6, 6)
+
 [node name="PauseMenu" parent="." instance=ExtResource("9_2bejn")]
 
 [node name="ground2" parent="." instance=ExtResource("4_h6uak")]
