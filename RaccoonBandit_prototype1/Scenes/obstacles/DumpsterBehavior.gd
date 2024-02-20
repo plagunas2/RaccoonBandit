@@ -8,6 +8,7 @@ var sound
 var root
 var player
 var speed
+var xpos
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,6 +24,14 @@ func _process(delta):
 	else:
 		speed = 0
 	position += Vector2.LEFT * speed * delta
+	
+	xpos = self.global_position.x
+	left_screen()
+
+#to delete item when it leaves the screen
+func left_screen():
+	if (xpos < 0):
+		queue_free()
 
 func _on_body_entered(body):
 	print("detected player body")
