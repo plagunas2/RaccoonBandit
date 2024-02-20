@@ -20,8 +20,15 @@ var is_dead : bool = false
 var home_position = Vector2(825.0, 860.0)
 var character_positon = self.global_position
 
+#powerups
+var magnet : bool
+var bat : bool
+
 func _ready():
 	add_to_group("player")
+	magnet = false
+	bat = false
+	#connect("caught_by_police", Callable(self, "_on_caught_by_police"))
 	
 func _on_police_attack():
 	print("Player caught by police, playing dying animation.")
@@ -136,3 +143,14 @@ func update_position(delta):
 func _on_animated_sprite_2d_animation_finished():
 	if(["Jump End", "Jump Start", "Jump Double", "Sliding"].has(animated_sprite.animation)):
 		animation_locked = false
+		
+		
+func getPowerup(string):
+	if(string == "magnet"):
+		print("magnet power up!")
+		magnet = true
+		$MagnetTimer.start()
+		
+
+func _on_timer_timeout():
+	magnet = false

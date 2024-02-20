@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://b35s4plcej5wu"]
+
+[ext_resource type="PackedScene" uid="uid://bufwea0iee3ny" path="res://Scenes/obstacles/dumpster_1.tscn" id="1_1kp5w"]
+[ext_resource type="Script" path="res://Scenes/obstacles/DumpsterBehavior.gd" id="1_nbgdf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vocyf"]
+size = Vector2(200, 160)
+
+[node name="magnet" type="Area2D"]
+script = ExtResource("1_nbgdf")
+
+[node name="Dumpster1" parent="." instance=ExtResource("1_1kp5w")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 64)
+shape = SubResource("RectangleShape2D_vocyf")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
