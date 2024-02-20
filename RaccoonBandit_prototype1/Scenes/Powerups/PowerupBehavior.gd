@@ -1,6 +1,7 @@
 extends Area2D
 
 var magnet : bool
+var xpos
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -9,7 +10,13 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	xpos = self.global_position.x
+	left_screen()
+
+#to delete item when it leaves the screen
+func left_screen():
+	if (xpos < 0):
+		queue_free()
 	
 	
 func pop(): #when instantiated, power up 'pops' up from dumpster
