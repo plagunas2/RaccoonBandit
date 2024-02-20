@@ -58,6 +58,7 @@ text = "Resume "
 flat = true
 
 [node name="settings_button" type="Button" parent="GridContainer"]
+visible = false
 layout_mode = 2
 theme = SubResource("Theme_itons")
 theme_type_variation = &"FlatButton"
