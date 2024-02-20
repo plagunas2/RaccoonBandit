@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var jump_velocity : float = -600.0
-@export var double_jump_velocity : float =-475
+@export var double_jump_velocity : float = -475
 
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 @onready var police_animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
@@ -17,11 +17,17 @@ var is_dead : bool = false
 
 
 #[0] = x, [1] = y
-var home_position = Vector2(750.0, 850.0)
+var home_position = Vector2(825.0, 860.0)
 var character_positon = self.global_position
+
+#powerups
+var magnet : bool
+var bat : bool
 
 func _ready():
 	add_to_group("player")
+	magnet = false
+	bat = false
 	#connect("caught_by_police", Callable(self, "_on_caught_by_police"))
 	
 func _on_police_attack():
@@ -37,10 +43,10 @@ func _on_police_attack():
 
 func _physics_process(delta):
 	character_positon = self.global_position
-	
 	# Add the gravity.
 	if not is_on_floor():
-		velocity.y += gravity * delta
+		velocity.x = 0
+		velocity += Vector2(0, gravity) * delta
 		was_in_air = true
 	else: 
 		has_double_jumped = false
@@ -49,6 +55,8 @@ func _physics_process(delta):
 		if was_in_air == true:
 			if not is_dead:
 				land()
+				velocity.y = 0
+				velocity.x = 0
 		
 		was_in_air = false
 	
@@ -70,7 +78,7 @@ func _physics_process(delta):
 
 	move_and_slide()
 	update_animation()
-	update_position()
+	update_position(delta)
 
 func update_animation():		
 	if not animation_locked:
@@ -83,20 +91,16 @@ func update_animation():
 func dying():
 	animated_sprite.play("Dying")
 	animation_locked = true
-	#var timer = get_tree().create_timer(2.0)
-	#await timer.timeout
-	#get_tree().change_scene_to_file("res://Scenes/Menus/game_over_menu.tscn")
-	#print("switch to game over screen")
 	
 func jump():
 	velocity.y = jump_velocity
 	animated_sprite.play("Jump Start")
 	animation_locked = true
-		
+
 func double_jump():
 	velocity.y = double_jump_velocity
 	animated_sprite.play("Jump Double")
-	animation_locked = true
+	animation_locked = true	
 	has_double_jumped = true
 	
 func land():
@@ -110,7 +114,7 @@ func slide():
 	animation_locked = true
 	
 func idle():
-	animated_sprite.play("Idle")
+	animated_sprite.play("idle")
 	animation_locked = true
 	
 #func update_deadly_collision():
@@ -119,13 +123,17 @@ func idle():
 		#next time die 
 			#and stop background		
 
-func update_position():
+func update_position(delta):
 	if (character_positon.x == home_position.x):
-		velocity.x = 5
-	elif (character_positon.x < home_position.x):
-		velocity.x += 5
-	elif (character_positon.x > home_position.x):
 		velocity.x = 0
+	elif (character_positon.x < home_position.x):
+		velocity.x += 3
+	elif (character_positon.x > home_position.x):
+		var offset = character_positon.x - home_position.x
+		position -= Vector2(offset, 0) * delta
+		
+	if is_on_floor():
+		position += Vector2(parallax.scroll_speed, 0) * delta
  
 #collect powerup(attack, invincible)
 	#change running animation to run attacking with bat animation
@@ -135,3 +143,14 @@ func update_position():
 func _on_animated_sprite_2d_animation_finished():
 	if(["Jump End", "Jump Start", "Jump Double", "Sliding"].has(animated_sprite.animation)):
 		animation_locked = false
+		
+		
+func getPowerup(string):
+	if(string == "magnet"):
+		print("magnet power up!")
+		magnet = true
+		$MagnetTimer.start()
+		
+
+func _on_timer_timeout():
+	magnet = false

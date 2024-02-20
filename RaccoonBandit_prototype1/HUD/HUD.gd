@@ -10,7 +10,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	$trashcount.text = "Trash: " + str(trashcollected)
 	
 func increase_score():

@@ -5,6 +5,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var speed 
 var parallax_background
+var xpos
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,6 +15,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	position += Vector2.LEFT * speed * delta
+	xpos = self.global_position.x
+	left_screen()
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -21,3 +24,8 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 
 	move_and_slide()
+
+#To delete item when it leaves the screen
+func left_screen():
+	if (xpos < 0):
+		queue_free()
