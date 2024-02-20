@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://ex06u32pjcji"]
+[gd_scene load_steps=43 format=3 uid="uid://ex06u32pjcji"]
 
 [ext_resource type="Texture2D" uid="uid://bcuaqjh4e07qq" path="res://Assets/PolicePack/PNG Sequences Police/idle/1_police_Idle_000.png" id="1_fi5bn"]
 [ext_resource type="Script" path="res://NPC/npc.gd" id="1_pn30m"]
@@ -22,9 +22,22 @@
 [ext_resource type="Texture2D" uid="uid://dq8vvoa4ajvaf" path="res://Assets/PolicePack/PNG Sequences Police/attack1/1_police_attack_Attack1_008.png" id="10_q7aff"]
 [ext_resource type="Texture2D" uid="uid://82ixky1hwepk" path="res://Assets/PolicePack/PNG Sequences Police/attack1/1_police_attack_Attack1_009.png" id="11_r5x7o"]
 [ext_resource type="Texture2D" uid="uid://ctdswrcey3bsn" path="res://Assets/PolicePack/PNG Sequences Police/run/1_police_Run_002.png" id="11_tecvw"]
+[ext_resource type="Texture2D" uid="uid://pnfridggfi8v" path="res://Assets/PolicePack/PNG Sequences Police/attack3/1_police_attack_Attack3_000.png" id="12_65fox"]
 [ext_resource type="Texture2D" uid="uid://cbwqvueso7ugo" path="res://Assets/PolicePack/PNG Sequences Police/run/1_police_Run_003.png" id="12_yffvi"]
 [ext_resource type="Texture2D" uid="uid://dqndiflpinguw" path="res://Assets/PolicePack/PNG Sequences Police/run/1_police_Run_004.png" id="13_sua7g"]
+[ext_resource type="Texture2D" uid="uid://c5m0y72nt6wf0" path="res://Assets/PolicePack/PNG Sequences Police/attack3/1_police_attack_Attack3_001.png" id="13_sy051"]
 [ext_resource type="Texture2D" uid="uid://d0uvb4oi2yd61" path="res://Assets/PolicePack/PNG Sequences Police/run/1_police_Run_005.png" id="14_dnpci"]
+[ext_resource type="Texture2D" uid="uid://bnxq32xu5lk1r" path="res://Assets/PolicePack/PNG Sequences Police/attack3/1_police_attack_Attack3_002.png" id="14_t41or"]
+[ext_resource type="Texture2D" uid="uid://0jooyoq88tc6" path="res://Assets/PolicePack/PNG Sequences Police/attack3/1_police_attack_Attack3_003.png" id="15_wtjj5"]
+[ext_resource type="Texture2D" uid="uid://d2dgusbxpc1lo" path="res://Assets/PolicePack/PNG Sequences Police/attack3/1_police_attack_Attack3_004.png" id="16_l705g"]
+[ext_resource type="Texture2D" uid="uid://c04kkmyxnlknq" path="res://Assets/PolicePack/PNG Sequences Police/attack3/1_police_attack_Attack3_005.png" id="17_7ms3n"]
+[ext_resource type="Texture2D" uid="uid://bewm24nvjr4eb" path="res://Assets/PolicePack/PNG Sequences Police/attack/1_police_attack_Attack_000_000.png" id="18_uftfi"]
+[ext_resource type="Texture2D" uid="uid://cqch38d3hm6th" path="res://Assets/PolicePack/PNG Sequences Police/attack/1_police_attack_Attack_000_001.png" id="19_l4un3"]
+[ext_resource type="Texture2D" uid="uid://d4k4rh6et2h2k" path="res://Assets/PolicePack/PNG Sequences Police/attack/1_police_attack_Attack_000_002.png" id="20_8tuhc"]
+[ext_resource type="Texture2D" uid="uid://dx5o28n1sf35j" path="res://Assets/PolicePack/PNG Sequences Police/attack/1_police_attack_Attack_000_003.png" id="21_vo8wh"]
+[ext_resource type="Texture2D" uid="uid://d3apy2byi8rye" path="res://Assets/PolicePack/PNG Sequences Police/attack/1_police_attack_Attack_000_004.png" id="22_ry7uv"]
+[ext_resource type="Texture2D" uid="uid://b573iewriycpo" path="res://Assets/PolicePack/PNG Sequences Police/attack/1_police_attack_Attack_000_005.png" id="23_0rijl"]
+[ext_resource type="PackedScene" uid="uid://bnrso0j647owu" path="res://Dialogues/dialogue.tscn" id="38_vw43n"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bh507"]
 animations = [{
@@ -62,6 +75,52 @@ animations = [{
 "loop": true,
 "name": &"attack",
 "speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_65fox")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_sy051")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_t41or")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_wtjj5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_l705g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_7ms3n")
+}],
+"loop": true,
+"name": &"attack2",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_uftfi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_l4un3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_8tuhc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_vo8wh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_ry7uv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_0rijl")
+}],
+"loop": true,
+"name": &"attack3",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -123,6 +182,9 @@ height = 60.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_v22ui"]
 radius = 17.4617
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_gwbii"]
+radius = 38.3654
+
 [node name="npc" type="CharacterBody2D"]
 scale = Vector2(5, 5)
 script = ExtResource("1_pn30m")
@@ -131,8 +193,7 @@ script = ExtResource("1_pn30m")
 scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_bh507")
 animation = &"run"
-frame = 2
-frame_progress = 0.182522
+frame_progress = 0.890222
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_ixrvv")
@@ -143,3 +204,15 @@ disable_mode = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(13.3333, 1.06667)
 shape = SubResource("CircleShape2D_v22ui")
+
+[node name="ChatDetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChatDetectionArea"]
+position = Vector2(33.8182, 0.727273)
+shape = SubResource("CircleShape2D_gwbii")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Dialogue" parent="." instance=ExtResource("38_vw43n")]
+scale = Vector2(0.2, 0.2)
