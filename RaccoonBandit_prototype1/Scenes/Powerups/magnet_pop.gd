@@ -11,17 +11,17 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	increase()
+	popup()
 
-func increase():
-	if (finished == false):
+func popup():
+	if (finished == false): #increase size
 		if(a<4):
 			a += .25
 			b += .25
 		if (a == 4):
 			finished = true
 		self.scale = Vector2(a,b)
-	if (finished == true && a > 0):
+	if (finished == true && a > 0): #decrease size
 		if(a>0):
 			a -= .25
 			b -= .25
