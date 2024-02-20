@@ -49,5 +49,5 @@ func moveToPlayer(delta):
 	self.global_position = self.global_position.move_toward(player.global_position, delta*speed)
 #To delete item when it leaves the screen
 func left_screen():
-	if (xpos < 0):
+	if (xpos < -50):
 		queue_free()
