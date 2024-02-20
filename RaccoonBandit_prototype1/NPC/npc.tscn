@@ -215,4 +215,8 @@ shape = SubResource("CircleShape2D_gwbii")
 autostart = true
 
 [node name="Dialogue" parent="." instance=ExtResource("38_vw43n")]
+offset_left = 8.8
+offset_top = -2.0
+offset_right = 89.8
+offset_bottom = 82.0
 scale = Vector2(0.2, 0.2)

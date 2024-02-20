@@ -50,6 +50,7 @@ bus = &"bgrnd_music"
 [node name="npc" parent="." instance=ExtResource("7_yfiwp")]
 position = Vector2(250, 785)
 scale = Vector2(6, 6)
+
 [node name="PauseMenu" parent="." instance=ExtResource("9_2bejn")]
 
 [node name="ground2" parent="." instance=ExtResource("4_h6uak")]
