@@ -30,7 +30,7 @@ func _process(delta):
 		speed = parallax_background.scroll_speed
 		position += Vector2.LEFT * speed * delta
 	else:
-		speed = 400
+		speed = parallax_background.scroll_speed * 2
 		moveToPlayer(delta)
 	
 	xpos = self.global_position.x
@@ -49,5 +49,5 @@ func moveToPlayer(delta):
 	self.global_position = self.global_position.move_toward(player.global_position, delta*speed)
 #To delete item when it leaves the screen
 func left_screen():
-	if (xpos < 0):
+	if (xpos < -50):
 		queue_free()

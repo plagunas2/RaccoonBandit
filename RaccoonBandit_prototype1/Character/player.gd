@@ -7,6 +7,7 @@ extends CharacterBody2D
 @onready var police_animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 
 @onready var parallax = get_parent().get_node("ParallaxBackground")
+@onready var sound = get_parent().get_node("AudioStreamPlayer2D")
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -89,6 +90,7 @@ func update_animation():
 			animated_sprite.play("Running")
 	
 func dying():
+	sound.playDeath()
 	animated_sprite.play("Dying")
 	animation_locked = true
 	
@@ -151,6 +153,5 @@ func getPowerup(string):
 		magnet = true
 		$MagnetTimer.start()
 		
-
 func _on_timer_timeout():
 	magnet = false

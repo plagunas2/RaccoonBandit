@@ -22,5 +22,5 @@ func _process(delta):
 
 #to delete item when it leaves the screen
 func left_screen():
-	if (xpos < 0):
+	if (xpos < -100):
 		queue_free()

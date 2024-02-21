@@ -30,7 +30,7 @@ func _process(delta):
 
 #to delete item when it leaves the screen
 func left_screen():
-	if (xpos < 0):
+	if (xpos < -50):
 		queue_free()
 
 func _on_body_entered(body):
