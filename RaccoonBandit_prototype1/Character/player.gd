@@ -9,6 +9,10 @@ extends CharacterBody2D
 @onready var parallax = get_parent().get_node("ParallaxBackground")
 @onready var sound = get_parent().get_node("AudioStreamPlayer2D")
 
+@onready var hud = get_parent().get_node("HUD")
+
+signal final_death
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var has_double_jumped : bool = false
@@ -16,6 +20,10 @@ var animation_locked : bool = false
 var was_in_air : bool = false
 var is_dead : bool = false
 
+var lives=3:
+	set(value):
+		lives = value
+		hud.init_lives(lives)
 
 #[0] = x, [1] = y
 var home_position = Vector2(825.0, 860.0)
@@ -29,6 +37,7 @@ func _ready():
 	add_to_group("player")
 	magnet = false
 	bat = false
+	lives = 3
 	#connect("caught_by_police", Callable(self, "_on_caught_by_police"))
 	
 func _on_police_attack():
@@ -37,8 +46,12 @@ func _on_police_attack():
 	is_dead = true
 	if is_on_floor():
 		dying()
-	else:
-		dying()
+		lives -= 1
+		if lives <= 0: 
+			emit_signal("final_death")
+		else:
+			await get_tree().create_timer(2).timeout
+			respawn()
 		#explode midair animation
 		#dying_mid_air
 
@@ -118,7 +131,18 @@ func slide():
 func idle():
 	animated_sprite.play("idle")
 	animation_locked = true
-	
+
+func respawn():
+	print("respawned")
+	if is_dead == true:
+		is_dead = false
+		parallax.scroll_speed = 200
+		#process_mode = Node.PROCESS_MODE_INHERIT
+		jump()
+		_physics_process(character_positon)
+		
+		
+		
 #func update_deadly_collision():
 	#if collide
 		#hurt animation(blink in and out) for 5 secs and invincible
