@@ -66,6 +66,7 @@ func _on_police_attack():
 func _livescounter():
 	lives -=1
 	if lives <= 0: 
+		await get_tree().create_timer(0.5).timeout
 		parallax.scroll_speed = 0
 		dying()
 		emit_signal("final_death")

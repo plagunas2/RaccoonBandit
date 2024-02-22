@@ -71,7 +71,7 @@ func _on_body_entered(body: PhysicsBody2D):
 		#character_state = CharacterState.CAUGHT
 		police_animated_sprite.play("attack")
 		emit_signal("police_attack")
-		await get_tree().create_timer(0.5).timeout
+		await get_tree().create_timer(1).timeout
 		if (game_over == false):
 			reset_police_animation()
 
