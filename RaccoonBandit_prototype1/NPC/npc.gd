@@ -10,6 +10,7 @@ var fireball_scene = ResourceLoader.load("res://Scenes/fireball.tscn", "PackedSc
 
 signal police_attack
 signal fireball_shot
+signal raccoon_above_police
 
 var character_state : CharacterState = CharacterState.RUNNING
 var police_officer : AnimatedSprite2D
@@ -48,6 +49,7 @@ func _ready():
 	$ChatDetectionArea.connect("body_entered", Callable(self, "_on_body_entered_chat"))
 	$FireDetectionArea.connect("body_entered", Callable(self, "_fire"))
 	$FireDetectionArea.connect("body_exited", Callable(self, "_stop_fire"))
+	$AbovePolice.connect("body_entered", Callable(self, "_on_above_police"))
 	
 func reset_police_animation():
 	police_animated_sprite.play("run")
@@ -113,6 +115,10 @@ func _stop_fire(body: PhysicsBody2D):
 		var timer = get_tree().create_timer(2.5) 
 		await timer.timeout
 		police_animated_sprite.play("run")
+		
+func _on_above_police(body: PhysicsBody2D):
+	if body.is_in_group("player"):
+		emit_signal("raccoon_above_police")
 		
 #func _process(delta):
 	#match character_state:
