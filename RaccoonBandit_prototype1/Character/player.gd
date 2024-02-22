@@ -146,11 +146,11 @@ func respawn():
 	if is_dead == true:
 		is_dead = false
 		$MainCollisionShape.set_deferred("disabled", true)
-		animated_sprite.visible= false
-		await get_tree().create_timer(1).timeout
+		animated_sprite.visible = false
+		await get_tree().create_timer(2).timeout
 		self.global_position = home_position
 		jump()
-		animated_sprite.visible =true
+		animated_sprite.visible = true
 		
 		$MainCollisionShape.disabled = false
 		

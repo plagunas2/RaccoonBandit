@@ -15,6 +15,7 @@ signal raccoon_above_police
 var character_state : CharacterState = CharacterState.RUNNING
 var police_officer : AnimatedSprite2D
 var chat_bubble : Control
+var game_over
 
 # Ensure to set these v ariables in the inspector
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
@@ -48,7 +49,8 @@ func _ready():
 	$Area2D.connect("body_entered", Callable(self, "_on_body_entered"))
 	$ChatDetectionArea.connect("body_entered", Callable(self, "_on_body_entered_chat"))
 	$FireDetectionArea.connect("body_entered", Callable(self, "_fire"))
-	$FireDetectionArea.connect("body_exited", Callable(self, "_stop_fire"))
+	
+	game_over = false
 	
 func reset_police_animation():
 	police_animated_sprite.play("run")
@@ -62,12 +64,6 @@ func _on_body_entered_chat(body: PhysicsBody2D):
 		var timer = get_tree().create_timer(6) 
 		await timer.timeout
 		chat_bubble.hide_dialogue()
-		
-#func _on_body_exited_chat(body: PhysicsBody2D):
-	#if body.is_in_group("player"):
-		#var timer = get_tree().create_timer(3) 
-		#await timer.timeout
-		#chat_bubble.hide_dialogue()
 
 func _on_body_entered(body: PhysicsBody2D):
 	if body.is_in_group("player"):
@@ -75,11 +71,13 @@ func _on_body_entered(body: PhysicsBody2D):
 		#character_state = CharacterState.CAUGHT
 		police_animated_sprite.play("attack")
 		emit_signal("police_attack")
-		await get_tree().create_timer(1).timeout
-		reset_police_animation()
-		#_after_police_attack()
+		await get_tree().create_timer(0.5).timeout
+		if (game_over == false):
+			reset_police_animation()
 
 func _after_police_attack():
+	game_over = true
+	police_animated_sprite.play("idle")
 	var timer = get_tree().create_timer(2)
 	await timer.timeout
 	get_tree().change_scene_to_file("res://Scenes/Menus/game_over_menu.tscn")
@@ -108,6 +106,9 @@ func _fire(body: PhysicsBody2D):
 		emit_signal("fireball_shot")
 		f.position.x = position.x - 50
 		f.position.y = position.y + 10
+		await get_tree().create_timer(0.35).timeout
+		if (game_over == false):
+			reset_police_animation()
 		
 		#dialogue update
 		chat_bubble.update_text("Hey there, little trash bandit! I've got a hot surprise for you! 🔥🦝")
@@ -115,12 +116,6 @@ func _fire(body: PhysicsBody2D):
 		var timer = get_tree().create_timer(4) 
 		await timer.timeout
 		chat_bubble.hide_dialogue()
-		
-func _stop_fire(body: PhysicsBody2D):
-	if body.is_in_group("player"):
-		var timer = get_tree().create_timer(2.5) 
-		await timer.timeout
-		police_animated_sprite.play("run")
 		
 #func _process(delta):
 	#match character_state:
