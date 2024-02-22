@@ -12,6 +12,7 @@ extends CharacterBody2D
 @onready var hud = get_parent().get_node("HUD")
 
 signal final_death
+signal fireball_hitting_raccoon
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -41,6 +42,13 @@ func _ready():
 	bat = false
 	lives = 3
 	#connect("caught_by_police", Callable(self, "_on_caught_by_police"))
+	
+	$FireballDetection.connect("body_entered", Callable(self, "_on_fireball_entered"))
+	
+func _on_fireball_entered(body: PhysicsBody2D):
+	if body.is_in_group("fireball"):
+		is_dead = true
+		_livescounter()
 	
 func _on_police_attack():
 	print("Player caught by police, playing dying animation.")
@@ -143,7 +151,7 @@ func respawn():
 		is_dead = false
 		$CollisionShape2D.disabled = true
 		animated_sprite.visible= false
-		await get_tree().create_timer(0.2).timeout
+		await get_tree().create_timer(1).timeout
 		self.global_position = home_position
 		jump()
 		animated_sprite.visible =true
