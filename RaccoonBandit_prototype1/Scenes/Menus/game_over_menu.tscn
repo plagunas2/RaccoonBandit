@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cchg0xy6ahlqh"]
+[gd_scene load_steps=8 format=3 uid="uid://cchg0xy6ahlqh"]
 
 [ext_resource type="Script" path="res://Scenes/Menus/Game Over Menu.gd" id="1_7hun4"]
 [ext_resource type="Texture2D" uid="uid://bp43pmkrcu7uh" path="res://Assets/Background/Background_Layer_Combined.png" id="2_hg2pa"]
 [ext_resource type="FontFile" uid="uid://dumj75rt8ukae" path="res://Assets/Fonts/Kaph-Regular.ttf" id="3_t2t50"]
+[ext_resource type="Texture2D" uid="uid://cahasqhe1dbx2" path="res://image-1.png.png" id="4_pyx6w"]
 
 [sub_resource type="FontVariation" id="FontVariation_2ja0q"]
 base_font = ExtResource("3_t2t50")
@@ -27,35 +28,35 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 5.0
+offset_right = 2.0
+offset_bottom = 5.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_hg2pa")
 expand_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 14
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.5
+offset_top = 309.5
+offset_bottom = -309.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 12
-theme_override_constants/margin_top = 12
-theme_override_constants/margin_right = 12
-theme_override_constants/margin_bottom = 12
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
 theme_override_constants/separation = -350
 alignment = 1
 
-[node name="Separator2" type="Control" parent="MarginContainer/VBoxContainer"]
+[node name="Separator2" type="Control" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="Separator3" type="Control" parent="MarginContainer/VBoxContainer"]
+[node name="Separator3" type="Control" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0.545098, 0, 0, 1)
@@ -69,19 +70,50 @@ theme_override_font_sizes/font_size = 70
 text = "YOUR END HAS COME RACCOON!"
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
-layout_mode = 2
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.523
+anchor_top = 0.63
+anchor_right = 0.523
+anchor_bottom = 0.63
+offset_left = -296.16
+offset_top = -426.4
+offset_right = 99.84
+offset_bottom = 141.6
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.5, 1.5)
+size_flags_horizontal = 0
+size_flags_vertical = 8
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer2"]
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("4_pyx6w")
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="."]
+layout_mode = 2
+anchor_left = 0.232
+anchor_top = 0.444
+anchor_right = 0.232
+anchor_bottom = 0.444
+offset_left = -225.44
+offset_top = -103.52
+offset_right = 223.56
+offset_bottom = 104.48
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_bottom = NodePath("../VBoxContainer2")
 theme_override_constants/separation = 17
 alignment = 1
 
-[node name="Separator2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Separator2" type="Control" parent="VBoxContainer3"]
 layout_mode = 2
 
-[node name="Retry" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Retry" type="Button" parent="VBoxContainer3"]
 custom_minimum_size = Vector2(120, 32)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -94,10 +126,29 @@ theme_override_font_sizes/font_size = 50
 text = "Play Again"
 flat = true
 
-[node name="Separator3" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="VBoxContainer4" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.793
+anchor_top = 0.435
+anchor_right = 0.793
+anchor_bottom = 0.435
+offset_left = -340.56
+offset_top = -127.8
+offset_right = 341.44
+offset_bottom = 128.2
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+focus_neighbor_bottom = NodePath("../VBoxContainer2")
+theme_override_constants/separation = 17
+alignment = 1
+
+[node name="Separator3" type="Control" parent="VBoxContainer4"]
 layout_mode = 2
 
-[node name="Quit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Quit" type="Button" parent="VBoxContainer4"]
 custom_minimum_size = Vector2(120, 32)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -110,5 +161,34 @@ theme_override_font_sizes/font_size = 50
 text = "Quit Game"
 flat = true
 
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Retry" to="." method="_on_retry_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[node name="MarginContainer" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.351
+anchor_right = 0.52
+anchor_bottom = 0.361
+offset_left = -798.0
+offset_top = 3.91999
+offset_right = 575.6
+offset_bottom = 263.12
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[connection signal="pressed" from="VBoxContainer3/Retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="VBoxContainer4/Quit" to="." method="_on_quit_pressed"]
