@@ -145,14 +145,14 @@ func respawn():
 	print("respawned")
 	if is_dead == true:
 		is_dead = false
-		$CollisionShape2D.disabled = true
+		$MainCollisionShape.set_deferred("disabled", true)
 		animated_sprite.visible= false
 		await get_tree().create_timer(1).timeout
 		self.global_position = home_position
 		jump()
 		animated_sprite.visible =true
 		
-		$CollisionShape2D.disabled = false
+		$MainCollisionShape.disabled = false
 		
 #func update_deadly_collision():
 	#if collide

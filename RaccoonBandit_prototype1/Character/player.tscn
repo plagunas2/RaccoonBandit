@@ -859,7 +859,7 @@ sprite_frames = SubResource("SpriteFrames_57wnc")
 animation = &"idle"
 autoplay = "idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="MainCollisionShape" type="CollisionShape2D" parent="."]
 position = Vector2(4, 1)
 shape = SubResource("CapsuleShape2D_0rsjk")
 
@@ -871,7 +871,7 @@ one_shot = true
 
 [node name="FireballDetection" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FireballDetection"]
+[node name="MainFireBallCollision" type="CollisionShape2D" parent="FireballDetection"]
 position = Vector2(4, -6)
 shape = SubResource("CircleShape2D_yla4g")
 

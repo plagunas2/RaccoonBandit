@@ -104,7 +104,7 @@ func _fire(body: PhysicsBody2D):
 	if body.is_in_group("player") and fireball_scene:
 		police_animated_sprite.play("attack3")
 		var f = fireball_scene.instantiate()
-		get_parent().add_child(f)
+		get_parent().call_deferred("add_child", f)
 		emit_signal("fireball_shot")
 		f.position.x = position.x - 50
 		f.position.y = position.y + 10
