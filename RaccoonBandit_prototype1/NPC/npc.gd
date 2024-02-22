@@ -107,7 +107,7 @@ func _fire(body: PhysicsBody2D):
 		get_parent().add_child(f)
 		emit_signal("fireball_shot")
 		f.position.x = position.x - 50
-		f.position.y = position.y + 20
+		f.position.y = position.y + 10
 		
 		#dialogue update
 		chat_bubble.update_text("Hey there, little trash bandit! I've got a hot surprise for you! 🔥🦝")
@@ -121,10 +121,6 @@ func _stop_fire(body: PhysicsBody2D):
 		var timer = get_tree().create_timer(2.5) 
 		await timer.timeout
 		police_animated_sprite.play("run")
-		
-func _on_above_police(body: PhysicsBody2D):
-	if body.is_in_group("player"):
-		emit_signal("raccoon_above_police")
 		
 #func _process(delta):
 	#match character_state:

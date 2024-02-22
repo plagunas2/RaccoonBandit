@@ -95,7 +95,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("17_7ms3n")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack2",
 "speed": 10.0
 }, {
@@ -118,9 +118,9 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("23_0rijl")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack3",
-"speed": 5.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -196,7 +196,9 @@ script = ExtResource("1_pn30m")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_bh507")
-animation = &"run"
+animation = &"attack2"
+frame = 5
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_ixrvv")
@@ -228,5 +230,5 @@ scale = Vector2(0.2, 0.2)
 position = Vector2(18.8, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FireDetectionArea"]
-position = Vector2(47, 0.8)
+position = Vector2(55, 0.8)
 shape = SubResource("CapsuleShape2D_6ppyw")
