@@ -18,6 +18,7 @@ func _ready():
 	root = get_parent().get_parent()
 	player = root.get_node("Player")
 	powerPop = root.get_node("PowerupPopUp")
+	add_to_group("obstacle")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
