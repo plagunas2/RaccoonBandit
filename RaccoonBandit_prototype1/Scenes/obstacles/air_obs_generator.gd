@@ -1,7 +1,12 @@
 extends Node2D
 
 var vulture_scene = preload("res://Scenes/obstacles/vulture.tscn")
-var obstacle_types := [vulture_scene]
+var black_bird_scene = preload("res://Scenes/obstacles/black_bird.tscn")
+var red_bird_scene = preload("res://Scenes/obstacles/red_bird.tscn")
+var yellow_bird_scene = preload("res://Scenes/obstacles/yellow_bird.tscn")
+var green_bird_scene = preload("res://Scenes/obstacles/green_bird.tscn")
+var pink_bird_scene = preload("res://Scenes/obstacles/pink_bird.tscn")
+var obstacle_types := [vulture_scene, black_bird_scene, red_bird_scene, yellow_bird_scene, green_bird_scene, pink_bird_scene]
 var obstacles : Array
 
 var last_obs
