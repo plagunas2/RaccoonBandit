@@ -38,9 +38,17 @@ signal left_screen
 
 func _ready():
 	add_to_group("player")
+	$FireballDetection/MainFireBallCollision.add_to_group("player_fire_shape")
+	$FireballDetection/SlideFireBallCollision.add_to_group("player_fire_shape")
 	magnet = false
 	bat = false
 	lives = 3
+	
+	$MainCollisionShape.disabled = false
+	$FireballDetection/MainFireBallCollision.disabled = false
+	
+	$SlideCollisionShape.disabled = true
+	$FireballDetection/SlideFireBallCollision.disabled = true
 	
 	$FireballDetection.connect("body_entered", Callable(self, "_on_fireball_entered"))
 	
@@ -58,13 +66,14 @@ func _on_police_attack():
 func _livescounter():
 	lives -=1
 	if lives <= 0: 
+		await get_tree().create_timer(0.5).timeout
 		parallax.scroll_speed = 0
 		dying()
 		emit_signal("final_death")
 	else:
 		respawn()
 
-func _physics_process(delta):
+func _physics_process(delta):	
 	character_positon = self.global_position
 	# Add the gravity.
 	if not is_on_floor():
@@ -97,11 +106,37 @@ func _physics_process(delta):
 	
 		# Handle slide
 		if Input.is_action_pressed("down"):
+			$SlideCollisionShape.disabled = false
+			$FireballDetection/SlideFireBallCollision.disabled = false
+			$SlideCollisionShape.visible = true
+			$FireballDetection/SlideFireBallCollision.visible = true
+			
+			$MainCollisionShape.disabled = true
+			$FireballDetection/MainFireBallCollision.disabled = true
+			$MainCollisionShape.visible = false
+			$FireballDetection/MainFireBallCollision.visible = false
 			slide()
+		else:
+			default_collision_shapes()
+			animated_sprite.set_offset(Vector2(0, 0))
+		#Fix collision shape bugs
+		#Remember to change update position from using velocity to adjusting pos
+		#if hit bird under belly, shit on cop, cop stops for a couple secs then comes back
 
 	move_and_slide()
 	update_animation()
 	update_position(delta)
+
+func default_collision_shapes():
+	$MainCollisionShape.disabled = false
+	$FireballDetection/MainFireBallCollision.disabled = false
+	$MainCollisionShape.visible = true
+	$FireballDetection/MainFireBallCollision.visible = true
+	
+	$SlideCollisionShape.disabled = true
+	$FireballDetection/SlideFireBallCollision.disabled = true
+	$SlideCollisionShape.visible = false
+	$FireballDetection/SlideFireBallCollision.visible = false
 
 func update_animation():		
 	if not animation_locked:
@@ -134,6 +169,7 @@ func land():
 func slide():
 	if not is_on_floor():
 		velocity.y = velocity.y + 1000
+	animated_sprite.set_offset(Vector2(0, -20))
 	animated_sprite.play("Sliding")
 	animation_locked = true
 	
@@ -144,15 +180,17 @@ func idle():
 func respawn():
 	print("respawned")
 	if is_dead == true:
-		is_dead = false
-		$CollisionShape2D.disabled = true
-		animated_sprite.visible= false
-		await get_tree().create_timer(1).timeout
+		$MainCollisionShape.set_deferred("disabled", true)
+		$FireballDetection/MainFireBallCollision.set_deferred("disabled", true)
+		animated_sprite.visible = false
+		await get_tree().create_timer(2).timeout
 		self.global_position = home_position
+		is_dead = false
 		jump()
-		animated_sprite.visible =true
+		animated_sprite.visible = true
 		
-		$CollisionShape2D.disabled = false
+		$MainCollisionShape.disabled = false
+		$FireballDetection/MainFireBallCollision.disabled = false
 		
 #func update_deadly_collision():
 	#if collide
@@ -178,7 +216,6 @@ func update_position(delta):
 func _on_animated_sprite_2d_animation_finished():
 	if(["Jump End", "Jump Start", "Jump Double", "Sliding"].has(animated_sprite.animation)):
 		animation_locked = false
-		
 		
 func getPowerup(string):
 	if(string == "magnet"):

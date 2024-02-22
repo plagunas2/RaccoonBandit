@@ -6,7 +6,6 @@ var magnet = preload("res://Scenes/Powerups/magnet_pop.tscn")
 func _ready():
 	pass # Replace with function body.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
