@@ -35,7 +35,7 @@ func _ready():
 	ground = groundNode.get_node("Sprite2D")
 	screen_size = get_viewport().content_scale_size
 	
-	min_spawn_interval = 3.0 
+	min_spawn_interval = 4.0 
 	max_spawn_interval = 8.0
 	
 	$Timer.start()
@@ -43,7 +43,7 @@ func _ready():
 func _process(_delta):
 	scroll_speed = parallax_background.scroll_speed
 	seconds_in_screen = screen_size.x/scroll_speed
-	min_spawn_interval = seconds_in_screen * 0.2
+	min_spawn_interval = seconds_in_screen * 0.3
 	max_spawn_interval = seconds_in_screen * 0.9
 
 func _on_timer_timeout():
