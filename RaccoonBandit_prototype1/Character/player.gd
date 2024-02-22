@@ -200,7 +200,8 @@ func _on_timer_timeout():
 
 func _on_visible_on_screen_enabler_2d_screen_exited():
 	#dying()
-	is_dead = true
-	_livescounter()
+	if(self.global_position.x < 0):
+		is_dead = true
+		_livescounter()
 	#emit_signal("left_screen")
 	#parallax.scroll_speed = 0
