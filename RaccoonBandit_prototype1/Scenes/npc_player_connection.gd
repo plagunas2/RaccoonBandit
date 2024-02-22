@@ -2,6 +2,7 @@ extends Node2D
 
 var npc
 var player
+var fireball
 var parallax_background
 var global_speed
 
@@ -11,9 +12,11 @@ func _ready():
 	var HUD = $HUD
 	npc = $npc
 	player = $Player
+	fireball = $Fireball
 	
 	npc.connect("police_attack", Callable(player, "_on_police_attack"))
 	HUD.connect("score_6", Callable(npc, "_on_score_6"))
+	npc.connect("fireball_shot", Callable(fireball, "_on_fireball_shot"))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):	
