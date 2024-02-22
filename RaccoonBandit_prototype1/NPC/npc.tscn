@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://ex06u32pjcji"]
+[gd_scene load_steps=45 format=3 uid="uid://ex06u32pjcji"]
 
 [ext_resource type="Texture2D" uid="uid://bcuaqjh4e07qq" path="res://Assets/PolicePack/PNG Sequences Police/idle/1_police_Idle_000.png" id="1_fi5bn"]
 [ext_resource type="Script" path="res://NPC/npc.gd" id="1_pn30m"]
@@ -180,10 +180,17 @@ radius = 10.5
 height = 60.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v22ui"]
-radius = 17.4617
+radius = 15.269
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gwbii"]
-radius = 38.3654
+radius = 21.6333
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f2dlr"]
+radius = 32.8006
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_oi8ml"]
+a = Vector2(0, -0.199997)
+b = Vector2(0, 127.2)
 
 [node name="npc" type="CharacterBody2D"]
 scale = Vector2(5, 5)
@@ -192,7 +199,7 @@ script = ExtResource("1_pn30m")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_bh507")
-animation = &"idle"
+animation = &"run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_ixrvv")
@@ -207,11 +214,27 @@ shape = SubResource("CircleShape2D_v22ui")
 [node name="ChatDetectionArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChatDetectionArea"]
-position = Vector2(33.8182, 0.727273)
+position = Vector2(18.8, 0.6)
 shape = SubResource("CircleShape2D_gwbii")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
 [node name="Dialogue" parent="." instance=ExtResource("38_vw43n")]
+offset_left = 8.8
+offset_top = -2.0
+offset_right = 89.8
+offset_bottom = 82.0
 scale = Vector2(0.2, 0.2)
+
+[node name="FireDetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FireDetectionArea"]
+position = Vector2(33.8, -2.98023e-08)
+shape = SubResource("CircleShape2D_f2dlr")
+
+[node name="AbovePolice" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AbovePolice"]
+position = Vector2(7.8, -158.4)
+shape = SubResource("SegmentShape2D_oi8ml")
