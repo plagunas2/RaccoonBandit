@@ -76,13 +76,20 @@ func _on_body_entered(body: PhysicsBody2D):
 		#character_state = CharacterState.CAUGHT
 		police_animated_sprite.play("attack")
 		emit_signal("police_attack")
-		_after_police_attack()
+		await get_tree().create_timer(1).timeout
+		reset_police_animation()
+		#_after_police_attack()
 
 func _after_police_attack():
-	var timer = get_tree().create_timer(3)
+	var timer = get_tree().create_timer(2)
 	await timer.timeout
 	get_tree().change_scene_to_file("res://Scenes/Menus/game_over_menu.tscn")
 	print("switch to game over screen")
+	
+func _idle():
+	police_animated_sprite.play("idle")
+	
+	_after_police_attack()
 	
 # function to display the new dialogue when the score reaches 8
 func _on_score_6():

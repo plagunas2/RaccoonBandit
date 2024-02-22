@@ -9,5 +9,5 @@ func _ready():
 	speed = parallax_background.scroll_speed
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(delta):	
 	position += Vector2.LEFT * speed * delta
