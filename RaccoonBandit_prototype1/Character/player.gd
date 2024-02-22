@@ -42,15 +42,14 @@ func _ready():
 	
 func _on_police_attack():
 	print("Player caught by police, playing dying animation.")
-	parallax.scroll_speed = 0
 	is_dead = true
 	if is_on_floor():
-		dying()
 		lives -= 1
 		if lives <= 0: 
+			parallax.scroll_speed = 0
+			dying()
 			emit_signal("final_death")
 		else:
-			await get_tree().create_timer(2).timeout
 			respawn()
 		#explode midair animation
 		#dying_mid_air
@@ -136,10 +135,18 @@ func respawn():
 	print("respawned")
 	if is_dead == true:
 		is_dead = false
-		parallax.scroll_speed = 200
-		#process_mode = Node.PROCESS_MODE_INHERIT
+		$CollisionShape2D.disabled = true
+		animated_sprite.visible= false
+		await get_tree().create_timer(0.2).timeout
+		
+		animated_sprite.visible =true
+		self.global_position = home_position
+		#_physics_process(home_position)
 		jump()
-		_physics_process(character_positon)
+		$CollisionShape2D.disabled = false
+		#parallax.scroll_speed = 200
+		#process_mode = Node.PROCESS_MODE_INHERIT
+		
 		
 		
 		
