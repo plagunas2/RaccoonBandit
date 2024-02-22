@@ -17,7 +17,7 @@ func _ready():
 func _on_obstacle_entered(body: PhysicsBody2D):
 	if body.is_in_group("obstacle"):
 		queue_free()
-	elif (body.is_in_group("player")):
+	elif (body.is_in_group("player_fire_shape")):
 		queue_free()
 	
 func _physics_process(_delta):
