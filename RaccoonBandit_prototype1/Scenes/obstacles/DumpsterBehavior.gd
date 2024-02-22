@@ -8,6 +8,8 @@ var sound
 var root
 var player
 var speed
+var xpos
+var powerPop
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,6 +17,7 @@ func _ready():
 	sound = get_parent().get_parent().get_node("AudioStreamPlayer2D")
 	root = get_parent().get_parent()
 	player = root.get_node("Player")
+	powerPop = root.get_node("PowerupPopUp")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -23,6 +26,14 @@ func _process(delta):
 	else:
 		speed = 0
 	position += Vector2.LEFT * speed * delta
+	
+	xpos = self.global_position.x
+	left_screen()
+
+#to delete item when it leaves the screen
+func left_screen():
+	if (xpos < -50):
+		queue_free()
 
 func _on_body_entered(body):
 	print("detected player body")
@@ -33,9 +44,10 @@ func _on_body_entered(body):
 		
 		var yDistance = body.global_position.y - self.global_position.y
 		print("distance of p and d: ", yDistance)
+		
 		if(yDistance < -100): #make sure player is ABOVE the dumpster to destroy it
-			
 			var power_type = powerups[randi() % powerups.size()]
-			player.getPowerup(power_type)
 			sound.playSmash()
+			powerPop.PowerPop(power_type)
+			player.getPowerup(power_type)
 			queue_free()

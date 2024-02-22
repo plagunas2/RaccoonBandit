@@ -7,6 +7,7 @@ var xpos
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	add_to_group("obstacle")
 	parallax_background = get_parent().get_parent().get_node("ParallaxBackground")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -22,5 +23,5 @@ func _process(delta):
 
 #to delete item when it leaves the screen
 func left_screen():
-	if (xpos < 0):
+	if (xpos < -100):
 		queue_free()

@@ -7,6 +7,11 @@ extends CharacterBody2D
 @onready var police_animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 
 @onready var parallax = get_parent().get_node("ParallaxBackground")
+@onready var sound = get_parent().get_node("AudioStreamPlayer2D")
+
+@onready var hud = get_parent().get_node("HUD")
+
+signal final_death
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -15,6 +20,10 @@ var animation_locked : bool = false
 var was_in_air : bool = false
 var is_dead : bool = false
 
+var lives=3:
+	set(value):
+		lives = value
+		hud.init_lives(lives)
 
 #[0] = x, [1] = y
 var home_position = Vector2(825.0, 860.0)
@@ -24,22 +33,32 @@ var character_positon = self.global_position
 var magnet : bool
 var bat : bool
 
+signal left_screen
+
 func _ready():
 	add_to_group("player")
 	magnet = false
 	bat = false
+	lives = 3
 	#connect("caught_by_police", Callable(self, "_on_caught_by_police"))
 	
 func _on_police_attack():
 	print("Player caught by police, playing dying animation.")
-	parallax.scroll_speed = 0
 	is_dead = true
-	if is_on_floor():
-		dying()
-	else:
-		dying()
+	#if is_on_floor():
+	_livescounter()
+		
 		#explode midair animation
 		#dying_mid_air
+
+func _livescounter():
+	lives -=1
+	if lives <= 0: 
+		parallax.scroll_speed = 0
+		dying()
+		emit_signal("final_death")
+	else:
+		respawn()
 
 func _physics_process(delta):
 	character_positon = self.global_position
@@ -89,6 +108,7 @@ func update_animation():
 			animated_sprite.play("Running")
 	
 func dying():
+	sound.playDeath()
 	animated_sprite.play("Dying")
 	animation_locked = true
 	
@@ -116,7 +136,27 @@ func slide():
 func idle():
 	animated_sprite.play("idle")
 	animation_locked = true
-	
+
+func respawn():
+	print("respawned")
+	if is_dead == true:
+		is_dead = false
+		$CollisionShape2D.disabled = true
+		animated_sprite.visible= false
+		await get_tree().create_timer(0.2).timeout
+		self.global_position = home_position
+		jump()
+		animated_sprite.visible =true
+		
+		#_physics_process(home_position)
+		
+		$CollisionShape2D.disabled = false
+		#parallax.scroll_speed = 200
+		#process_mode = Node.PROCESS_MODE_INHERIT
+		
+		
+		
+		
 #func update_deadly_collision():
 	#if collide
 		#hurt animation(blink in and out) for 5 secs and invincible
@@ -127,7 +167,10 @@ func update_position(delta):
 	if (character_positon.x == home_position.x):
 		velocity.x = 0
 	elif (character_positon.x < home_position.x):
-		velocity.x += 3
+		if not is_dead:
+			velocity.x += 3
+		else:
+			velocity.x = 0
 	elif (character_positon.x > home_position.x):
 		var offset = character_positon.x - home_position.x
 		position -= Vector2(offset, 0) * delta
@@ -151,6 +194,13 @@ func getPowerup(string):
 		magnet = true
 		$MagnetTimer.start()
 		
-
 func _on_timer_timeout():
 	magnet = false
+
+
+func _on_visible_on_screen_enabler_2d_screen_exited():
+	#dying()
+	is_dead = true
+	_livescounter()
+	#emit_signal("left_screen")
+	#parallax.scroll_speed = 0

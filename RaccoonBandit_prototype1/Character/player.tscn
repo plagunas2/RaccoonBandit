@@ -1,4 +1,4 @@
-[gd_scene load_steps=138 format=3 uid="uid://bl1oakyavckov"]
+[gd_scene load_steps=189 format=3 uid="uid://bl1oakyavckov"]
 
 [ext_resource type="Script" path="res://Character/player.gd" id="1_5evjr"]
 [ext_resource type="Texture2D" uid="uid://s8x12ndkgllp" path="res://Assets/Raccoon/PNG/PNG Sequences/Idle/Idle_000.png" id="1_sbm6y"]
@@ -30,74 +30,125 @@
 [ext_resource type="Texture2D" uid="uid://bhrwwhm8lchdl" path="res://Assets/Raccoon/PNG/PNG Sequences/Idle/Idle_013.png" id="15_cioq0"]
 [ext_resource type="Texture2D" uid="uid://boshmamutb3tp" path="res://Assets/Raccoon/PNG/PNG Sequences/Dying/Dying_013.png" id="15_o41yl"]
 [ext_resource type="Texture2D" uid="uid://cq20a4r2y40c3" path="res://Assets/Raccoon/PNG/PNG Sequences/Dying/Dying_014.png" id="16_yav7k"]
+[ext_resource type="Texture2D" uid="uid://c8upv8h0oqsvh" path="res://Assets/Raccoon/PNG/PNG Sequences/DyingHead/Dying_015.png" id="17_hvh6f"]
 [ext_resource type="Texture2D" uid="uid://dva3iegthejds" path="res://Assets/Raccoon/PNG/PNG Sequences/Falling Down/Falling Down_000.png" id="17_kvowp"]
 [ext_resource type="Texture2D" uid="uid://cfepbq605akua" path="res://Assets/Raccoon/PNG/PNG Sequences/Hurt/Hurt_000.png" id="17_uqavu"]
 [ext_resource type="Texture2D" uid="uid://dwikv3i41c4a6" path="res://Assets/Raccoon/PNG/PNG Sequences/Falling Down/Falling Down_001.png" id="18_0enwb"]
 [ext_resource type="Texture2D" uid="uid://qtrvpoodyjs5" path="res://Assets/Raccoon/PNG/PNG Sequences/Hurt/Hurt_001.png" id="18_3gn4b"]
+[ext_resource type="Texture2D" uid="uid://xq0osf2msb44" path="res://Assets/Raccoon/PNG/PNG Sequences/DyingHead/Dying_016.png" id="18_r5y1f"]
+[ext_resource type="Texture2D" uid="uid://cbdy78w13g43e" path="res://Assets/Raccoon/PNG/PNG Sequences/DyingHead/Dying_017.png" id="19_06vct"]
 [ext_resource type="Texture2D" uid="uid://b746t068d8f2o" path="res://Assets/Raccoon/PNG/PNG Sequences/Falling Down/Falling Down_002.png" id="19_87ii1"]
 [ext_resource type="Texture2D" uid="uid://gv7oxi4trclv" path="res://Assets/Raccoon/PNG/PNG Sequences/Hurt/Hurt_002.png" id="19_bvpq5"]
 [ext_resource type="Texture2D" uid="uid://bpxgk5rlpcbfm" path="res://Assets/Raccoon/PNG/PNG Sequences/Hurt/Hurt_003.png" id="20_3ww8k"]
+[ext_resource type="Texture2D" uid="uid://bsvi7gv6muunp" path="res://Assets/Raccoon/PNG/PNG Sequences/DyingHead/Dying_018.png" id="20_5vnop"]
 [ext_resource type="Texture2D" uid="uid://d0g3memjdjusn" path="res://Assets/Raccoon/PNG/PNG Sequences/Falling Down/Falling Down_003.png" id="20_jflmo"]
 [ext_resource type="Texture2D" uid="uid://d4nwq3vr0lln6" path="res://Assets/Raccoon/PNG/PNG Sequences/Hurt/Hurt_004.png" id="21_rxjjh"]
 [ext_resource type="Texture2D" uid="uid://dc0m5k54s0r4j" path="res://Assets/Raccoon/PNG/PNG Sequences/Falling Down/Falling Down_004.png" id="21_v65ia"]
+[ext_resource type="Texture2D" uid="uid://c6g5o14ju68k5" path="res://Assets/Raccoon/PNG/PNG Sequences/DyingHead/Dying_019.png" id="21_vpmqe"]
+[ext_resource type="Texture2D" uid="uid://pqjabhw6akji" path="res://Assets/Raccoon/PNG/PNG Sequences/DyingHead/Dying_020.png" id="22_080qk"]
 [ext_resource type="Texture2D" uid="uid://i3ts7taa7pry" path="res://Assets/Raccoon/PNG/PNG Sequences/Falling Down/Falling Down_005.png" id="22_jexd5"]
 [ext_resource type="Texture2D" uid="uid://btebpctvyljyy" path="res://Assets/Raccoon/PNG/PNG Sequences/Hurt/Hurt_005.png" id="22_yal05"]
+[ext_resource type="Texture2D" uid="uid://b6y7678logfsc" path="res://Assets/Raccoon/PNG/PNG Sequences/DyingHead/Dying_021.png" id="23_nkohd"]
 [ext_resource type="Texture2D" uid="uid://d1bt7fsf4qp2s" path="res://Assets/Raccoon/PNG/PNG Sequences/Hurt/Hurt_006.png" id="23_q340t"]
+[ext_resource type="Texture2D" uid="uid://dy784rravfs13" path="res://Assets/Raccoon/PNG/PNG Sequences/DyingHead/Dying_022.png" id="24_ba70b"]
 [ext_resource type="Texture2D" uid="uid://dvy8ya5ivu3d7" path="res://Assets/Raccoon/PNG/PNG Sequences/Hurt/Hurt_007.png" id="24_chd16"]
+[ext_resource type="Texture2D" uid="uid://k8fah5oto26a" path="res://Assets/Raccoon/PNG/PNG Sequences/DyingHead/Dying_023.png" id="25_d7kfy"]
 [ext_resource type="Texture2D" uid="uid://b63lfo1vcbs4u" path="res://Assets/Raccoon/PNG/PNG Sequences/Hurt/Hurt_008.png" id="25_d8f3m"]
+[ext_resource type="Texture2D" uid="uid://c8d64b8hdcew0" path="res://Assets/Raccoon/PNG/PNG Sequences/DyingHead/Dying_024.png" id="26_1wpb7"]
 [ext_resource type="Texture2D" uid="uid://c6tx5esvwpkgt" path="res://Assets/Raccoon/PNG/PNG Sequences/Hurt/Hurt_009.png" id="26_eb5oa"]
 [ext_resource type="Texture2D" uid="uid://cexyq2gl4rwf0" path="res://Assets/Raccoon/PNG/PNG Sequences/Hurt/Hurt_010.png" id="27_rdwy7"]
+[ext_resource type="Texture2D" uid="uid://bodpf22ml24n2" path="res://Assets/Raccoon/PNG/PNG Sequences/DyingHead/Dying_025.png" id="27_tee76"]
 [ext_resource type="Texture2D" uid="uid://ewxps646cvjc" path="res://Assets/Raccoon/PNG/PNG Sequences/Hurt/Hurt_011.png" id="28_4incy"]
+[ext_resource type="Texture2D" uid="uid://ml51qg3cugcx" path="res://Assets/Raccoon/PNG/PNG Sequences/DyingHead/Dying_026.png" id="28_lp13c"]
 [ext_resource type="Texture2D" uid="uid://diwknbci5s4xv" path="res://Assets/Raccoon/PNG/PNG Sequences/Jump Start/Jump Start_000.png" id="29_ekir7"]
 [ext_resource type="Texture2D" uid="uid://crqx38vqgeghg" path="res://Assets/Raccoon/PNG/PNG Sequences/Run Attacking/Run Attacking_000.png" id="29_ewhcr"]
+[ext_resource type="Texture2D" uid="uid://3k3rs12ybi0t" path="res://Assets/Raccoon/PNG/PNG Sequences/DyingHead/Dying_027.png" id="29_lhby6"]
 [ext_resource type="Texture2D" uid="uid://f2vyc6i72phl" path="res://Assets/Raccoon/PNG/PNG Sequences/Jump Start/Jump Start_001.png" id="30_q3j6c"]
+[ext_resource type="Texture2D" uid="uid://dhqr2eows7uws" path="res://Assets/Raccoon/PNG/PNG Sequences/DyingHead/Dying_028.png" id="30_w0736"]
 [ext_resource type="Texture2D" uid="uid://wm2r20o7ctms" path="res://Assets/Raccoon/PNG/PNG Sequences/Run Attacking/Run Attacking_001.png" id="30_xlews"]
+[ext_resource type="Texture2D" uid="uid://dv2d1hn3nhrn5" path="res://Assets/Raccoon/PNG/PNG Sequences/DyingHead/Dying_029.png" id="31_gj3c6"]
 [ext_resource type="Texture2D" uid="uid://cosrqon70m2pw" path="res://Assets/Raccoon/PNG/PNG Sequences/Run Attacking/Run Attacking_002.png" id="31_h1wvu"]
 [ext_resource type="Texture2D" uid="uid://cbpdyowcdkxev" path="res://Assets/Raccoon/PNG/PNG Sequences/Jump Start/Jump Start_002.png" id="31_ua2kr"]
+[ext_resource type="Texture2D" uid="uid://p6q8o3qlr1y" path="res://Assets/Raccoon/PNG/PNG Sequences/DyingHead/Dying_030.png" id="32_06ti7"]
 [ext_resource type="Texture2D" uid="uid://bue3xdv4ea0bc" path="res://Assets/Raccoon/PNG/PNG Sequences/Jump Start/Jump Start_003.png" id="32_jmn71"]
 [ext_resource type="Texture2D" uid="uid://bjn6k4lds551b" path="res://Assets/Raccoon/PNG/PNG Sequences/Run Attacking/Run Attacking_003.png" id="32_uyfq1"]
+[ext_resource type="Texture2D" uid="uid://vcvfopw8myis" path="res://Assets/Raccoon/PNG/PNG Sequences/DyingHead/Dying_031.png" id="33_5yqm2"]
 [ext_resource type="Texture2D" uid="uid://bd4jcbpix3dg0" path="res://Assets/Raccoon/PNG/PNG Sequences/Jump Start/Jump Start_004.png" id="33_p6jor"]
 [ext_resource type="Texture2D" uid="uid://ca7xa2tuceg6l" path="res://Assets/Raccoon/PNG/PNG Sequences/Run Attacking/Run Attacking_004.png" id="33_wuk2o"]
 [ext_resource type="Texture2D" uid="uid://d03ldp84mrf2" path="res://Assets/Raccoon/PNG/PNG Sequences/Run Attacking/Run Attacking_005.png" id="34_4mmbx"]
 [ext_resource type="Texture2D" uid="uid://bmsefn6q6jyuc" path="res://Assets/Raccoon/PNG/PNG Sequences/Jump Start/Jump Start_005.png" id="34_btemd"]
+[ext_resource type="Texture2D" uid="uid://bnvjmk2l2u6mt" path="res://Assets/Raccoon/PNG/PNG Sequences/DyingHead/Dying_032.png" id="34_sisb0"]
 [ext_resource type="Texture2D" uid="uid://b6hmepoqbs341" path="res://Assets/Raccoon/PNG/PNG Sequences/Jump Loop/Jump Loop_000.png" id="35_i7sms"]
+[ext_resource type="Texture2D" uid="uid://btp5sn2bn6mh5" path="res://Assets/Raccoon/PNG/PNG Sequences/DyingHead/Dying_033.png" id="35_onea7"]
 [ext_resource type="Texture2D" uid="uid://drsluvc56f8bb" path="res://Assets/Raccoon/PNG/PNG Sequences/Run Attacking/Run Attacking_006.png" id="35_vvmcy"]
 [ext_resource type="Texture2D" uid="uid://pe4doo1ogg6s" path="res://Assets/Raccoon/PNG/PNG Sequences/Jump Loop/Jump Loop_001.png" id="36_k2pbd"]
 [ext_resource type="Texture2D" uid="uid://b3n37r81lmrak" path="res://Assets/Raccoon/PNG/PNG Sequences/Run Attacking/Run Attacking_007.png" id="36_lsmtv"]
+[ext_resource type="Texture2D" uid="uid://gh6olo6pwiqd" path="res://Assets/Raccoon/PNG/PNG Sequences/DyingHead/Dying_034.png" id="36_qc534"]
 [ext_resource type="Texture2D" uid="uid://x7juii1coslx" path="res://Assets/Raccoon/PNG/PNG Sequences/Jump Loop/Jump Loop_002.png" id="37_0kooo"]
+[ext_resource type="Texture2D" uid="uid://cnrkyepcfbrdf" path="res://Assets/Raccoon/PNG/PNG Sequences/DyingHead/Dying_035.png" id="37_cm5ba"]
 [ext_resource type="Texture2D" uid="uid://c2ux0chdl5kdw" path="res://Assets/Raccoon/PNG/PNG Sequences/Run Attacking/Run Attacking_008.png" id="37_p0ulm"]
 [ext_resource type="Texture2D" uid="uid://brfdq7gndpnah" path="res://Assets/Raccoon/PNG/PNG Sequences/Jump Loop/Jump Loop_003.png" id="38_bvaga"]
+[ext_resource type="Texture2D" uid="uid://d3at4rv2hoctg" path="res://Assets/Raccoon/PNG/PNG Sequences/DyingHead/Dying_036.png" id="38_i2us3"]
 [ext_resource type="Texture2D" uid="uid://dp4tycbpssfn8" path="res://Assets/Raccoon/PNG/PNG Sequences/Run Attacking/Run Attacking_009.png" id="38_mlddl"]
+[ext_resource type="Texture2D" uid="uid://dpje8cp262i6c" path="res://Assets/Raccoon/PNG/PNG Sequences/DyingHead/Dying_037.png" id="39_4mvfl"]
 [ext_resource type="Texture2D" uid="uid://b1gjhdwhst33o" path="res://Assets/Raccoon/PNG/PNG Sequences/Jump Loop/Jump Loop_004.png" id="39_7q7vh"]
 [ext_resource type="Texture2D" uid="uid://brywda0jmny27" path="res://Assets/Raccoon/PNG/PNG Sequences/Run Attacking/Run Attacking_010.png" id="39_wkdmt"]
+[ext_resource type="Texture2D" uid="uid://f57xfoygo24w" path="res://Assets/Raccoon/PNG/PNG Sequences/DyingHead/Dying_038.png" id="40_ftax7"]
 [ext_resource type="Texture2D" uid="uid://co65gk0k3p8fy" path="res://Assets/Raccoon/PNG/PNG Sequences/Run Attacking/Run Attacking_011.png" id="40_j1wx7"]
 [ext_resource type="Texture2D" uid="uid://bpcblmx2klkk" path="res://Assets/Raccoon/PNG/PNG Sequences/Jump Loop/Jump Loop_005.png" id="40_u6og3"]
+[ext_resource type="Texture2D" uid="uid://dg52guakioxxp" path="res://Assets/Raccoon/PNG/PNG Sequences/DyingHead/Dying_039.png" id="41_8188f"]
 [ext_resource type="Texture2D" uid="uid://dit0iman3bqnl" path="res://Assets/Raccoon/PNG/PNG Sequences/Run Attacking/Run Attacking_012.png" id="41_byhw6"]
 [ext_resource type="Texture2D" uid="uid://dnmgikcjx760k" path="res://Assets/Raccoon/PNG/PNG Sequences/Run Attacking/Run Attacking_013.png" id="42_lim1q"]
+[ext_resource type="Texture2D" uid="uid://jtx4gnnlog80" path="res://Assets/Raccoon/PNG/PNG Sequences/DyingHead/Dying_040.png" id="42_m7xrt"]
 [ext_resource type="Texture2D" uid="uid://4ba5aowsqq50" path="res://Assets/Raccoon/PNG/PNG Sequences/Run Attacking/Run Attacking_014.png" id="43_38sq8"]
+[ext_resource type="Texture2D" uid="uid://b7exm3pfbnro4" path="res://Assets/Raccoon/PNG/PNG Sequences/DyingHead/Dying_041.png" id="43_n1i2t"]
 [ext_resource type="Texture2D" uid="uid://bxk23xwj65mer" path="res://Assets/Raccoon/PNG/PNG Sequences/Run Throwing/Run Throwing_000.png" id="44_17k2e"]
+[ext_resource type="Texture2D" uid="uid://blujcaf0s4me6" path="res://Assets/Raccoon/PNG/PNG Sequences/DyingHead/Dying_049.png" id="44_lhy2h"]
 [ext_resource type="Texture2D" uid="uid://bl17h7vi2fsqm" path="res://Assets/Raccoon/PNG/PNG Sequences/Run Throwing/Run Throwing_001.png" id="45_7yyfi"]
+[ext_resource type="Texture2D" uid="uid://bvds6ecf3ccdn" path="res://Assets/Raccoon/PNG/PNG Sequences/DyingHead/Dying_042.png" id="45_qwlep"]
 [ext_resource type="Texture2D" uid="uid://dgppb72gihkeg" path="res://Assets/Raccoon/PNG/PNG Sequences/Run Throwing/Run Throwing_002.png" id="46_msvam"]
+[ext_resource type="Texture2D" uid="uid://05gpox64u2bh" path="res://Assets/Raccoon/PNG/PNG Sequences/DyingHead/Dying_043.png" id="46_vbk7v"]
 [ext_resource type="Texture2D" uid="uid://bk15pg2y20ytu" path="res://Assets/Raccoon/PNG/PNG Sequences/Run Throwing/Run Throwing_003.png" id="47_gyivj"]
+[ext_resource type="Texture2D" uid="uid://b3pcaoyc0uyap" path="res://Assets/Raccoon/PNG/PNG Sequences/DyingHead/Dying_044.png" id="47_l8m8p"]
 [ext_resource type="Texture2D" uid="uid://b7lmk07s0q3hm" path="res://Assets/Raccoon/PNG/PNG Sequences/Run Throwing/Run Throwing_004.png" id="48_5k3sm"]
+[ext_resource type="Texture2D" uid="uid://b3kfi8nun3phx" path="res://Assets/Raccoon/PNG/PNG Sequences/DyingHead/Dying_045.png" id="48_exd7e"]
 [ext_resource type="Texture2D" uid="uid://u4sg7b1qg0qo" path="res://Assets/Raccoon/PNG/PNG Sequences/Run Throwing/Run Throwing_005.png" id="49_b55ns"]
+[ext_resource type="Texture2D" uid="uid://m5mvm58ceyyn" path="res://Assets/Raccoon/PNG/PNG Sequences/DyingHead/Dying_046.png" id="49_mnbfy"]
 [ext_resource type="Texture2D" uid="uid://h76crase8o0h" path="res://Assets/Raccoon/PNG/PNG Sequences/Run Throwing/Run Throwing_006.png" id="50_miski"]
+[ext_resource type="Texture2D" uid="uid://co3k47a3ul4gs" path="res://Assets/Raccoon/PNG/PNG Sequences/DyingHead/Dying_047.png" id="50_pev0y"]
+[ext_resource type="Texture2D" uid="uid://ykguc4npx1qd" path="res://Assets/Raccoon/PNG/PNG Sequences/DyingHead/Dying_048.png" id="51_ck3tt"]
 [ext_resource type="Texture2D" uid="uid://lgbnjkvsn53" path="res://Assets/Raccoon/PNG/PNG Sequences/Run Throwing/Run Throwing_007.png" id="51_hvyd1"]
+[ext_resource type="Texture2D" uid="uid://cvvkqbih5fyhq" path="res://Assets/Raccoon/PNG/PNG Sequences/DyingHead/Dying_050.png" id="52_4f7vm"]
 [ext_resource type="Texture2D" uid="uid://4et48jlhiawy" path="res://Assets/Raccoon/PNG/PNG Sequences/Run Throwing/Run Throwing_008.png" id="52_7l7mi"]
+[ext_resource type="Texture2D" uid="uid://bgv7k6m712uvb" path="res://Assets/Raccoon/PNG/PNG Sequences/DyingHead/Dying_051.png" id="53_7subr"]
 [ext_resource type="Texture2D" uid="uid://clrs7vjxfpswc" path="res://Assets/Raccoon/PNG/PNG Sequences/Run Throwing/Run Throwing_009.png" id="53_bognl"]
 [ext_resource type="Texture2D" uid="uid://dvhgpcqsi3p8k" path="res://Assets/Raccoon/PNG/PNG Sequences/Run Throwing/Run Throwing_010.png" id="54_7kg3c"]
+[ext_resource type="Texture2D" uid="uid://b0oa6cs0uytj6" path="res://Assets/Raccoon/PNG/PNG Sequences/DyingHead/Dying_052.png" id="54_hnqis"]
 [ext_resource type="Texture2D" uid="uid://cwuj3q63tojqg" path="res://Assets/Raccoon/PNG/PNG Sequences/Run Throwing/Run Throwing_011.png" id="55_8440f"]
+[ext_resource type="Texture2D" uid="uid://d2qmps6aq3wgw" path="res://Assets/Raccoon/PNG/PNG Sequences/DyingHead/Dying_053.png" id="55_tjxbd"]
 [ext_resource type="Texture2D" uid="uid://rmy4dk8ufr5j" path="res://Assets/Raccoon/PNG/PNG Sequences/Run Throwing/Run Throwing_012.png" id="56_xk2mj"]
+[ext_resource type="Texture2D" uid="uid://bpsa21gggwfs1" path="res://Assets/Raccoon/PNG/PNG Sequences/DyingHead/Dying_054.png" id="56_yhnnm"]
+[ext_resource type="Texture2D" uid="uid://bmckatq6vlghr" path="res://Assets/Raccoon/PNG/PNG Sequences/DyingHead/Dying_055.png" id="57_nkkwp"]
 [ext_resource type="Texture2D" uid="uid://b6ct0kihd4v8j" path="res://Assets/Raccoon/PNG/PNG Sequences/Run Throwing/Run Throwing_013.png" id="57_yrgj2"]
 [ext_resource type="Texture2D" uid="uid://c1fjngt4gb2hn" path="res://Assets/Raccoon/PNG/PNG Sequences/Run Throwing/Run Throwing_014.png" id="58_6q0di"]
+[ext_resource type="Texture2D" uid="uid://b80vbv4e0kjmn" path="res://Assets/Raccoon/PNG/PNG Sequences/DyingHead/Dying_056.png" id="58_i2ykt"]
 [ext_resource type="Texture2D" uid="uid://wd2cogn1ew14" path="res://Assets/Raccoon/PNG/PNG Sequences/Running/Running_000.png" id="59_6ta0y"]
+[ext_resource type="Texture2D" uid="uid://bl0ccam74pfk6" path="res://Assets/Raccoon/PNG/PNG Sequences/DyingHead/Dying_057.png" id="59_uwj47"]
+[ext_resource type="Texture2D" uid="uid://iw532h7elagj" path="res://Assets/Raccoon/PNG/PNG Sequences/DyingHead/Dying_058.png" id="60_n7hl0"]
 [ext_resource type="Texture2D" uid="uid://b36aw3pidgmk6" path="res://Assets/Raccoon/PNG/PNG Sequences/Running/Running_001.png" id="60_qc7py"]
+[ext_resource type="Texture2D" uid="uid://bjnwtxk8r2nsk" path="res://Assets/Raccoon/PNG/PNG Sequences/DyingHead/Dying_059.png" id="61_h27tx"]
 [ext_resource type="Texture2D" uid="uid://ddddhhxlqel13" path="res://Assets/Raccoon/PNG/PNG Sequences/Running/Running_002.png" id="61_ro6f1"]
+[ext_resource type="Texture2D" uid="uid://bfnl0pvqam8nx" path="res://Assets/Raccoon/PNG/PNG Sequences/DyingHead/Dying_060.png" id="62_cysds"]
 [ext_resource type="Texture2D" uid="uid://clxpqidm6mnv2" path="res://Assets/Raccoon/PNG/PNG Sequences/Running/Running_003.png" id="62_ea6t6"]
 [ext_resource type="Texture2D" uid="uid://b4008kk6tws5h" path="res://Assets/Raccoon/PNG/PNG Sequences/Running/Running_004.png" id="63_7n7jt"]
+[ext_resource type="Texture2D" uid="uid://biluiat2m6j7n" path="res://Assets/Raccoon/PNG/PNG Sequences/DyingHead/Dying_061.png" id="63_kejmm"]
+[ext_resource type="Texture2D" uid="uid://sbwch66nteri" path="res://Assets/Raccoon/PNG/PNG Sequences/DyingHead/Dying_062.png" id="64_64egl"]
 [ext_resource type="Texture2D" uid="uid://bh5jbgkxjfxil" path="res://Assets/Raccoon/PNG/PNG Sequences/Running/Running_005.png" id="64_y246d"]
+[ext_resource type="Texture2D" uid="uid://cwrf8e6ki66ym" path="res://Assets/Raccoon/PNG/PNG Sequences/DyingHead/Dying_063.png" id="65_pifnu"]
 [ext_resource type="Texture2D" uid="uid://bh2wspi2f8g3l" path="res://Assets/Raccoon/PNG/PNG Sequences/Running/Running_006.png" id="65_tk6lt"]
+[ext_resource type="Texture2D" uid="uid://5fj344i184pb" path="res://Assets/Raccoon/PNG/PNG Sequences/DyingHead/Dying_064.png" id="66_0r720"]
 [ext_resource type="Texture2D" uid="uid://dn4dg0bgxb0a8" path="res://Assets/Raccoon/PNG/PNG Sequences/Running/Running_007.png" id="66_dr75s"]
+[ext_resource type="Texture2D" uid="uid://d3ux3n5jsuxyp" path="res://Assets/Raccoon/PNG/PNG Sequences/DyingHead/Dying_065.png" id="67_6kk3p"]
 [ext_resource type="Texture2D" uid="uid://dh7gjuwo62ekl" path="res://Assets/Raccoon/PNG/PNG Sequences/Running/Running_008.png" id="67_ekr63"]
 [ext_resource type="Texture2D" uid="uid://cqu1buknwwjaf" path="res://Assets/Raccoon/PNG/PNG Sequences/Running/Running_009.png" id="68_vjspe"]
 [ext_resource type="Texture2D" uid="uid://fksuv4tw2sft" path="res://Assets/Raccoon/PNG/PNG Sequences/Running/Running_010.png" id="69_u2tea"]
@@ -183,10 +234,163 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("16_yav7k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_hvh6f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_r5y1f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_06vct")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_5vnop")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_vpmqe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_080qk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_nkohd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_ba70b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_d7kfy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_1wpb7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_tee76")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_lp13c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_lhby6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_w0736")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_gj3c6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_06ti7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_5yqm2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_sisb0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_onea7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_qc534")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_cm5ba")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_i2us3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_4mvfl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_ftax7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_8188f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_m7xrt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_n1i2t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_lhy2h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_qwlep")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_vbk7v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_l8m8p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_exd7e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_mnbfy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_pev0y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_ck3tt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_4f7vm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_7subr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_hnqis")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_tjxbd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_yhnnm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_nkkwp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_i2ykt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_uwj47")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_n7hl0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("61_h27tx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("62_cysds")
+}, {
+"duration": 1.0,
+"texture": ExtResource("63_kejmm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("64_64egl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_pifnu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_0r720")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67_6kk3p")
 }],
 "loop": false,
 "name": &"Dying",
-"speed": 15.0
+"speed": 30.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -649,7 +853,7 @@ script = ExtResource("1_5evjr")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.35, 0.35)
 sprite_frames = SubResource("SpriteFrames_57wnc")
-animation = &"Running"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -660,5 +864,8 @@ shape = SubResource("CapsuleShape2D_0rsjk")
 wait_time = 10.0
 one_shot = true
 
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="MagnetTimer" to="." method="_on_timer_timeout"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

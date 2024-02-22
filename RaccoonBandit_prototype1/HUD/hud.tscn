@@ -4,6 +4,7 @@
 
 [sub_resource type="SystemFont" id="SystemFont_f3v4l"]
 font_names = PackedStringArray("Impact")
+subpixel_positioning = 0
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_sif55")
@@ -21,3 +22,10 @@ theme_override_constants/outline_size = 10
 theme_override_fonts/font = SubResource("SystemFont_f3v4l")
 theme_override_font_sizes/font_size = 50
 text = "Trash: "
+
+[node name="Livecount" type="HBoxContainer" parent="."]
+offset_left = 1203.0
+offset_top = 8.0
+offset_right = 3093.0
+offset_bottom = 228.0
+scale = Vector2(0.3, 0.3)

@@ -6,13 +6,17 @@ enum CharacterState {
 	GAME_OVER
 }
 
+var fireball_scene = ResourceLoader.load("res://Scenes/fireball.tscn", "PackedScene")
+
 signal police_attack
+signal fireball_shot
+signal raccoon_above_police
 
 var character_state : CharacterState = CharacterState.RUNNING
 var police_officer : AnimatedSprite2D
 var chat_bubble : Control
 
-# Ensure to set these variables in the inspector
+# Ensure to set these v ariables in the inspector
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 @onready var police_animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 
@@ -34,9 +38,18 @@ func _ready():
 	await timer.timeout
 	chat_bubble.hide_dialogue()
 	
+	#check to see if the fireball_scene loaded successfully here
+	if not fireball_scene:
+		print("Failed to load fireball scene.")
+	else:
+		print("Fireball scene loaded successfully.")
+	
  	# Assuming the signal is connected through the Godot editor. If not, uncomment the next line.
 	$Area2D.connect("body_entered", Callable(self, "_on_body_entered"))
 	$ChatDetectionArea.connect("body_entered", Callable(self, "_on_body_entered_chat"))
+	$FireDetectionArea.connect("body_entered", Callable(self, "_fire"))
+	$FireDetectionArea.connect("body_exited", Callable(self, "_stop_fire"))
+	$AbovePolice.connect("body_entered", Callable(self, "_on_above_police"))
 	
 func reset_police_animation():
 	police_animated_sprite.play("run")
@@ -63,13 +76,20 @@ func _on_body_entered(body: PhysicsBody2D):
 		#character_state = CharacterState.CAUGHT
 		police_animated_sprite.play("attack")
 		emit_signal("police_attack")
-		_after_police_attack()
+		await get_tree().create_timer(1).timeout
+		reset_police_animation()
+		#_after_police_attack()
 
 func _after_police_attack():
-	var timer = get_tree().create_timer(1.5)
+	var timer = get_tree().create_timer(2)
 	await timer.timeout
 	get_tree().change_scene_to_file("res://Scenes/Menus/game_over_menu.tscn")
 	print("switch to game over screen")
+	
+func _idle():
+	police_animated_sprite.play("idle")
+	
+	_after_police_attack()
 	
 # function to display the new dialogue when the score reaches 8
 func _on_score_6():
@@ -80,6 +100,33 @@ func _on_score_6():
 	await timer.timeout
 	chat_bubble.hide_dialogue()
 	
+func _fire(body: PhysicsBody2D):
+	print("fireball_scene: ", fireball_scene)
+	if body.is_in_group("player") and fireball_scene:
+		police_animated_sprite.play("attack3")
+		var f = fireball_scene.instantiate()
+		get_parent().add_child(f)
+		emit_signal("fireball_shot")
+		f.position.x = position.x - 50
+		f.position.y = position.y + 20
+		
+		#dialogue update
+		chat_bubble.update_text("Hey there, little trash bandit! I've got a hot surprise for you! 🔥🦝")
+		chat_bubble.show_dialogue()
+		var timer = get_tree().create_timer(4) 
+		await timer.timeout
+		chat_bubble.hide_dialogue()
+		
+func _stop_fire(body: PhysicsBody2D):
+	if body.is_in_group("player"):
+		var timer = get_tree().create_timer(2.5) 
+		await timer.timeout
+		police_animated_sprite.play("run")
+		
+func _on_above_police(body: PhysicsBody2D):
+	if body.is_in_group("player"):
+		emit_signal("raccoon_above_police")
+		
 #func _process(delta):
 	#match character_state:
 		#CharacterState.RUNNING:
