@@ -17,6 +17,7 @@ func _ready():
 	npc.connect("police_attack", Callable(player, "_on_police_attack"))
 	HUD.connect("score_6", Callable(npc, "_on_score_6"))
 	npc.connect("fireball_shot", Callable(fireball, "_on_fireball_shot"))
+	npc.connect("raccoon_above_police", Callable(player, "_on_raccoon_above_police"))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):	
