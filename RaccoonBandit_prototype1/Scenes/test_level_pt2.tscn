@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dxoduqoma00oh"]
+[gd_scene load_steps=14 format=3 uid="uid://dxoduqoma00oh"]
 
 [ext_resource type="Script" path="res://Scenes/npc_player_connection.gd" id="1_q5ohh"]
 [ext_resource type="PackedScene" uid="uid://cv0j6kgntrc6w" path="res://Scenes/parallax_background.tscn" id="1_qa4be"]
@@ -7,11 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://dnw4bgmjccngu" path="res://Scenes/obstacles/obs_generator.tscn" id="4_md4bb"]
 [ext_resource type="PackedScene" uid="uid://dwre4s3tegjwg" path="res://Scenes/Food/food_generator.tscn" id="5_15tit"]
 [ext_resource type="PackedScene" uid="uid://dei8g5ul1uts2" path="res://HUD/hud.tscn" id="6_7rpvi"]
-[ext_resource type="PackedScene" path="res://Scenes/GroundStuff/Groundgenerator.tscn" id="7_1ougk"]
+[ext_resource type="Script" path="res://Scenes/obstacles/ObstacleGenerator.gd" id="6_j4vqs"]
+[ext_resource type="PackedScene" uid="uid://dfcmymrykuvva" path="res://Scenes/GroundStuff/Groundgenerator.tscn" id="7_1ougk"]
 [ext_resource type="Script" path="res://Scripts/AudioScript.gd" id="7_k0fiu"]
 [ext_resource type="PackedScene" uid="uid://ex06u32pjcji" path="res://NPC/npc.tscn" id="7_yfiwp"]
 [ext_resource type="AudioStream" uid="uid://bn1olh38hgngo" path="res://Sounds/swingMusic.mp3" id="8_6qowf"]
 [ext_resource type="PackedScene" uid="uid://o3ujw3rh2i6u" path="res://Scenes/Menus/pause_menu.tscn" id="9_2bejn"]
+[ext_resource type="PackedScene" uid="uid://cbmbky5ui0234" path="res://Scenes/Powerups/powerup_pop_up.tscn" id="13_587wi"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_q5ohh")
@@ -23,11 +25,18 @@ position = Vector2(825, 860)
 scale = Vector2(1.65, 1.65)
 
 [node name="ground" parent="." instance=ExtResource("4_h6uak")]
-position = Vector2(646, 1026)
-scale = Vector2(8, 1)
+position = Vector2(1408, 1028)
+scale = Vector2(10, 1)
 
 [node name="ObGenerator" parent="." instance=ExtResource("4_md4bb")]
 position = Vector2(2095, 815)
+script = ExtResource("6_j4vqs")
+
+[node name="AirObGenerator" parent="." instance=ExtResource("4_md4bb")]
+position = Vector2(2100, 425)
+
+[node name="AirObGenerator2" parent="." instance=ExtResource("4_md4bb")]
+position = Vector2(2250, 275)
 
 [node name="FoodGenerator" parent="." instance=ExtResource("5_15tit")]
 position = Vector2(2170, 640)
@@ -38,7 +47,7 @@ position = Vector2(2056, 1027)
 [node name="HUD" parent="." instance=ExtResource("6_7rpvi")]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-volume_db = 16.994
+volume_db = 8.0
 bus = &"sfx"
 script = ExtResource("7_k0fiu")
 
@@ -56,3 +65,6 @@ scale = Vector2(6, 6)
 [node name="ground2" parent="." instance=ExtResource("4_h6uak")]
 position = Vector2(1616, 1026)
 scale = Vector2(8, 1)
+
+[node name="PowerupPopUp" parent="." instance=ExtResource("13_587wi")]
+position = Vector2(944, 453)

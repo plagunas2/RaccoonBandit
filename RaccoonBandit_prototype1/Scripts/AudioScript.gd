@@ -28,3 +28,4 @@ func playDeath():
 	var deathSound = deathSounds[randi() % deathSounds.size()]
 	self.set_stream(deathSound)
 	play()
+
