@@ -35,10 +35,10 @@ func _on_body_entered(body):
 		
 		var yDistance = body.global_position.y - self.global_position.y
 		print("distance of p and d: ", yDistance)
+		
 		if(yDistance < -100): #make sure player is ABOVE the dumpster to destroy it
-			
 			var power_type = powerups[randi() % powerups.size()]
+			sound.playSmash()
 			powerPop.PowerPop(power_type)
 			player.getPowerup(power_type)
-			sound.playSmash()
 			queue_free()

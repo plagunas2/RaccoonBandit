@@ -29,3 +29,5 @@ func popup():
 	if(finished == true && a <= 0):
 		queue_free()
 	
+func playSound():
+	pass

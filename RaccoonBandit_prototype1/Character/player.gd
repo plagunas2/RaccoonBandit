@@ -154,3 +154,4 @@ func getPowerup(string):
 
 func _on_timer_timeout():
 	magnet = false
+

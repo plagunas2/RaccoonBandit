@@ -19,3 +19,5 @@ func playEat():
 func playSmash():
 	self.set_stream(smashSound)
 	play()
+	
+
