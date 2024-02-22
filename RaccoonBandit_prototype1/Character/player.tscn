@@ -866,5 +866,8 @@ shape = SubResource("CapsuleShape2D_0rsjk")
 wait_time = 10.0
 one_shot = true
 
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="MagnetTimer" to="." method="_on_timer_timeout"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

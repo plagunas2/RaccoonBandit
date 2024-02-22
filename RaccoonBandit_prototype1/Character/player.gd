@@ -25,6 +25,8 @@ var character_positon = self.global_position
 var magnet : bool
 var bat : bool
 
+signal left_screen
+
 func _ready():
 	add_to_group("player")
 	magnet = false
@@ -129,7 +131,10 @@ func update_position(delta):
 	if (character_positon.x == home_position.x):
 		velocity.x = 0
 	elif (character_positon.x < home_position.x):
-		velocity.x += 3
+		if not is_dead:
+			velocity.x += 3
+		else:
+			velocity.x = 0
 	elif (character_positon.x > home_position.x):
 		var offset = character_positon.x - home_position.x
 		position -= Vector2(offset, 0) * delta
@@ -155,3 +160,10 @@ func getPowerup(string):
 		
 func _on_timer_timeout():
 	magnet = false
+
+
+func _on_visible_on_screen_enabler_2d_screen_exited():
+	parallax.scroll_speed = 0
+	is_dead = true
+	dying()
+	emit_signal("left_screen")

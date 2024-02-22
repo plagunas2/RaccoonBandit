@@ -71,6 +71,10 @@ func _after_police_attack():
 	get_tree().change_scene_to_file("res://Scenes/Menus/game_over_menu.tscn")
 	print("switch to game over screen")
 	
+func _idle():
+	police_animated_sprite.play("attack")
+	_after_police_attack()
+	
 # function to display the new dialogue when the score reaches 8
 func _on_score_6():
 	print("Dialogue when score is 6")

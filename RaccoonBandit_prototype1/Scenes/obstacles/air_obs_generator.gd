@@ -1,12 +1,7 @@
 extends Node2D
 
-var barrel_scene = preload("res://Scenes/obstacles/barrel.tscn")
-var cardboardBox_scene = preload("res://Scenes/obstacles/cardboardBox.tscn")
-var trashBag_scene = preload("res://Scenes/obstacles/trashBag.tscn")
-var mailbox_scene = preload("res://Scenes/obstacles/mailBox.tscn")
-var foodStand_scene = preload("res://Scenes/obstacles/foodStand.tscn")
-var dumpster1 = preload("res://Scenes/obstacles/dumpCol.tscn")
-var obstacle_types := [barrel_scene, cardboardBox_scene, dumpster1, trashBag_scene, mailbox_scene, foodStand_scene]
+var vulture_scene = preload("res://Scenes/obstacles/vulture.tscn")
+var obstacle_types := [vulture_scene]
 var obstacles : Array
 
 var last_obs
@@ -43,7 +38,7 @@ func _ready():
 func _process(_delta):
 	scroll_speed = parallax_background.scroll_speed
 	seconds_in_screen = screen_size.x/scroll_speed
-	min_spawn_interval = seconds_in_screen * 0.2
+	min_spawn_interval = seconds_in_screen * 0.5
 	max_spawn_interval = seconds_in_screen * 0.9
 
 func _on_timer_timeout():
