@@ -57,7 +57,7 @@ autoplay = true
 bus = &"bgrnd_music"
 
 [node name="npc" parent="." instance=ExtResource("7_yfiwp")]
-position = Vector2(250, 785)
+position = Vector2(200, 785)
 scale = Vector2(6, 6)
 
 [node name="PauseMenu" parent="." instance=ExtResource("9_2bejn")]

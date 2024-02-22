@@ -41,7 +41,6 @@ func _ready():
 	magnet = false
 	bat = false
 	lives = 3
-	#connect("caught_by_police", Callable(self, "_on_caught_by_police"))
 	
 	$FireballDetection.connect("body_entered", Callable(self, "_on_fireball_entered"))
 	
@@ -55,9 +54,6 @@ func _on_police_attack():
 	is_dead = true
 	#if is_on_floor():
 	_livescounter()
-		
-		#explode midair animation
-		#dying_mid_air
 
 func _livescounter():
 	lives -=1
@@ -156,14 +152,7 @@ func respawn():
 		jump()
 		animated_sprite.visible =true
 		
-		#_physics_process(home_position)
-		
 		$CollisionShape2D.disabled = false
-		#parallax.scroll_speed = 200
-		#process_mode = Node.PROCESS_MODE_INHERIT
-		
-		
-		
 		
 #func update_deadly_collision():
 	#if collide
@@ -185,11 +174,6 @@ func update_position(delta):
 		
 	if is_on_floor():
 		position += Vector2(parallax.scroll_speed, 0) * delta
- 
-#collect powerup(attack, invincible)
-	#change running animation to run attacking with bat animation
-	#timer to switch back to default
-	#destroy obstacles in the way
 
 func _on_animated_sprite_2d_animation_finished():
 	if(["Jump End", "Jump Start", "Jump Double", "Sliding"].has(animated_sprite.animation)):
@@ -205,11 +189,7 @@ func getPowerup(string):
 func _on_timer_timeout():
 	magnet = false
 
-
 func _on_visible_on_screen_enabler_2d_screen_exited():
-	#dying()
 	if(self.global_position.x < 0):
 		is_dead = true
 		_livescounter()
-	#emit_signal("left_screen")
-	#parallax.scroll_speed = 0
