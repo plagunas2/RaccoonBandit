@@ -13,6 +13,7 @@ func _ready():
 	player = $Player
 	
 	npc.connect("police_attack", Callable(player, "_on_police_attack"))
+	player.connect("left_screen", Callable(npc, "_idle"))
 	HUD.connect("score_6", Callable(npc, "_on_score_6"))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
