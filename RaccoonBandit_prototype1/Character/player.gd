@@ -163,7 +163,7 @@ func _on_timer_timeout():
 
 
 func _on_visible_on_screen_enabler_2d_screen_exited():
-	parallax.scroll_speed = 0
-	is_dead = true
 	dying()
+	is_dead = true
 	emit_signal("left_screen")
+	parallax.scroll_speed = 0

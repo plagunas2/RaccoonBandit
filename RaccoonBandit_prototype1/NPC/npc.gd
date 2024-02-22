@@ -72,7 +72,7 @@ func _after_police_attack():
 	print("switch to game over screen")
 	
 func _idle():
-	police_animated_sprite.play("attack")
+	police_animated_sprite.play("idle")
 	_after_police_attack()
 	
 # function to display the new dialogue when the score reaches 8
