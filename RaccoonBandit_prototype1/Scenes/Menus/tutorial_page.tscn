@@ -82,6 +82,8 @@ theme_override_font_sizes/font_size = 50
 text = "w/space bar/up arrow : jump
 
 s/down arrow: slide
+
+p/esc: pause game
 "
 horizontal_alignment = 1
 
