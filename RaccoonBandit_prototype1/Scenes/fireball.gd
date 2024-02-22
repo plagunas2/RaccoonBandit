@@ -2,11 +2,12 @@ extends CharacterBody2D
 
 var custom_velocity = Vector2()
 var xpos
-const SPEED = 200
+const SPEED = 300
 
 @onready var fireball_animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready():
+	add_to_group("fireball")
 	fireball_animated_sprite.play("right")
 	custom_velocity.x = SPEED
 	velocity = custom_velocity
@@ -15,6 +16,8 @@ func _ready():
 	
 func _on_obstacle_entered(body: PhysicsBody2D):
 	if body.is_in_group("obstacle"):
+		queue_free()
+	elif (body.is_in_group("player")):
 		queue_free()
 	
 func _physics_process(delta):
@@ -37,3 +40,6 @@ func left_screen():
 		queue_free() 
 	elif (xpos == 2095):
 		queue_free()
+
+func make_queue_free():
+	queue_free()

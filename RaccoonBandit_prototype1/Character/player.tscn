@@ -1,4 +1,4 @@
-[gd_scene load_steps=189 format=3 uid="uid://bl1oakyavckov"]
+[gd_scene load_steps=190 format=3 uid="uid://bl1oakyavckov"]
 
 [ext_resource type="Script" path="res://Character/player.gd" id="1_5evjr"]
 [ext_resource type="Texture2D" uid="uid://s8x12ndkgllp" path="res://Assets/Raccoon/PNG/PNG Sequences/Idle/Idle_000.png" id="1_sbm6y"]
@@ -847,6 +847,9 @@ animations = [{
 radius = 43.0
 height = 118.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_yla4g"]
+radius = 67.0
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_5evjr")
 
@@ -865,6 +868,12 @@ wait_time = 10.0
 one_shot = true
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+
+[node name="FireballDetection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FireballDetection"]
+position = Vector2(4, -6)
+shape = SubResource("CircleShape2D_yla4g")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="MagnetTimer" to="." method="_on_timer_timeout"]
