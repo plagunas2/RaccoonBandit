@@ -138,11 +138,12 @@ func respawn():
 		$CollisionShape2D.disabled = true
 		animated_sprite.visible= false
 		await get_tree().create_timer(0.2).timeout
-		
-		animated_sprite.visible =true
 		self.global_position = home_position
-		#_physics_process(home_position)
 		jump()
+		animated_sprite.visible =true
+		
+		#_physics_process(home_position)
+		
 		$CollisionShape2D.disabled = false
 		#parallax.scroll_speed = 200
 		#process_mode = Node.PROCESS_MODE_INHERIT
