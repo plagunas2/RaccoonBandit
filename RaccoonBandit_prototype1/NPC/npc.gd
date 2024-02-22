@@ -76,6 +76,7 @@ func _after_police_attack():
 	
 func _idle():
 	police_animated_sprite.play("idle")
+	
 	_after_police_attack()
 	
 # function to display the new dialogue when the score reaches 8

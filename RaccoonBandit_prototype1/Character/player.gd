@@ -45,16 +45,20 @@ func _ready():
 func _on_police_attack():
 	print("Player caught by police, playing dying animation.")
 	is_dead = true
-	if is_on_floor():
-		lives -= 1
-		if lives <= 0: 
-			parallax.scroll_speed = 0
-			dying()
-			emit_signal("final_death")
-		else:
-			respawn()
+	#if is_on_floor():
+	_livescounter()
+		
 		#explode midair animation
 		#dying_mid_air
+
+func _livescounter():
+	lives -=1
+	if lives <= 0: 
+		parallax.scroll_speed = 0
+		dying()
+		emit_signal("final_death")
+	else:
+		respawn()
 
 func _physics_process(delta):
 	character_positon = self.global_position
@@ -195,7 +199,8 @@ func _on_timer_timeout():
 
 
 func _on_visible_on_screen_enabler_2d_screen_exited():
-	dying()
+	#dying()
 	is_dead = true
-	emit_signal("left_screen")
-	parallax.scroll_speed = 0
+	_livescounter()
+	#emit_signal("left_screen")
+	#parallax.scroll_speed = 0
