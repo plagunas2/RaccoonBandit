@@ -47,6 +47,7 @@ func _ready():
 	$Area2D.connect("body_entered", Callable(self, "_on_body_entered"))
 	$ChatDetectionArea.connect("body_entered", Callable(self, "_on_body_entered_chat"))
 	$FireDetectionArea.connect("body_entered", Callable(self, "_fire"))
+	$FireDetectionArea.connect("body_exited", Callable(self, "_stop_fire"))
 	
 func reset_police_animation():
 	police_animated_sprite.play("run")
@@ -103,9 +104,15 @@ func _fire(body: PhysicsBody2D):
 		#dialogue update
 		chat_bubble.update_text("Hey there, little trash bandit! I've got a hot surprise for you! 🔥🦝")
 		chat_bubble.show_dialogue()
-		var timer = get_tree().create_timer(5) 
+		var timer = get_tree().create_timer(4) 
 		await timer.timeout
 		chat_bubble.hide_dialogue()
+		
+func _stop_fire(body: PhysicsBody2D):
+	if body.is_in_group("player"):
+		var timer = get_tree().create_timer(2.5) 
+		await timer.timeout
+		police_animated_sprite.play("run")
 		
 #func _process(delta):
 	#match character_state:
