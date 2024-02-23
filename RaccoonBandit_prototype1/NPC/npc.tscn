@@ -205,7 +205,7 @@ shape = SubResource("CapsuleShape2D_ixrvv")
 disable_mode = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(13.3333, 1.06667)
+position = Vector2(6.5333, 1.06667)
 shape = SubResource("CircleShape2D_v22ui")
 
 [node name="ChatDetectionArea" type="Area2D" parent="."]

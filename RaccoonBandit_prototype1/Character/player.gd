@@ -21,7 +21,7 @@ var animation_locked : bool = false
 var was_in_air : bool = false
 var is_dead : bool = false
 
-var lives=3:
+var lives = 3:
 	set(value):
 		lives = value
 		hud.init_lives(lives)
@@ -35,6 +35,7 @@ var magnet : bool
 var bat : bool
 
 signal left_screen
+var out_screen
 
 func _ready():
 	add_to_group("player")
@@ -43,6 +44,7 @@ func _ready():
 	magnet = false
 	bat = false
 	lives = 3
+	out_screen = false
 	
 	$MainCollisionShape.disabled = false
 	$FireballDetection/MainFireBallCollision.disabled = false
@@ -64,13 +66,17 @@ func _on_police_attack():
 	_livescounter()
 
 func _livescounter():
-	lives -=1
+	lives -= 1
 	if lives <= 0: 
 		await get_tree().create_timer(0.5).timeout
 		parallax.scroll_speed = 0
-		dying()
+		if(out_screen == false):
+			dying()
+		elif(out_screen == true):
+			explode()
 		emit_signal("final_death")
 	else:
+		out_screen = false
 		respawn()
 
 func _physics_process(delta):	
@@ -119,7 +125,6 @@ func _physics_process(delta):
 		else:
 			default_collision_shapes()
 			animated_sprite.set_offset(Vector2(0, 0))
-		#Fix collision shape bugs
 		#Remember to change update position from using velocity to adjusting pos
 		#if hit bird under belly, shit on cop, cop stops for a couple secs then comes back
 
@@ -146,6 +151,17 @@ func update_animation():
 		else:
 			animated_sprite.play("Running")
 	
+func explode():	
+	gravity = 0
+	velocity.y = 0
+	animated_sprite.set_offset(Vector2(520, 0))
+	animated_sprite.move_to_front()
+	animated_sprite.set_scale(Vector2(0.5,0.5))
+	
+	sound.playExplode()
+	animated_sprite.play("Explode")
+	animation_locked = true
+
 func dying():
 	sound.playDeath()
 	animated_sprite.play("Dying")
@@ -229,4 +245,5 @@ func _on_timer_timeout():
 func _on_visible_on_screen_enabler_2d_screen_exited():
 	if(self.global_position.x < 0):
 		is_dead = true
+		out_screen = true
 		_livescounter()
