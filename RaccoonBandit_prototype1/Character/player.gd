@@ -39,6 +39,7 @@ var out_screen
 
 func _ready():
 	add_to_group("player")
+	$FireballDetection.add_to_group("player_fire_shape")
 	$FireballDetection/MainFireBallCollision.add_to_group("player_fire_shape")
 	$FireballDetection/SlideFireBallCollision.add_to_group("player_fire_shape")
 	magnet = false
@@ -52,10 +53,10 @@ func _ready():
 	$SlideCollisionShape.disabled = true
 	$FireballDetection/SlideFireBallCollision.disabled = true
 	
-	$FireballDetection.connect("body_entered", Callable(self, "_on_fireball_entered"))
+	$FireballDetection.connect("area_entered", Callable(self, "_on_fireball_entered"))
 	
-func _on_fireball_entered(body: PhysicsBody2D):
-	if body.is_in_group("fireball"):
+func _on_fireball_entered(area):
+	if area.is_in_group("fireball_area"):
 		is_dead = true
 		_livescounter()
 	
@@ -125,9 +126,7 @@ func _physics_process(delta):
 		else:
 			default_collision_shapes()
 			animated_sprite.set_offset(Vector2(0, 0))
-		#Remember to change update position from using velocity to adjusting pos
-		#if hit bird under belly, shit on cop, cop stops for a couple secs then comes back
-
+		
 	move_and_slide()
 	update_animation()
 	update_position(delta)
@@ -154,7 +153,7 @@ func update_animation():
 func explode():	
 	gravity = 0
 	velocity.y = 0
-	animated_sprite.set_offset(Vector2(520, 0))
+	animated_sprite.set_offset(Vector2(500, 0))
 	animated_sprite.move_to_front()
 	animated_sprite.set_scale(Vector2(0.5,0.5))
 	
@@ -215,19 +214,16 @@ func respawn():
 			#and stop background		
 
 func update_position(delta):
-	if (character_positon.x == home_position.x):
-		velocity.x = 0
-	elif (character_positon.x < home_position.x):
-		if not is_dead:
-			velocity.x += 3
-		else:
-			velocity.x = 0
-	elif (character_positon.x > home_position.x):
-		var offset = character_positon.x - home_position.x
-		position -= Vector2(offset, 0) * delta
+	if not is_dead:
+		if (character_positon.x < home_position.x):
+			var offset = home_position.x - character_positon.x
+			position += Vector2(offset, 0) * delta
+		elif (character_positon.x > home_position.x):
+			var offset = character_positon.x - home_position.x
+			position -= Vector2(offset, 0) * delta
 		
-	if is_on_floor():
-		position += Vector2(parallax.scroll_speed, 0) * delta
+		if is_on_floor():
+			position += Vector2(parallax.scroll_speed, 0) * delta
 
 func _on_animated_sprite_2d_animation_finished():
 	if(["Jump End", "Jump Start", "Jump Double", "Sliding"].has(animated_sprite.animation)):
