@@ -39,6 +39,7 @@ var out_screen
 
 func _ready():
 	add_to_group("player")
+	$FireballDetection.add_to_group("player_fire_shape")
 	$FireballDetection/MainFireBallCollision.add_to_group("player_fire_shape")
 	$FireballDetection/SlideFireBallCollision.add_to_group("player_fire_shape")
 	magnet = false
@@ -52,10 +53,10 @@ func _ready():
 	$SlideCollisionShape.disabled = true
 	$FireballDetection/SlideFireBallCollision.disabled = true
 	
-	$FireballDetection.connect("body_entered", Callable(self, "_on_fireball_entered"))
+	$FireballDetection.connect("area_entered", Callable(self, "_on_fireball_entered"))
 	
-func _on_fireball_entered(body: PhysicsBody2D):
-	if body.is_in_group("fireball"):
+func _on_fireball_entered(area):
+	if area.is_in_group("fireball_area"):
 		is_dead = true
 		_livescounter()
 	
