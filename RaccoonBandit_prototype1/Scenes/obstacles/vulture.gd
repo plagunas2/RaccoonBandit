@@ -5,6 +5,8 @@ var parallax_background
 
 var xpos
 
+#if hit bird under belly, shit on cop, cop stops for a couple secs then comes back
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	parallax_background = get_parent().get_parent().get_node("ParallaxBackground")

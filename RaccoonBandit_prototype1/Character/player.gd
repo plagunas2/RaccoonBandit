@@ -212,9 +212,6 @@ func respawn():
 		#next time die 
 			#and stop background		
 
-#Remember to change update position from using velocity to adjusting pos
-#if hit bird under belly, shit on cop, cop stops for a couple secs then comes back
-#Also explode obstacles when hit by fireball	
 func update_position(delta):
 	if not is_dead:
 		if (character_positon.x < home_position.x):

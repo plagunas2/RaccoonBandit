@@ -19,6 +19,7 @@ func _ready():
 	player = root.get_node("Player")
 	powerPop = root.get_node("PowerupPopUp")
 	add_to_group("obstacle_fire_shape")
+	$Dumpster1/AnimatedSprite2D.visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -55,4 +56,12 @@ func _on_body_entered(body):
 
 func _on_area_entered(area):
 	if area.is_in_group("fireball_area"):
+		$Dumpster1/CollisionPolygon2D.set_deferred("disabled", true)
+		$CollisionShape2D.set_deferred("disabled", true)
+		$Dumpster1/Sprite2D.visible = false
+		$Dumpster1/AnimatedSprite2D.visible = true
+		$Dumpster1/AnimatedSprite2D.move_to_front()
+		$Dumpster1/AnimatedSprite2D.play("default")
+		var timer = get_tree().create_timer(0.65)
+		await timer.timeout
 		queue_free()

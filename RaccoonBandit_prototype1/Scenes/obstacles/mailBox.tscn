@@ -1,10 +1,58 @@
-[gd_scene load_steps=5 format=3 uid="uid://b2lsj1cx5v84e"]
+[gd_scene load_steps=16 format=3 uid="uid://b2lsj1cx5v84e"]
 
 [ext_resource type="Texture2D" uid="uid://dpqnqif1p3m52" path="res://Assets/Obstacles/Bin_1.png" id="1_im7qx"]
 [ext_resource type="Script" path="res://Scripts/ObstacleBehavior.gd" id="1_rnmfe"]
+[ext_resource type="Texture2D" uid="uid://jhb088cq37mc" path="res://Assets/Explosion/Explosion_8/Explosion_1.png" id="3_2b4nn"]
+[ext_resource type="Texture2D" uid="uid://77wrj60jd0l" path="res://Assets/Explosion/Explosion_8/Explosion_2.png" id="4_fcb2a"]
+[ext_resource type="Texture2D" uid="uid://c5ahrbb2qg7oa" path="res://Assets/Explosion/Explosion_8/Explosion_3.png" id="5_xuuhd"]
+[ext_resource type="Texture2D" uid="uid://dt5d1b5yla4f0" path="res://Assets/Explosion/Explosion_8/Explosion_4.png" id="6_28yek"]
+[ext_resource type="Texture2D" uid="uid://de1aj13nqaycy" path="res://Assets/Explosion/Explosion_8/Explosion_5.png" id="7_840it"]
+[ext_resource type="Texture2D" uid="uid://bu57v07sa6o6k" path="res://Assets/Explosion/Explosion_8/Explosion_6.png" id="8_kml5y"]
+[ext_resource type="Texture2D" uid="uid://qe65ypgqjb1n" path="res://Assets/Explosion/Explosion_8/Explosion_7.png" id="9_15n7b"]
+[ext_resource type="Texture2D" uid="uid://bbyt512apes3i" path="res://Assets/Explosion/Explosion_8/Explosion_8.png" id="10_ccb4u"]
+[ext_resource type="Texture2D" uid="uid://3qkrethagmt8" path="res://Assets/Explosion/Explosion_8/Explosion_9.png" id="11_txvak"]
+[ext_resource type="Texture2D" uid="uid://dxug2kn370la3" path="res://Assets/Explosion/Explosion_8/Explosion_10.png" id="12_xu8ta"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hm8fa"]
 size = Vector2(68, 95)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d4ypo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_2b4nn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_fcb2a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_xuuhd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_28yek")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_840it")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_kml5y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_15n7b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ccb4u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_txvak")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_xu8ta")
+}],
+"loop": false,
+"name": &"default",
+"speed": 15.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4dacj"]
 size = Vector2(141, 191)
@@ -18,10 +66,16 @@ scale = Vector2(2, 2)
 texture = ExtResource("1_im7qx")
 offset = Vector2(0, -25)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="MainCollision" type="CollisionShape2D" parent="."]
 position = Vector2(21, 41)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_hm8fa")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(15, 30)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_d4ypo")
+offset = Vector2(0, 50)
 
 [node name="FireballDetection" type="Area2D" parent="."]
 
