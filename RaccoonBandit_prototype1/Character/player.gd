@@ -216,19 +216,16 @@ func respawn():
 #if hit bird under belly, shit on cop, cop stops for a couple secs then comes back
 #Also explode obstacles when hit by fireball	
 func update_position(delta):
-	if (character_positon.x == home_position.x):
-		velocity.x = 0
-	elif (character_positon.x < home_position.x):
-		if not is_dead:
-			velocity.x += 3
-		else:
-			velocity.x = 0
-	elif (character_positon.x > home_position.x):
-		var offset = character_positon.x - home_position.x
-		position -= Vector2(offset, 0) * delta
+	if not is_dead:
+		if (character_positon.x < home_position.x):
+			var offset = home_position.x - character_positon.x
+			position += Vector2(offset, 0) * delta
+		elif (character_positon.x > home_position.x):
+			var offset = character_positon.x - home_position.x
+			position -= Vector2(offset, 0) * delta
 		
-	if is_on_floor():
-		position += Vector2(parallax.scroll_speed, 0) * delta
+		if is_on_floor():
+			position += Vector2(parallax.scroll_speed, 0) * delta
 
 func _on_animated_sprite_2d_animation_finished():
 	if(["Jump End", "Jump Start", "Jump Double", "Sliding"].has(animated_sprite.animation)):
