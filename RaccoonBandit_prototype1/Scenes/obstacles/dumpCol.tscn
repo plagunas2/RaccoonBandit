@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scenes/obstacles/DumpsterBehavior.gd" id="1_nbgdf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vocyf"]
-size = Vector2(200, 160)
+size = Vector2(201, 160)
 
 [node name="dumpCol" type="Area2D"]
 script = ExtResource("1_nbgdf")
@@ -12,7 +12,8 @@ script = ExtResource("1_nbgdf")
 [node name="Dumpster1" parent="." instance=ExtResource("1_1kp5w")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(4, 64)
+position = Vector2(3.5, 64)
 shape = SubResource("RectangleShape2D_vocyf")
 
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -8,21 +8,22 @@ var speed = 200
 
 func _ready():
 	add_to_group("fireball")
+	$ObstacleDetection.add_to_group("fireball_area")
 	fireball_animated_sprite.play("right")
 	custom_velocity.x = speed
 	velocity = custom_velocity
 	
-	$ObstacleDetection.connect("body_entered", Callable(self, "_on_obstacle_entered"))
+	$ObstacleDetection.connect("area_entered", Callable(self, "_on_area_entered"))
 	
-func _on_obstacle_entered(body: PhysicsBody2D):
-	if body.is_in_group("obstacle"):
+func _on_area_entered(area: Area2D):
+	if area.is_in_group("obstacle_fire_shape"):
 		queue_free()
-	elif (body.is_in_group("player_fire_shape")):
+	elif (area.is_in_group("player_fire_shape")):
 		queue_free()
 	
 func _physics_process(_delta):
 	speed = get_parent().global_speed
-	custom_velocity.x = speed
+	custom_velocity.x = speed * 1.2
 	
 	velocity = custom_velocity
 	move_and_slide()

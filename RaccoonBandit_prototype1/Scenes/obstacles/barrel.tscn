@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://rbrh6r5gtbru"]
+[gd_scene load_steps=5 format=3 uid="uid://rbrh6r5gtbru"]
 
 [ext_resource type="Script" path="res://Scripts/ObstacleBehavior.gd" id="1_fqxci"]
 [ext_resource type="Texture2D" uid="uid://4noy7pb3r24k" path="res://Assets/Obstacles/Barrel.png" id="1_ss47m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0q6a4"]
 size = Vector2(100, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_trlfe"]
+size = Vector2(100.8, 127.2)
 
 [node name="barrel" type="CharacterBody2D"]
 position = Vector2(0, -40)
@@ -17,3 +20,10 @@ texture = ExtResource("1_ss47m")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, 46)
 shape = SubResource("RectangleShape2D_0q6a4")
+
+[node name="FireballDetection" type="Area2D" parent="."]
+
+[node name="FB" type="CollisionShape2D" parent="FireballDetection"]
+position = Vector2(0.800002, 46)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_trlfe")

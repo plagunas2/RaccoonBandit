@@ -18,6 +18,7 @@ func _ready():
 	root = get_parent().get_parent()
 	player = root.get_node("Player")
 	powerPop = root.get_node("PowerupPopUp")
+	add_to_group("obstacle_fire_shape")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -51,3 +52,7 @@ func _on_body_entered(body):
 			powerPop.PowerPop(power_type)
 			player.getPowerup(power_type)
 			queue_free()
+
+func _on_area_entered(area):
+	if area.is_in_group("fireball_area"):
+		queue_free()

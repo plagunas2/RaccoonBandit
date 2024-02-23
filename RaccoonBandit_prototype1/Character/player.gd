@@ -125,9 +125,7 @@ func _physics_process(delta):
 		else:
 			default_collision_shapes()
 			animated_sprite.set_offset(Vector2(0, 0))
-		#Remember to change update position from using velocity to adjusting pos
-		#if hit bird under belly, shit on cop, cop stops for a couple secs then comes back
-
+		
 	move_and_slide()
 	update_animation()
 	update_position(delta)
@@ -154,7 +152,7 @@ func update_animation():
 func explode():	
 	gravity = 0
 	velocity.y = 0
-	animated_sprite.set_offset(Vector2(520, 0))
+	animated_sprite.set_offset(Vector2(500, 0))
 	animated_sprite.move_to_front()
 	animated_sprite.set_scale(Vector2(0.5,0.5))
 	
@@ -214,6 +212,9 @@ func respawn():
 		#next time die 
 			#and stop background		
 
+#Remember to change update position from using velocity to adjusting pos
+#if hit bird under belly, shit on cop, cop stops for a couple secs then comes back
+#Also explode obstacles when hit by fireball	
 func update_position(delta):
 	if (character_positon.x == home_position.x):
 		velocity.x = 0

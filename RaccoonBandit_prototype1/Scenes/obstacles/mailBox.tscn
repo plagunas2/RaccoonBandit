@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://b2lsj1cx5v84e"]
+[gd_scene load_steps=5 format=3 uid="uid://b2lsj1cx5v84e"]
 
 [ext_resource type="Texture2D" uid="uid://dpqnqif1p3m52" path="res://Assets/Obstacles/Bin_1.png" id="1_im7qx"]
 [ext_resource type="Script" path="res://Scripts/ObstacleBehavior.gd" id="1_rnmfe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hm8fa"]
 size = Vector2(68, 95)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4dacj"]
+size = Vector2(141, 191)
 
 [node name="mailbox" type="CharacterBody2D"]
 script = ExtResource("1_rnmfe")
@@ -16,6 +19,12 @@ texture = ExtResource("1_im7qx")
 offset = Vector2(0, -25)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(24, 40)
+position = Vector2(21, 41)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_hm8fa")
+
+[node name="FireballDetection" type="Area2D" parent="."]
+
+[node name="FB" type="CollisionShape2D" parent="FireballDetection"]
+position = Vector2(17.5, 39.5)
+shape = SubResource("RectangleShape2D_4dacj")

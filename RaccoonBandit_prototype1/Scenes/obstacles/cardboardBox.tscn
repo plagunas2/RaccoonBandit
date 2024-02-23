@@ -1,10 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://2cv6qsoqsghw"]
+[gd_scene load_steps=3 format=3 uid="uid://2cv6qsoqsghw"]
 
 [ext_resource type="Script" path="res://Scripts/ObstacleBehavior.gd" id="1_ai45f"]
 [ext_resource type="Texture2D" uid="uid://dawbkmsevavii" path="res://Assets/Obstacles/Cardboard_Box.png" id="1_wggdy"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_r1dmb"]
-size = Vector2(208, 170)
 
 [node name="cardboardBox" type="CharacterBody2D"]
 script = ExtResource("1_ai45f")
@@ -26,6 +23,12 @@ scale = Vector2(1.25, 1.25)
 texture = ExtResource("1_wggdy")
 offset = Vector2(0, 25)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(55, 58)
-shape = SubResource("RectangleShape2D_r1dmb")
+polygon = PackedVector2Array(-68, -81, -65, -84, 18, -84, 53, -84, 56, -82, 57, -8, 99, -8, 104, -7, 106, -4, 105, 85, 102, 89, -17, 89, -20, 88, -102, 88, -106, 84, -106, -5, -105, -7, -103, -9, -69, -9)
+
+[node name="FireballDetection" type="Area2D" parent="."]
+
+[node name="FB" type="CollisionPolygon2D" parent="FireballDetection"]
+position = Vector2(47, 53)
+polygon = PackedVector2Array(-100, 93, -100, -3, -96, -6, -63, -6, -63, -77, -59, -81, -39, -81, -39, 93)
