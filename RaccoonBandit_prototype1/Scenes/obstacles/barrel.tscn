@@ -79,5 +79,4 @@ offset = Vector2(0, 50)
 
 [node name="FB" type="CollisionShape2D" parent="FireballDetection"]
 position = Vector2(0.800002, 46)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_trlfe")
