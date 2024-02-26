@@ -62,9 +62,9 @@ func _on_fireball_entered(area):
 	
 func _on_police_attack():
 	print("Player caught by police, playing dying animation.")
-	is_dead = true
-	#if is_on_floor():
-	_livescounter()
+	if is_dead == false:
+		is_dead = true
+		_livescounter()
 
 func _livescounter():
 	lives -= 1
@@ -198,14 +198,16 @@ func respawn():
 		$MainCollisionShape.set_deferred("disabled", true)
 		$FireballDetection/MainFireBallCollision.set_deferred("disabled", true)
 		animated_sprite.visible = false
-		await get_tree().create_timer(2).timeout
+		#calculate y
 		self.global_position = home_position
-		is_dead = false
+		position += Vector2(parallax.scroll_speed, 0) * 2
+		await get_tree().create_timer(2).timeout
 		jump()
 		animated_sprite.visible = true
 		
 		$MainCollisionShape.disabled = false
 		$FireballDetection/MainFireBallCollision.disabled = false
+		is_dead = false
 		
 #func update_deadly_collision():
 	#if collide
