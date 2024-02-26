@@ -10,7 +10,6 @@ var fireball_scene = ResourceLoader.load("res://Scenes/fireball.tscn", "PackedSc
 
 signal police_attack
 signal fireball_shot
-signal raccoon_above_police
 
 var character_state : CharacterState = CharacterState.RUNNING
 var police_officer : AnimatedSprite2D
@@ -99,7 +98,7 @@ func _on_score_6():
 	
 func _fire(body: PhysicsBody2D):
 	print("fireball_scene: ", fireball_scene)
-	if body.is_in_group("player") and fireball_scene:
+	if body.is_in_group("player") and fireball_scene:	
 		police_animated_sprite.play("attack3")
 		var f = fireball_scene.instantiate()
 		get_parent().call_deferred("add_child", f)
