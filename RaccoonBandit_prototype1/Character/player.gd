@@ -211,9 +211,7 @@ func respawn():
 		
 #func update_deadly_collision():
 	#if collide
-		#hurt animation(blink in and out) for 5 secs and invincible
-		#next time die 
-			#and stop background		
+		#livescounter		
 
 func update_position(delta):
 	if not is_dead:
