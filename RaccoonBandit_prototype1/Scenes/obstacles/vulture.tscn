@@ -128,7 +128,7 @@ radius = 64.8296
 height = 318.058
 
 [node name="Node2D" type="CharacterBody2D"]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.355, 0.355)
 script = ExtResource("1_ncapb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
