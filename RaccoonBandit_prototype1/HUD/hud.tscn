@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://dei8g5ul1uts2"]
+
+[ext_resource type="Script" path="res://HUD/HUD.gd" id="1_sif55"]
+
+[sub_resource type="SystemFont" id="SystemFont_f3v4l"]
+font_names = PackedStringArray("Impact")
+subpixel_positioning = 0
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_sif55")
+
+[node name="trashcount" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -142.0
+offset_bottom = 46.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.92549, 0.666667, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = SubResource("SystemFont_f3v4l")
+theme_override_font_sizes/font_size = 50
+text = "Trash: "
+
+[node name="Livecount" type="HBoxContainer" parent="."]
+offset_left = 1203.0
+offset_top = 8.0
+offset_right = 3093.0
+offset_bottom = 228.0
+scale = Vector2(0.3, 0.3)

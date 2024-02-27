@@ -1,0 +1,72 @@
+[gd_scene load_steps=15 format=3 uid="uid://b35s4plcej5wu"]
+
+[ext_resource type="PackedScene" uid="uid://bufwea0iee3ny" path="res://Scenes/obstacles/dumpster_1.tscn" id="1_1kp5w"]
+[ext_resource type="Script" path="res://Scenes/obstacles/DumpsterBehavior.gd" id="1_nbgdf"]
+[ext_resource type="Texture2D" uid="uid://jhb088cq37mc" path="res://Assets/Explosion/Explosion_8/Explosion_1.png" id="3_sic4i"]
+[ext_resource type="Texture2D" uid="uid://77wrj60jd0l" path="res://Assets/Explosion/Explosion_8/Explosion_2.png" id="4_2ag2n"]
+[ext_resource type="Texture2D" uid="uid://c5ahrbb2qg7oa" path="res://Assets/Explosion/Explosion_8/Explosion_3.png" id="5_odma8"]
+[ext_resource type="Texture2D" uid="uid://dt5d1b5yla4f0" path="res://Assets/Explosion/Explosion_8/Explosion_4.png" id="6_1kiem"]
+[ext_resource type="Texture2D" uid="uid://de1aj13nqaycy" path="res://Assets/Explosion/Explosion_8/Explosion_5.png" id="7_7t8hk"]
+[ext_resource type="Texture2D" uid="uid://bu57v07sa6o6k" path="res://Assets/Explosion/Explosion_8/Explosion_6.png" id="8_jarrm"]
+[ext_resource type="Texture2D" uid="uid://qe65ypgqjb1n" path="res://Assets/Explosion/Explosion_8/Explosion_7.png" id="9_pqbuw"]
+[ext_resource type="Texture2D" uid="uid://bbyt512apes3i" path="res://Assets/Explosion/Explosion_8/Explosion_8.png" id="10_24bw0"]
+[ext_resource type="Texture2D" uid="uid://3qkrethagmt8" path="res://Assets/Explosion/Explosion_8/Explosion_9.png" id="11_4eow4"]
+[ext_resource type="Texture2D" uid="uid://dxug2kn370la3" path="res://Assets/Explosion/Explosion_8/Explosion_10.png" id="12_f4c35"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fomls"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_sic4i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2ag2n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_odma8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_1kiem")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_7t8hk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_jarrm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_pqbuw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_24bw0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_4eow4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_f4c35")
+}],
+"loop": false,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vocyf"]
+size = Vector2(201, 160)
+
+[node name="dumpCol" type="Area2D"]
+script = ExtResource("1_nbgdf")
+
+[node name="Dumpster1" parent="." instance=ExtResource("1_1kp5w")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Dumpster1"]
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_fomls")
+offset = Vector2(0, 50)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3.5, 64)
+shape = SubResource("RectangleShape2D_vocyf")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

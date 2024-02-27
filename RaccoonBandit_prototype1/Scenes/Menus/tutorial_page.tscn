@@ -1,0 +1,90 @@
+[gd_scene load_steps=5 format=3 uid="uid://7y4dxrssbhhd"]
+
+[ext_resource type="Script" path="res://Scenes/Menus/tutorial_page.gd" id="1_qommu"]
+[ext_resource type="Texture2D" uid="uid://2db1ccwgmw61" path="res://Scenes/Menus/Screenshot 2024-01-31 at 16.51.25.png" id="2_dhvnd"]
+[ext_resource type="FontFile" uid="uid://ct5tickuppry1" path="res://Assets/Fonts/Kaph-Italic.ttf" id="4_10y2f"]
+
+[sub_resource type="FontVariation" id="FontVariation_lblnd"]
+base_font = ExtResource("4_10y2f")
+spacing_top = 150
+
+[node name="tutorial_page" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qommu")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_dhvnd")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="Button" type="Button" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.92549, 0.666667, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 50
+text = "back"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_stretch_ratio = 0.95
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.545098, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.92549, 0.666667, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = SubResource("FontVariation_lblnd")
+theme_override_font_sizes/font_size = 130
+text = "Tutorial
+"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="script" type="Label" parent="MarginContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.92549, 0.666667, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 50
+text = "w/space bar/up arrow : jump
+
+s/down arrow: slide
+
+p/esc: pause game
+"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="MarginContainer/Button" to="." method="_on_button_pressed"]

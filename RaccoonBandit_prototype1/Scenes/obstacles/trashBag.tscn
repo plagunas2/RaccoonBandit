@@ -1,13 +1,77 @@
-[gd_scene load_steps=2 format=3 uid="uid://d016bph5na7m0"]
+[gd_scene load_steps=14 format=3 uid="uid://d016bph5na7m0"]
 
+[ext_resource type="Script" path="res://Scripts/ObstacleBehavior.gd" id="1_nadgf"]
 [ext_resource type="Texture2D" uid="uid://mxyltokbc0j1" path="res://Assets/Obstacles/Garbage_Bag.png" id="1_x881d"]
+[ext_resource type="Texture2D" uid="uid://jhb088cq37mc" path="res://Assets/Explosion/Explosion_8/Explosion_1.png" id="3_f4ydu"]
+[ext_resource type="Texture2D" uid="uid://77wrj60jd0l" path="res://Assets/Explosion/Explosion_8/Explosion_2.png" id="4_coiwy"]
+[ext_resource type="Texture2D" uid="uid://c5ahrbb2qg7oa" path="res://Assets/Explosion/Explosion_8/Explosion_3.png" id="5_q26xv"]
+[ext_resource type="Texture2D" uid="uid://dt5d1b5yla4f0" path="res://Assets/Explosion/Explosion_8/Explosion_4.png" id="6_nujjs"]
+[ext_resource type="Texture2D" uid="uid://de1aj13nqaycy" path="res://Assets/Explosion/Explosion_8/Explosion_5.png" id="7_ctwrt"]
+[ext_resource type="Texture2D" uid="uid://bu57v07sa6o6k" path="res://Assets/Explosion/Explosion_8/Explosion_6.png" id="8_ihtg4"]
+[ext_resource type="Texture2D" uid="uid://qe65ypgqjb1n" path="res://Assets/Explosion/Explosion_8/Explosion_7.png" id="9_4rl70"]
+[ext_resource type="Texture2D" uid="uid://bbyt512apes3i" path="res://Assets/Explosion/Explosion_8/Explosion_8.png" id="10_tf7gs"]
+[ext_resource type="Texture2D" uid="uid://3qkrethagmt8" path="res://Assets/Explosion/Explosion_8/Explosion_9.png" id="11_vmhqd"]
+[ext_resource type="Texture2D" uid="uid://dxug2kn370la3" path="res://Assets/Explosion/Explosion_8/Explosion_10.png" id="12_xb66b"]
 
-[node name="trashBag" type="Area2D"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_7cbyf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_f4ydu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_coiwy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_q26xv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_nujjs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ctwrt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ihtg4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_4rl70")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_tf7gs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_vmhqd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_xb66b")
+}],
+"loop": false,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="trashBag" type="CharacterBody2D"]
+script = ExtResource("1_nadgf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)
 texture = ExtResource("1_x881d")
+offset = Vector2(0, 30)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+[node name="MainCollision" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, 56)
 scale = Vector2(2, 2)
-polygon = PackedVector2Array(10.5, -27.5, 13.5, -30.5, 17.5, -32, 19.5, -31, 21, -27.5, 15.5, -24, 26, -25, 33, -16.5, 33.5, -9.5, 37.5, 2, 36.5, 31.5, 38, 37.5, 35, 39, 31, 39, 4, 39.5, -4, 39.5, -17.5, 36.5, -18.5, 30.5, -16, 25.5, -16, -8.5, -13.5, -13, -8.5, -20.5, -5, -25, 3, -24, 5, -25.5, 1.5, -32, 3, -35, 5, -34.5, 8, -32.5)
+polygon = PackedVector2Array(9, -26.5, 9, -22.5, 11.5, -23, 13.5, -26.5, 17.5, -29, 20.5, -27.5, 19.5, -25.5, 25, -22, 33.5, -9.5, 37.5, 2, 36.5, 31.5, 38, 37.5, 35, 39, 31, 39, 4, 39.5, -4, 39.5, -17.5, 36.5, -14, 30, -13.5, 25.5, -16, -6, -13, -10.5, -8, -18, -4, -21, 7, -19, 7, -24, 2, -28, 2, -31, 4.5, -31.5, 7, -29)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(25, 45)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_7cbyf")
+offset = Vector2(0, 50)
+
+[node name="FireballDetection" type="Area2D" parent="."]
+
+[node name="FB" type="CollisionPolygon2D" parent="FireballDetection"]
+position = Vector2(6.40002, 23.2)
+polygon = PackedVector2Array(-38.4, 21.8, -38.4, 18.8, -35.4, 14.8, -31.4, 7.8, -29.4, 5.8, -27.4, 2.8, -22.4, -4.2, -18.4, -8.2, -13.4, -11.2, -8.40002, -10.2, -4.40002, -9.2, 0.599976, -9.2, 3.59998, -7.2, 7.59998, -8.2, 6.59998, -13.2, 6.59998, -15.2, 2.59998, -18.2, -1.40002, -22.2, -3.40002, -24.2, -3.40002, -28.2, -1.40002, -31.2, 1.59998, -31.2, 3.59998, -30.2, 5.59998, -28.2, 7.59998, -25.2, 9.59998, -23.2, 9.59998, -22.2, 11.6, -20.2, 11.6, -16.2, 11.6, -15.2, 15.6, -14.2, 16.6, -14.2, 18.6, -17.2, 21.6, -8.2, 22.6, 110.8, -16.4, 113.8, -43.4, 106.8, -43.4, 100.8, -39.4, 95.8, -35.4, 90.8, -38.4, 56.8)
