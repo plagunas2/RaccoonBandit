@@ -59,6 +59,9 @@ func _on_fireball_entered(area):
 	if area.is_in_group("fireball_area"):
 		is_dead = true
 		_livescounter()
+	elif area.is_in_group("aerial_deadly"):
+		is_dead = true
+		_livescounter()
 	
 func _on_police_attack():
 	print("Player caught by police, playing dying animation.")

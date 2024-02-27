@@ -905,15 +905,15 @@ script = ExtResource("1_5evjr")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.35, 0.35)
 sprite_frames = SubResource("SpriteFrames_57wnc")
-animation = &"Sliding"
+animation = &"Running"
 autoplay = "idle"
 
 [node name="MainCollisionShape" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(4, 0)
 shape = SubResource("CapsuleShape2D_0rsjk")
 
 [node name="SlideCollisionShape" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-10, 15)
 rotation = -1.54063
 shape = SubResource("CapsuleShape2D_0rsjk")
@@ -927,11 +927,11 @@ one_shot = true
 [node name="FireballDetection" type="Area2D" parent="."]
 
 [node name="MainFireBallCollision" type="CollisionShape2D" parent="FireballDetection"]
-visible = false
 position = Vector2(3, -3)
 shape = SubResource("CircleShape2D_yla4g")
 
 [node name="SlideFireBallCollision" type="CollisionShape2D" parent="FireballDetection"]
+visible = false
 position = Vector2(-27, 23)
 rotation = 1.58025
 shape = SubResource("CapsuleShape2D_hed7n")
