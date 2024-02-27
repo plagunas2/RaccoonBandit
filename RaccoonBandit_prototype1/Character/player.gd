@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-@export var jump_velocity : float = -600.0
-@export var double_jump_velocity : float = -475
+@onready var jump_velocity = -600.0
+@onready var double_jump_velocity = -475
 
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 @onready var police_animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
@@ -85,6 +85,7 @@ func _livescounter():
 
 func _physics_process(delta):	
 	character_positon = self.global_position
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.x = 0
