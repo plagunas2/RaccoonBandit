@@ -249,7 +249,7 @@ func getPowerup(string):
 		$MagnetTimer.start()
 	if(string == "life"):
 		print("life power up!")
-		#add the rest
+		lives += 1
 		
 func _on_timer_timeout():
 	magnet = false
