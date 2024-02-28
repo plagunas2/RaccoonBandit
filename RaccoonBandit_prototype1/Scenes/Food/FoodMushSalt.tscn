@@ -1,8 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://bjd8e48cyuut3"]
+[gd_scene load_steps=3 format=3 uid="uid://bjd8e48cyuut3"]
 
 [ext_resource type="Texture2D" uid="uid://cwopbmlg6q7i8" path="res://Assets/Food/Salty_Mess.png" id="1_3c572"]
+[ext_resource type="Texture2D" uid="uid://veydhl5vgibl" path="res://Assets/Food/—Pngtree—hazy white glow_6016180.png" id="1_uw2iw"]
 
 [node name="FoodMushSalt" type="Area2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(2, 12)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_uw2iw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.2, 0.2)
