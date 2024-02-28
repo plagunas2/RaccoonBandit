@@ -1,6 +1,6 @@
 extends ParallaxBackground
 
-var scroll_speed = 200
+var scroll_speed = 400
 
 func _ready():
 	$Timer.start()
