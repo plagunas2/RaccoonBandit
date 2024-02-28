@@ -1,10 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://cfqinw7vm0j5f"]
+[gd_scene load_steps=4 format=3 uid="uid://cfqinw7vm0j5f"]
 
 [ext_resource type="Texture2D" uid="uid://cbwbwq04ntigx" path="res://Assets/Food/Cheese_Sandwich.png" id="1_5rghp"]
 [ext_resource type="Script" path="res://Scripts/FoodBehavior.gd" id="1_tmqqy"]
+[ext_resource type="Texture2D" uid="uid://veydhl5vgibl" path="res://Assets/Food/—Pngtree—hazy white glow_6016180.png" id="2_m5bbk"]
 
 [node name="CheeseSand" type="Area2D"]
 script = ExtResource("1_tmqqy")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(1, 8)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_m5bbk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.2, 0.2)

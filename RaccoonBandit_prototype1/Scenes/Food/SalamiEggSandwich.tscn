@@ -1,10 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://dww8t3krbcm14"]
+[gd_scene load_steps=4 format=3 uid="uid://dww8t3krbcm14"]
 
 [ext_resource type="Texture2D" uid="uid://blo8iwqfjmhwk" path="res://Assets/Food/Egg_Cheese_Salami_Sandwich.png" id="1_0bosf"]
 [ext_resource type="Script" path="res://Scripts/FoodBehavior.gd" id="1_ncbok"]
+[ext_resource type="Texture2D" uid="uid://veydhl5vgibl" path="res://Assets/Food/—Pngtree—hazy white glow_6016180.png" id="2_s8psm"]
 
 [node name="SalamiEggSand" type="Area2D"]
 script = ExtResource("1_ncbok")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(2, -2)
+scale = Vector2(0.17, 0.17)
+texture = ExtResource("2_s8psm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.2, 0.2)

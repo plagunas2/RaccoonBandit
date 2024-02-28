@@ -1,10 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://bkynomtu8ittp"]
+[gd_scene load_steps=4 format=3 uid="uid://bkynomtu8ittp"]
 
 [ext_resource type="Texture2D" uid="uid://guqc5kmq7l3" path="res://Assets/Food/Banana_Mess.png" id="1_0e5sc"]
 [ext_resource type="Script" path="res://Scripts/FoodBehavior.gd" id="1_hbaja"]
+[ext_resource type="Texture2D" uid="uid://veydhl5vgibl" path="res://Assets/Food/—Pngtree—hazy white glow_6016180.png" id="2_svfgg"]
 
 [node name="FoodMushBanana" type="Area2D"]
 script = ExtResource("1_hbaja")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(4, 16)
+scale = Vector2(0.212, 0.212)
+texture = ExtResource("2_svfgg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.2, 0.2)
