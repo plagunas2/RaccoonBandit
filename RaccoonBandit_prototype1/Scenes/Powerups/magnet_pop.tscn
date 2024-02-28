@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://dgb1cgga48dw7"]
 
-[ext_resource type="Script" path="res://Scenes/Powerups/magnet_pop.gd" id="1_skcsv"]
+[ext_resource type="Script" path="res://Scenes/Powerups/pop_animation.gd" id="1_g76ft"]
 [ext_resource type="Texture2D" uid="uid://baiaklgcwigd1" path="res://Assets/Obstacles/magnetTransparent.png" id="1_u57js"]
 
 [node name="MagnetPop" type="Node2D"]
-script = ExtResource("1_skcsv")
+script = ExtResource("1_g76ft")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.2, 0.2)
