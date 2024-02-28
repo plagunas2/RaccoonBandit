@@ -10,7 +10,7 @@
 script = ExtResource("1_7tvgj")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 15.0
 
 [node name="Background" type="ParallaxLayer" parent="."]
 motion_scale = Vector2(0.5, 0.5)

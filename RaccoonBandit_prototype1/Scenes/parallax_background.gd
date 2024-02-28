@@ -1,6 +1,6 @@
 extends ParallaxBackground
 
-var scroll_speed = 200
+var scroll_speed = 400
 
 func _ready():
 	$Timer.start()
@@ -12,7 +12,10 @@ func _process(delta):
 func _on_timer_timeout():
 	#default = 0.15
 	#Fast testing = 0.25
-	scroll_speed = scroll_speed + scroll_speed * 0.15
+	if(scroll_speed <= 800):
+		scroll_speed = scroll_speed + scroll_speed * 0.1
+	else:
+		scroll_speed = scroll_speed + scroll_speed * 0.01
 	
 	#default = 15
 	#Fast testing = 5

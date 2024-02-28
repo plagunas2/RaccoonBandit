@@ -1,7 +1,9 @@
 extends CharacterBody2D
 
-@export var jump_velocity : float = -600.0
-@export var double_jump_velocity : float = -475
+#-600 NORMAL
+@onready var jump_velocity = -950.0
+#-475 NORMAL
+@onready var double_jump_velocity = -715
 
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 @onready var police_animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
@@ -36,6 +38,7 @@ var bat : bool
 
 signal left_screen
 var out_screen
+var after_jump
 
 func _ready():
 	add_to_group("player")
@@ -46,6 +49,7 @@ func _ready():
 	bat = false
 	lives = 3
 	out_screen = false
+	after_jump = false
 	
 	$MainCollisionShape.disabled = false
 	$FireballDetection/MainFireBallCollision.disabled = false
@@ -57,6 +61,9 @@ func _ready():
 	
 func _on_fireball_entered(area):
 	if area.is_in_group("fireball_area"):
+		is_dead = true
+		_livescounter()
+	elif area.is_in_group("aerial_deadly"):
 		is_dead = true
 		_livescounter()
 	
@@ -82,10 +89,15 @@ func _livescounter():
 
 func _physics_process(delta):	
 	character_positon = self.global_position
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.x = 0
-		velocity += Vector2(0, gravity) * delta
+		#NORMAL: velocity += Vector2(0, gravity) * delta
+		if after_jump == true:
+			velocity += Vector2(0, gravity * 3) * delta
+		elif after_jump == false:
+			velocity += Vector2(0, gravity * 2.5) * delta
 		was_in_air = true
 	else: 
 		has_double_jumped = false
@@ -93,6 +105,7 @@ func _physics_process(delta):
 		#Handle Jump landing
 		if was_in_air == true:
 			if not is_dead:
+				after_jump = false
 				land()
 				velocity.y = 0
 				velocity.x = 0
@@ -106,10 +119,10 @@ func _physics_process(delta):
 			if is_on_floor():
 				#normal jump
 				jump()
-			
 			elif not has_double_jumped:
 				 #double jump
 				double_jump()
+				after_jump = true
 	
 		# Handle slide
 		if Input.is_action_pressed("down"):
@@ -142,7 +155,7 @@ func default_collision_shapes():
 	$SlideCollisionShape.visible = false
 	$FireballDetection/SlideFireBallCollision.visible = false
 
-func update_animation():		
+func update_animation():
 	if not animation_locked:
 		if not is_on_floor():
 			animated_sprite.play("Jump Loop")

@@ -228,5 +228,5 @@ scale = Vector2(0.2, 0.2)
 position = Vector2(18.8, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FireDetectionArea"]
-position = Vector2(50, -12.4)
+position = Vector2(46, -12.4)
 shape = SubResource("CapsuleShape2D_6ppyw")
