@@ -1,6 +1,7 @@
 extends Node2D
 
 var magnet = preload("res://Scenes/Powerups/magnet_pop.tscn")
+#var life = preload("res://Scenes/Powerups/ma#")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,4 +17,6 @@ func PowerPop(powerup):
 		power = magnet.instantiate()
 		power.position = Vector2(0,0)
 		add_child(power)
+	if(powerup == "life"):
+		pass
 	

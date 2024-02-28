@@ -247,6 +247,9 @@ func getPowerup(string):
 		print("magnet power up!")
 		magnet = true
 		$MagnetTimer.start()
+	if(string == "life"):
+		print("life power up!")
+		#add the rest
 		
 func _on_timer_timeout():
 	magnet = false

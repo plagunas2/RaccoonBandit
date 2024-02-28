@@ -1,0 +1,67 @@
+[gd_scene load_steps=14 format=3 uid="uid://dvccaqnmaknw"]
+
+[ext_resource type="PackedScene" uid="uid://dtjy7yeq17iuw" path="res://Scenes/obstacles/dumpster_2.tscn" id="1_gkpps"]
+[ext_resource type="Texture2D" uid="uid://jhb088cq37mc" path="res://Assets/Explosion/Explosion_8/Explosion_1.png" id="2_ilq1a"]
+[ext_resource type="Texture2D" uid="uid://77wrj60jd0l" path="res://Assets/Explosion/Explosion_8/Explosion_2.png" id="3_orhop"]
+[ext_resource type="Texture2D" uid="uid://c5ahrbb2qg7oa" path="res://Assets/Explosion/Explosion_8/Explosion_3.png" id="4_o841f"]
+[ext_resource type="Texture2D" uid="uid://dt5d1b5yla4f0" path="res://Assets/Explosion/Explosion_8/Explosion_4.png" id="5_n0yag"]
+[ext_resource type="Texture2D" uid="uid://de1aj13nqaycy" path="res://Assets/Explosion/Explosion_8/Explosion_5.png" id="6_n11xq"]
+[ext_resource type="Texture2D" uid="uid://bu57v07sa6o6k" path="res://Assets/Explosion/Explosion_8/Explosion_6.png" id="7_3ipe7"]
+[ext_resource type="Texture2D" uid="uid://qe65ypgqjb1n" path="res://Assets/Explosion/Explosion_8/Explosion_7.png" id="8_crg5f"]
+[ext_resource type="Texture2D" uid="uid://bbyt512apes3i" path="res://Assets/Explosion/Explosion_8/Explosion_8.png" id="9_v742p"]
+[ext_resource type="Texture2D" uid="uid://3qkrethagmt8" path="res://Assets/Explosion/Explosion_8/Explosion_9.png" id="10_17ccn"]
+[ext_resource type="Texture2D" uid="uid://dxug2kn370la3" path="res://Assets/Explosion/Explosion_8/Explosion_10.png" id="11_qe3ha"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o10qa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ilq1a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_orhop")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_o841f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_n0yag")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_n11xq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_3ipe7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_crg5f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_v742p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_17ccn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_qe3ha")
+}],
+"loop": false,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_spop0"]
+size = Vector2(199, 161)
+
+[node name="dumpColBlue" type="Area2D"]
+
+[node name="Dumpster2" parent="." instance=ExtResource("1_gkpps")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Dumpster2"]
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_o10qa")
+offset = Vector2(0, 50)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.5, 32.5)
+shape = SubResource("RectangleShape2D_spop0")
