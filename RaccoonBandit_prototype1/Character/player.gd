@@ -208,14 +208,14 @@ func idle():
 func respawn():
 	print("respawned")
 	if is_dead == true:
-		#$MainCollisionShape.set_deferred("disabled", true)
+		var time_to_play = parallax.scroll_speed * -0.003125 + 3.25
+		
 		$FireballDetection/MainFireBallCollision.set_deferred("disabled", true)
 		animated_sprite.visible = false
 		#calculate y
-		#$MainCollisionShape.disabled = false
 		self.global_position = home_position
-		position.x += parallax.scroll_speed * 2
-		await get_tree().create_timer(2).timeout
+		position.x = home_position.x * 2
+		await get_tree().create_timer(time_to_play).timeout
 		jump()
 		animated_sprite.visible = true
 		
