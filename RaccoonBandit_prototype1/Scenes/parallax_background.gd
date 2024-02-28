@@ -12,7 +12,10 @@ func _process(delta):
 func _on_timer_timeout():
 	#default = 0.15
 	#Fast testing = 0.25
-	scroll_speed = scroll_speed + scroll_speed * 0.05
+	if(scroll_speed <= 800):
+		scroll_speed = scroll_speed + scroll_speed * 0.1
+	else:
+		scroll_speed = scroll_speed + scroll_speed * 0.01
 	
 	#default = 15
 	#Fast testing = 5
