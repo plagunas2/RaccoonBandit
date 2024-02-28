@@ -1,7 +1,9 @@
 extends CharacterBody2D
 
-@onready var jump_velocity = -600.0
-@onready var double_jump_velocity = -475
+#-600 NORMAL
+@onready var jump_velocity = -950.0
+#-475 NORMAL
+@onready var double_jump_velocity = -715
 
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 @onready var police_animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
@@ -93,9 +95,9 @@ func _physics_process(delta):
 		velocity.x = 0
 		#NORMAL: velocity += Vector2(0, gravity) * delta
 		if after_jump == true:
-			velocity += Vector2(0, gravity * 1.85) * delta
+			velocity += Vector2(0, gravity * 3) * delta
 		elif after_jump == false:
-			velocity += Vector2(0, gravity * 1.3) * delta
+			velocity += Vector2(0, gravity * 2.5) * delta
 		was_in_air = true
 	else: 
 		has_double_jumped = false
