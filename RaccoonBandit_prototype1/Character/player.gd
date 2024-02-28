@@ -36,6 +36,7 @@ var bat : bool
 
 signal left_screen
 var out_screen
+var after_jump
 
 func _ready():
 	add_to_group("player")
@@ -46,6 +47,7 @@ func _ready():
 	bat = false
 	lives = 3
 	out_screen = false
+	after_jump = false
 	
 	$MainCollisionShape.disabled = false
 	$FireballDetection/MainFireBallCollision.disabled = false
@@ -89,7 +91,11 @@ func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.x = 0
-		velocity += Vector2(0, gravity) * delta
+		#NORMAL: velocity += Vector2(0, gravity) * delta
+		if after_jump == true:
+			velocity += Vector2(0, gravity * 1.85) * delta
+		elif after_jump == false:
+			velocity += Vector2(0, gravity * 1.3) * delta
 		was_in_air = true
 	else: 
 		has_double_jumped = false
@@ -97,6 +103,7 @@ func _physics_process(delta):
 		#Handle Jump landing
 		if was_in_air == true:
 			if not is_dead:
+				after_jump = false
 				land()
 				velocity.y = 0
 				velocity.x = 0
@@ -110,10 +117,10 @@ func _physics_process(delta):
 			if is_on_floor():
 				#normal jump
 				jump()
-			
 			elif not has_double_jumped:
 				 #double jump
 				double_jump()
+				after_jump = true
 	
 		# Handle slide
 		if Input.is_action_pressed("down"):
@@ -146,7 +153,7 @@ func default_collision_shapes():
 	$SlideCollisionShape.visible = false
 	$FireballDetection/SlideFireBallCollision.visible = false
 
-func update_animation():		
+func update_animation():
 	if not animation_locked:
 		if not is_on_floor():
 			animated_sprite.play("Jump Loop")
