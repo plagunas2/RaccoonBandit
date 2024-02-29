@@ -1,0 +1,116 @@
+[gd_scene load_steps=9 format=3 uid="uid://bxr7rpvkg4eas"]
+
+[ext_resource type="Script" path="res://Scenes/parallax_background.gd" id="1_rf7i6"]
+[ext_resource type="Texture2D" uid="uid://mqyo0qa0cb7p" path="res://Assets/dirty_assets/background/sky_colour.png" id="2_t5wrh"]
+[ext_resource type="Texture2D" uid="uid://cv1i084v4xww" path="res://Assets/Background/Background_Layer_2.png" id="3_wh7lu"]
+[ext_resource type="Texture2D" uid="uid://caobqhbefna5f" path="res://Assets/Background/Background_Layer_3.png" id="4_m3wc4"]
+[ext_resource type="Texture2D" uid="uid://sv4edsgg2obq" path="res://Assets/dirty_assets/background/background_separated.png" id="4_uty06"]
+[ext_resource type="Texture2D" uid="uid://d02oralin7k4u" path="res://Assets/Tile_27.png" id="6_x5dwc"]
+[ext_resource type="Texture2D" uid="uid://8s4xxmis7y7i" path="res://Assets/dirty_assets/road/repeating_road_piece.png" id="7_cj65p"]
+[ext_resource type="Texture2D" uid="uid://dgjjqfhkgls0j" path="res://Assets/dirty_assets/road/road_color.png" id="8_xvg2l"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+script = ExtResource("1_rf7i6")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 15.0
+
+[node name="Background" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.3, 0.3)
+motion_mirroring = Vector2(5760, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+position = Vector2(2880.01, 540.028)
+scale = Vector2(-5759.98, 0.586012)
+texture = ExtResource("2_t5wrh")
+
+[node name="MiddleLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(5760, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="MiddleLayer"]
+position = Vector2(456, 456)
+scale = Vector2(0.2, 0.283056)
+texture = ExtResource("3_wh7lu")
+
+[node name="Sprite2D2" type="Sprite2D" parent="MiddleLayer"]
+position = Vector2(1584, 384)
+scale = Vector2(0.3, 0.321222)
+texture = ExtResource("3_wh7lu")
+
+[node name="Sprite2D3" type="Sprite2D" parent="MiddleLayer"]
+position = Vector2(3032, 352)
+scale = Vector2(0.35, 0.424)
+texture = ExtResource("3_wh7lu")
+
+[node name="Sprite2D5" type="Sprite2D" parent="MiddleLayer"]
+position = Vector2(5352, 496)
+scale = Vector2(0.185778, 0.291111)
+texture = ExtResource("3_wh7lu")
+
+[node name="Sprite2D4" type="Sprite2D" parent="MiddleLayer"]
+position = Vector2(4376, 280)
+scale = Vector2(0.25, 0.321611)
+texture = ExtResource("3_wh7lu")
+
+[node name="MiddleLayer2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.55, 0.55)
+motion_mirroring = Vector2(5760, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="MiddleLayer2"]
+position = Vector2(644, 520)
+scale = Vector2(0.3, 0.45)
+texture = ExtResource("4_uty06")
+
+[node name="Sprite2D2" type="Sprite2D" parent="MiddleLayer2"]
+position = Vector2(1868, 520)
+scale = Vector2(0.27, 0.45)
+texture = ExtResource("4_uty06")
+
+[node name="Sprite2D3" type="Sprite2D" parent="MiddleLayer2"]
+position = Vector2(2995.63, 520)
+scale = Vector2(0.255414, 0.45)
+texture = ExtResource("4_uty06")
+
+[node name="Sprite2D4" type="Sprite2D" parent="MiddleLayer2"]
+position = Vector2(3973.13, 520)
+scale = Vector2(0.25099, 0.45)
+texture = ExtResource("4_uty06")
+
+[node name="Sprite2D5" type="Sprite2D" parent="MiddleLayer2"]
+position = Vector2(4788, 520)
+scale = Vector2(0.452725, 0.45)
+texture = ExtResource("4_uty06")
+
+[node name="ForefrontLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.7, 0.7)
+motion_mirroring = Vector2(5760, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ForefrontLayer"]
+position = Vector2(896, 528)
+scale = Vector2(0.4, 0.45)
+texture = ExtResource("4_m3wc4")
+
+[node name="Ground" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(5760, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground"]
+texture_repeat = 2
+position = Vector2(0, 834)
+scale = Vector2(3, 1.016)
+texture = ExtResource("6_x5dwc")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 1920, 250)
+
+[node name="RepeatingRoadPiece" type="Sprite2D" parent="Ground"]
+position = Vector2(2885, 936)
+scale = Vector2(3.844, 0.307328)
+texture = ExtResource("7_cj65p")
+
+[node name="RoadColor" type="Sprite2D" parent="Ground"]
+position = Vector2(2880, 1028)
+scale = Vector2(22.5, 0.46875)
+texture = ExtResource("8_xvg2l")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
