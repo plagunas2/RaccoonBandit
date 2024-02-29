@@ -44,8 +44,8 @@ func _on_body_entered(body):
 		queue_free()
 
 func moveToPlayer(delta):
-	print("player position ", player.global_position)
-	print("food position ", self.global_position)
+	#print("player position ", player.global_position)
+	#print("food position ", self.global_position)
 	self.global_position = self.global_position.move_toward(player.global_position, delta*speed)
 #To delete item when it leaves the screen
 func left_screen():

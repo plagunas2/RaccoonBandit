@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://bufwea0iee3ny"]
+[gd_scene load_steps=3 format=3 uid="uid://bufwea0iee3ny"]
 
+[ext_resource type="Script" path="res://Scenes/obstacles/dumpster_1.gd" id="1_4r8eg"]
 [ext_resource type="Texture2D" uid="uid://bcqk01bmt5ax7" path="res://Assets/Obstacles/Containers_1.png" id="1_gr5ql"]
 
 [node name="Dumpster1" type="CharacterBody2D"]
+script = ExtResource("1_4r8eg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(6.59001, 32)

@@ -7,8 +7,10 @@ var xpos
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	add_to_group("obstacle")
+	$FireballDetection.add_to_group("obstacle_fire_shape")
 	parallax_background = get_parent().get_parent().get_node("ParallaxBackground")
+	$FireballDetection.connect("area_entered", Callable(self, "_on_obstacle_entered"))
+	$AnimatedSprite2D.visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -24,4 +26,16 @@ func _process(delta):
 #to delete item when it leaves the screen
 func left_screen():
 	if (xpos < -100):
+		queue_free()
+
+func _on_obstacle_entered(area):
+	if area.is_in_group("fireball_area"):
+		$MainCollision.set_deferred("disabled", true)
+		$FireballDetection/FB.set_deferred("disabled", true)
+		$Sprite2D.visible = false
+		$AnimatedSprite2D.visible = true
+		$AnimatedSprite2D.move_to_front()
+		$AnimatedSprite2D.play("default")
+		var timer = get_tree().create_timer(0.65)
+		await timer.timeout
 		queue_free()

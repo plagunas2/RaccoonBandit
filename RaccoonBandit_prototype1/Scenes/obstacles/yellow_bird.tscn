@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://csj5ygpse0ims"]
 
-[ext_resource type="Script" path="res://Scenes/obstacles/vulture.gd" id="1_7scaf"]
+[ext_resource type="Script" path="res://Scenes/obstacles/bird.gd" id="1_t1bhv"]
 [ext_resource type="Texture2D" uid="uid://uokb860ba5bm" path="res://Assets/Vulture/birdspritesheets/__yellow_flying_bird_1_flying.png" id="2_2gx6e"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t7dtn"]
@@ -100,8 +100,8 @@ radius = 56.7622
 height = 341.865
 
 [node name="Node2D" type="CharacterBody2D"]
-scale = Vector2(0.5, 0.5)
-script = ExtResource("1_7scaf")
+scale = Vector2(0.355, 0.355)
+script = ExtResource("1_t1bhv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_03nwk")

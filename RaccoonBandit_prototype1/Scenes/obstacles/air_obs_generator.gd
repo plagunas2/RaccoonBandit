@@ -43,7 +43,7 @@ func _ready():
 func _process(_delta):
 	scroll_speed = parallax_background.scroll_speed
 	seconds_in_screen = screen_size.x/scroll_speed
-	min_spawn_interval = seconds_in_screen * 0.5
+	min_spawn_interval = seconds_in_screen * 0.65
 	max_spawn_interval = seconds_in_screen * 0.9
 
 func _on_timer_timeout():

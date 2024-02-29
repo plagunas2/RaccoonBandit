@@ -1,13 +1,103 @@
-[gd_scene load_steps=4 format=3 uid="uid://2cv6qsoqsghw"]
+[gd_scene load_steps=14 format=3 uid="uid://2cv6qsoqsghw"]
 
-[ext_resource type="Script" path="res://Scripts/ObstacleBehavior.gd" id="1_ai45f"]
 [ext_resource type="Texture2D" uid="uid://dawbkmsevavii" path="res://Assets/Obstacles/Cardboard_Box.png" id="1_wggdy"]
+[ext_resource type="Texture2D" uid="uid://jhb088cq37mc" path="res://Assets/Explosion/Explosion_8/Explosion_1.png" id="3_vglre"]
+[ext_resource type="Texture2D" uid="uid://77wrj60jd0l" path="res://Assets/Explosion/Explosion_8/Explosion_2.png" id="4_p36yq"]
+[ext_resource type="Texture2D" uid="uid://c5ahrbb2qg7oa" path="res://Assets/Explosion/Explosion_8/Explosion_3.png" id="5_23pd5"]
+[ext_resource type="Texture2D" uid="uid://dt5d1b5yla4f0" path="res://Assets/Explosion/Explosion_8/Explosion_4.png" id="6_ixi3q"]
+[ext_resource type="Texture2D" uid="uid://de1aj13nqaycy" path="res://Assets/Explosion/Explosion_8/Explosion_5.png" id="7_xhw3c"]
+[ext_resource type="Texture2D" uid="uid://bu57v07sa6o6k" path="res://Assets/Explosion/Explosion_8/Explosion_6.png" id="8_rwmmv"]
+[ext_resource type="Texture2D" uid="uid://qe65ypgqjb1n" path="res://Assets/Explosion/Explosion_8/Explosion_7.png" id="9_f16hf"]
+[ext_resource type="Texture2D" uid="uid://bbyt512apes3i" path="res://Assets/Explosion/Explosion_8/Explosion_8.png" id="10_wsurp"]
+[ext_resource type="Texture2D" uid="uid://3qkrethagmt8" path="res://Assets/Explosion/Explosion_8/Explosion_9.png" id="11_kpxg3"]
+[ext_resource type="Texture2D" uid="uid://dxug2kn370la3" path="res://Assets/Explosion/Explosion_8/Explosion_10.png" id="12_24ian"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_r1dmb"]
-size = Vector2(208, 170)
+[sub_resource type="GDScript" id="GDScript_ldhs0"]
+script/source = "extends CharacterBody2D
+
+var speed 
+var parallax_background
+
+var xpos
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	$FireballDetection.add_to_group(\"obstacle_fire_shape\")
+	parallax_background = get_parent().get_parent().get_node(\"ParallaxBackground\")
+	$FireballDetection.connect(\"area_entered\", Callable(self, \"_on_obstacle_entered\"))
+	$AnimatedSprite2D.visible = false
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	if(parallax_background.scroll_speed != 0):
+		speed = parallax_background.scroll_speed
+	else:
+		speed = 0
+	position += Vector2.LEFT * speed * delta
+	
+	xpos = self.global_position.x
+	left_screen()
+
+#to delete item when it leaves the screen
+func left_screen():
+	if (xpos < -100):
+		queue_free()
+
+func _on_obstacle_entered(area):
+	if area.is_in_group(\"fireball_area\"):
+		$MainCollision.set_deferred(\"disabled\", true)
+		$FireballDetection/FB.set_deferred(\"disabled\", true)
+		$Sprite2D.visible = false
+		$Sprite2D2.visible = false
+		$Sprite2D3.visible = false
+		$AnimatedSprite2D.visible = true
+		$AnimatedSprite2D.move_to_front()
+		$AnimatedSprite2D.play(\"default\")
+		var timer = get_tree().create_timer(0.65)
+		await timer.timeout
+		queue_free()
+"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ai1lu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_vglre")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_p36yq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_23pd5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ixi3q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_xhw3c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_rwmmv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_f16hf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_wsurp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_kpxg3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_24ian")
+}],
+"loop": false,
+"name": &"default",
+"speed": 15.0
+}]
 
 [node name="cardboardBox" type="CharacterBody2D"]
-script = ExtResource("1_ai45f")
+script = SubResource("GDScript_ldhs0")
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
 position = Vector2(38, -75)
@@ -26,6 +116,18 @@ scale = Vector2(1.25, 1.25)
 texture = ExtResource("1_wggdy")
 offset = Vector2(0, 25)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="MainCollision" type="CollisionPolygon2D" parent="."]
 position = Vector2(55, 58)
-shape = SubResource("RectangleShape2D_r1dmb")
+polygon = PackedVector2Array(-68, -81, -65, -84, 18, -84, 53, -84, 56, -82, 57, -8, 99, -8, 104, -7, 106, -4, 105, 85, 102, 89, -17, 89, -20, 88, -102, 88, -106, 84, -106, -5, -105, -7, -103, -9, -69, -9)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(50, 25)
+scale = Vector2(0.65, 0.65)
+sprite_frames = SubResource("SpriteFrames_ai1lu")
+offset = Vector2(0, 50)
+
+[node name="FireballDetection" type="Area2D" parent="."]
+
+[node name="FB" type="CollisionPolygon2D" parent="FireballDetection"]
+position = Vector2(47, 53)
+polygon = PackedVector2Array(-100, 93, -100, -3, -96, -6, -63, -6, -63, -77, -59, -81, -39, -81, -39, 93)

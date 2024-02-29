@@ -1,10 +1,61 @@
-[gd_scene load_steps=4 format=3 uid="uid://rbrh6r5gtbru"]
+[gd_scene load_steps=16 format=3 uid="uid://rbrh6r5gtbru"]
 
 [ext_resource type="Script" path="res://Scripts/ObstacleBehavior.gd" id="1_fqxci"]
 [ext_resource type="Texture2D" uid="uid://4noy7pb3r24k" path="res://Assets/Obstacles/Barrel.png" id="1_ss47m"]
+[ext_resource type="Texture2D" uid="uid://jhb088cq37mc" path="res://Assets/Explosion/Explosion_8/Explosion_1.png" id="3_eodvb"]
+[ext_resource type="Texture2D" uid="uid://77wrj60jd0l" path="res://Assets/Explosion/Explosion_8/Explosion_2.png" id="4_6fr5g"]
+[ext_resource type="Texture2D" uid="uid://c5ahrbb2qg7oa" path="res://Assets/Explosion/Explosion_8/Explosion_3.png" id="5_d1iy3"]
+[ext_resource type="Texture2D" uid="uid://dt5d1b5yla4f0" path="res://Assets/Explosion/Explosion_8/Explosion_4.png" id="6_uuhhn"]
+[ext_resource type="Texture2D" uid="uid://de1aj13nqaycy" path="res://Assets/Explosion/Explosion_8/Explosion_5.png" id="7_jppvx"]
+[ext_resource type="Texture2D" uid="uid://bu57v07sa6o6k" path="res://Assets/Explosion/Explosion_8/Explosion_6.png" id="8_10y43"]
+[ext_resource type="Texture2D" uid="uid://qe65ypgqjb1n" path="res://Assets/Explosion/Explosion_8/Explosion_7.png" id="9_5apcp"]
+[ext_resource type="Texture2D" uid="uid://bbyt512apes3i" path="res://Assets/Explosion/Explosion_8/Explosion_8.png" id="10_55r81"]
+[ext_resource type="Texture2D" uid="uid://3qkrethagmt8" path="res://Assets/Explosion/Explosion_8/Explosion_9.png" id="11_yc33v"]
+[ext_resource type="Texture2D" uid="uid://dxug2kn370la3" path="res://Assets/Explosion/Explosion_8/Explosion_10.png" id="12_ingsw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0q6a4"]
 size = Vector2(100, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q54j3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_eodvb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6fr5g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_d1iy3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_uuhhn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_jppvx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_10y43")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_5apcp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_55r81")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_yc33v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ingsw")
+}],
+"loop": false,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_trlfe"]
+size = Vector2(100.8, 127.2)
 
 [node name="barrel" type="CharacterBody2D"]
 position = Vector2(0, -40)
@@ -14,6 +65,18 @@ script = ExtResource("1_fqxci")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_ss47m")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="MainCollision" type="CollisionShape2D" parent="."]
 position = Vector2(2, 46)
 shape = SubResource("RectangleShape2D_0q6a4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -2)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_q54j3")
+offset = Vector2(0, 50)
+
+[node name="FireballDetection" type="Area2D" parent="."]
+
+[node name="FB" type="CollisionShape2D" parent="FireballDetection"]
+position = Vector2(0.800002, 46)
+shape = SubResource("RectangleShape2D_trlfe")
