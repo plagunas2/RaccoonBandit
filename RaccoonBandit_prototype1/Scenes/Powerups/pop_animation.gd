@@ -14,6 +14,8 @@ func _process(_delta):
 	popup()
 
 func popup():
+	#TODO change magnitude of scale increases if the popup is for raccoon head
+	#^looks too large on screen
 	if (finished == false): #increase size
 		if(a<4):
 			a += .25
