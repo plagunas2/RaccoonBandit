@@ -1,7 +1,10 @@
 extends Control
 
+@onready var hud = get_parent().get_node("HUD")
+
 func _ready():
 	set_process_input(true)  # Enable input processing for this script
+	$VBoxContainer2/final_score.text = "Score: " + str(hud.final_score())
 
 func _process(_delta):
 	# Check for mouse click in the _process function

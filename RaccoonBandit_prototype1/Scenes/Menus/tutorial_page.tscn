@@ -40,7 +40,7 @@ theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
-[node name="Button" type="Button" parent="MarginContainer"]
+[node name="back_button" type="Button" parent="MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
@@ -84,7 +84,9 @@ text = "w/space bar/up arrow : jump
 s/down arrow: slide
 
 p/esc: pause game
+
+Jump on Red Dumpsters for powerups!
 "
 horizontal_alignment = 1
 
-[connection signal="pressed" from="MarginContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/back_button" to="." method="_on_button_pressed"]
