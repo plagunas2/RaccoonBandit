@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dxoduqoma00oh"]
+[gd_scene load_steps=16 format=3 uid="uid://dxoduqoma00oh"]
 
 [ext_resource type="Script" path="res://Scenes/npc_player_connection.gd" id="1_q5ohh"]
 [ext_resource type="PackedScene" uid="uid://cv0j6kgntrc6w" path="res://Scenes/parallax_background.tscn" id="1_qa4be"]
@@ -14,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://bn1olh38hgngo" path="res://Sounds/swingMusic.mp3" id="8_6qowf"]
 [ext_resource type="PackedScene" uid="uid://o3ujw3rh2i6u" path="res://Scenes/Menus/pause_menu.tscn" id="9_2bejn"]
 [ext_resource type="PackedScene" uid="uid://cbmbky5ui0234" path="res://Scenes/Powerups/powerup_pop_up.tscn" id="13_587wi"]
+[ext_resource type="PackedScene" uid="uid://cchg0xy6ahlqh" path="res://Scenes/Menus/game_over_menu.tscn" id="15_vrmyi"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_q5ohh")
@@ -68,3 +69,5 @@ scale = Vector2(8, 1)
 
 [node name="PowerupPopUp" parent="." instance=ExtResource("13_587wi")]
 position = Vector2(944, 453)
+
+[node name="Game Over Menu" parent="." instance=ExtResource("15_vrmyi")]
