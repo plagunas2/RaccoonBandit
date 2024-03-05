@@ -39,7 +39,7 @@ position = Vector2(2100, 460)
 position = Vector2(2250, 300)
 
 [node name="FoodGenerator" parent="." instance=ExtResource("5_15tit")]
-position = Vector2(2170, 715)
+position = Vector2(2170, 730)
 
 [node name="GNDGenerator" parent="." instance=ExtResource("7_1ougk")]
 position = Vector2(2056, 1045)
