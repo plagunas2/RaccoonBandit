@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/Menus/Game Over Menu.gd" id="1_7hun4"]
 [ext_resource type="Texture2D" uid="uid://bp43pmkrcu7uh" path="res://Assets/Background/Background_Layer_Combined.png" id="2_hg2pa"]
 [ext_resource type="FontFile" uid="uid://dumj75rt8ukae" path="res://Assets/Fonts/Kaph-Regular.ttf" id="3_t2t50"]
-[ext_resource type="Texture2D" uid="uid://cahasqhe1dbx2" path="res://image-1.png.png" id="4_pyx6w"]
+[ext_resource type="Texture2D" uid="uid://brrw0jjugqak0" path="res://Untitled design (3).png" id="4_re0ea"]
 
 [sub_resource type="FontVariation" id="FontVariation_2ja0q"]
 base_font = ExtResource("3_t2t50")
@@ -70,42 +70,34 @@ theme_override_font_sizes/font_size = 70
 text = "YOUR END HAS COME RACCOON!"
 horizontal_alignment = 1
 
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 2
+offset_left = 698.0
+offset_top = 452.0
+offset_right = 1347.0
+offset_bottom = 1042.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("4_re0ea")
+
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.523
 anchor_top = 0.63
 anchor_right = 0.523
 anchor_bottom = 0.63
-offset_left = -296.16
+offset_left = -354.16
 offset_top = -308.4
-offset_right = 99.84
-offset_bottom = 188.6
+offset_right = 157.84
+offset_bottom = 151.6
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(1.5, 1.5)
 size_flags_horizontal = 0
 size_flags_vertical = 8
 alignment = 1
-
-[node name="final_score" type="Label" parent="VBoxContainer2"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0.92549, 0.666667, 0, 1)
-theme_override_constants/shadow_offset_x = 5
-theme_override_constants/shadow_offset_y = 5
-theme_override_constants/outline_size = 10
-theme_override_constants/shadow_outline_size = 5
-theme_override_fonts/font = SubResource("FontVariation_2ja0q")
-theme_override_font_sizes/font_size = 50
-text = "score : "
-horizontal_alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-texture = ExtResource("4_pyx6w")
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="."]
 layout_mode = 2

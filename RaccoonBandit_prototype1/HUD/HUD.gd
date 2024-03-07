@@ -30,5 +30,3 @@ func init_lives(amount):
 		var ul = ulife_scene.instantiate()
 		$Livecount.add_child(ul)
 		
-func final_score():
-	return trashcollected
