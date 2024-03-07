@@ -6,7 +6,7 @@ var trashcollected = 0
 var ulife_scene = preload("res://Scenes/u_ilives.tscn")
 
 signal score_6
-signal score_changed(new_score)
+signal score_changed(trashcollected)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,10 +19,12 @@ func _process(_delta):
 	
 func increase_score():
 	trashcollected += 1
+	print("score changed signal emitted")
+	score_changed.emit(trashcollected)
+	print("trash:", trashcollected)
 	if trashcollected % 6 == 0:
 		print("Score is 6, emitting signal")
 		emit_signal("score_6")
-		emit_signal("score_changed", trashcollected)
 
 func init_lives(amount):
 	for ul in $Livecount.get_children():

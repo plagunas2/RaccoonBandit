@@ -1,9 +1,10 @@
 extends Control
 
 var highscore = 0
+var current_score = 0
 
-@onready var score_value: Label = %ScoreValue
-@onready var highscore_value: Label = %HighscoreValue
+@onready var score_value: Label = $VBoxContainer5/ScoreHBoxContainer/ScoreValue
+@onready var highscore_value: Label = $VBoxContainer5/HighscoreHBoxContainer/HighscoreValue
 
 func _ready():
 	set_process_input(true)  # Enable input processing for this script
@@ -19,8 +20,9 @@ func _on_retry_pressed():
 func _on_quit_pressed():
 	get_tree().quit()
 
-func _on_score_changed(new_score):
-	score_value.text = str(new_score)
-	if new_score > highscore:
-		highscore = new_score
+func _on_score_changed(trashcollected):
+	print("on score changed called")
+	score_value.text = str(trashcollected)
+	if current_score > highscore:
+		highscore = trashcollected
 		highscore_value.text = str(highscore)
