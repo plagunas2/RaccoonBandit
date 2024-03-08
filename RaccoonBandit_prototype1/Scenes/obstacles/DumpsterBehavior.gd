@@ -1,7 +1,7 @@
 extends Area2D
 
 #var magnet = preload("res://Scenes/Powerups/magnet.tscn")
-var powerups = ["magnet", "life"]
+var powerups = ["magnet", "life", "bat"]
 var power_type
 
 var redDump = "res://Assets/Obstacles/Containers_1.png"
@@ -79,3 +79,5 @@ func get_dumpster(power_type): #change dumpster sprite depending on powerup type
 		$Dumpster1/Sprite2D.set_texture(load(redDump))
 	if(power_type == "life"):
 		$Dumpster1/Sprite2D.set_texture(load(blueDump))
+	if(power_type == "bat"):
+		$Dumpster1/Sprite2D.set_texture(load(yellowDump))
