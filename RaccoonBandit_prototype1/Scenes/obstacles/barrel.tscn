@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://rbrh6r5gtbru"]
+[gd_scene load_steps=17 format=3 uid="uid://rbrh6r5gtbru"]
 
 [ext_resource type="Script" path="res://Scripts/ObstacleBehavior.gd" id="1_fqxci"]
 [ext_resource type="Texture2D" uid="uid://4noy7pb3r24k" path="res://Assets/Obstacles/Barrel.png" id="1_ss47m"]
@@ -57,6 +57,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_trlfe"]
 size = Vector2(100.8, 127.2)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lxrsr"]
+size = Vector2(108.8, 140.8)
+
 [node name="barrel" type="CharacterBody2D"]
 position = Vector2(0, -40)
 scale = Vector2(1.25, 1.25)
@@ -80,3 +83,13 @@ offset = Vector2(0, 50)
 [node name="FB" type="CollisionShape2D" parent="FireballDetection"]
 position = Vector2(0.800002, 46)
 shape = SubResource("RectangleShape2D_trlfe")
+
+[node name="BatDetection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BatDetection"]
+position = Vector2(-9.6, 38.4)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_lxrsr")
+debug_color = Color(0.890196, 0.0784314, 0.760784, 0.419608)
+
+[connection signal="body_entered" from="BatDetection" to="." method="_on_bat_detection_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d016bph5na7m0"]
+[gd_scene load_steps=15 format=3 uid="uid://d016bph5na7m0"]
 
 [ext_resource type="Script" path="res://Scripts/ObstacleBehavior.gd" id="1_nadgf"]
 [ext_resource type="Texture2D" uid="uid://mxyltokbc0j1" path="res://Assets/Obstacles/Garbage_Bag.png" id="1_x881d"]
@@ -51,6 +51,9 @@ animations = [{
 "speed": 15.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_psur7"]
+size = Vector2(112, 146)
+
 [node name="trashBag" type="CharacterBody2D"]
 script = ExtResource("1_nadgf")
 
@@ -75,3 +78,12 @@ offset = Vector2(0, 50)
 [node name="FB" type="CollisionPolygon2D" parent="FireballDetection"]
 position = Vector2(6.40002, 23.2)
 polygon = PackedVector2Array(-38.4, 21.8, -38.4, 18.8, -35.4, 14.8, -31.4, 7.8, -29.4, 5.8, -27.4, 2.8, -22.4, -4.2, -18.4, -8.2, -13.4, -11.2, -8.40002, -10.2, -4.40002, -9.2, 0.599976, -9.2, 3.59998, -7.2, 7.59998, -8.2, 6.59998, -13.2, 6.59998, -15.2, 2.59998, -18.2, -1.40002, -22.2, -3.40002, -24.2, -3.40002, -28.2, -1.40002, -31.2, 1.59998, -31.2, 3.59998, -30.2, 5.59998, -28.2, 7.59998, -25.2, 9.59998, -23.2, 9.59998, -22.2, 11.6, -20.2, 11.6, -16.2, 11.6, -15.2, 15.6, -14.2, 16.6, -14.2, 18.6, -17.2, 21.6, -8.2, 22.6, 110.8, -16.4, 113.8, -43.4, 106.8, -43.4, 100.8, -39.4, 95.8, -35.4, 90.8, -38.4, 56.8)
+
+[node name="BatDetection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BatDetection"]
+position = Vector2(8, 63)
+shape = SubResource("RectangleShape2D_psur7")
+debug_color = Color(0.843137, 0, 0.917647, 0.419608)
+
+[connection signal="body_entered" from="BatDetection" to="." method="_on_bat_detection_body_entered"]

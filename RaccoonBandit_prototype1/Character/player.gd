@@ -252,7 +252,9 @@ func getPowerup(string):
 		lives += 1
 	if(string == "bat"):
 		print("Weapon power up!")
-		#TODO activate bat animation & create new batDetect() method
+		bat = true
+		$BatTimer.start()
+		#TODO activate bat animation
 	
 		
 func _on_timer_timeout():
@@ -269,3 +271,7 @@ func batDetectCol():
 	#TODO base on timer
 	#while timer on, if collision detected in front of player, DESTROY!!!
 	#also activate bat swing animation
+
+
+func _on_bat_timer_timeout():
+	bat = false
