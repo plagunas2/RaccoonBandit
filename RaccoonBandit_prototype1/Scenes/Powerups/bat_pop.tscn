@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgkbyegwmo0kw"]
+
+[ext_resource type="Script" path="res://Scenes/Powerups/pop_animation.gd" id="1_d0vpo"]
+[ext_resource type="Texture2D" uid="uid://f0f1ejahj7is" path="res://Assets/Raccoon/PNG/Vector Parts/Weapon.png" id="1_dxt6r"]
+
+[node name="bat_pop" type="Node2D"]
+script = ExtResource("1_d0vpo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_dxt6r")
