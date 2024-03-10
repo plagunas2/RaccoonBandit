@@ -88,7 +88,6 @@ shape = SubResource("RectangleShape2D_trlfe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BatDetection"]
 position = Vector2(-9.6, 38.4)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_lxrsr")
 debug_color = Color(0.890196, 0.0784314, 0.760784, 0.419608)
 

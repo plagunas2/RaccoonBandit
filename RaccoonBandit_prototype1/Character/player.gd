@@ -14,6 +14,7 @@ extends CharacterBody2D
 @onready var vacuumSFX = get_parent().get_node("Vacuum")
 
 @onready var hud = get_parent().get_node("HUD")
+@onready var timer_bars = hud.get_node("timerBars")
 
 signal final_death
 signal fireball_hitting_raccoon
@@ -220,6 +221,9 @@ func respawn():
 		await get_tree().create_timer(time_to_play).timeout
 		jump()
 		animated_sprite.visible = true
+		#change collision layer
+		#create timer for 5 secs
+		#change collision layer back to original
 		
 		$FireballDetection/MainFireBallCollision.disabled = false
 		is_dead = false
@@ -249,6 +253,7 @@ func getPowerup(string):
 		print("magnet power up!")
 		magnet = true
 		vacuumSFX.play()
+		timer_bars.vacTimer()
 		$MagnetTimer.start()
 	if(string == "life"):
 		print("life power up!")
@@ -256,6 +261,7 @@ func getPowerup(string):
 	if(string == "bat"):
 		print("Weapon power up!")
 		bat = true
+		timer_bars.batTimer()
 		$BatTimer.start()
 		#TODO activate bat animation
 	
