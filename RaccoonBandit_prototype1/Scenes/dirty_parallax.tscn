@@ -10,8 +10,8 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2uekj"]
 shader = ExtResource("2_rvbqc")
-shader_parameter/color = Color(0.27451, 0.67451, 1, 1)
-shader_parameter/tint_factor = 0.85
+shader_parameter/color = Color(1, 1, 0.803922, 1)
+shader_parameter/tint_factor = 0.6
 shader_parameter/fade = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lnf1u"]
