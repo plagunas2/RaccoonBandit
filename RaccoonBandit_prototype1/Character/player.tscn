@@ -204,13 +204,63 @@ shader_parameter/max_line_width = 10.0
 shader_parameter/min_line_width = 5.0
 shader_parameter/freq = 1.0
 shader_parameter/block_size = 20.0
-shader_parameter/outline_colour = Vector4(0, 0, 0, 1)
+shader_parameter/outline_colour = Vector4(0.7, 0.7, 0.7, 1)
 shader_parameter/color = Color(1, 1, 0, 1)
 shader_parameter/tint_factor = 0.05
 shader_parameter/fade = 1.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_57wnc"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("29_ewhcr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_xlews")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_h1wvu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_uyfq1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_wuk2o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_4mmbx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_vvmcy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_lsmtv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_p0ulm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_mlddl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_wkdmt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_j1wx7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_byhw6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_lim1q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_38sq8")
+}],
+"loop": true,
+"name": &"Bat Swing",
+"speed": 20.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_wbsrx")
@@ -604,56 +654,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("29_ewhcr")
-}, {
-"duration": 1.0,
-"texture": ExtResource("30_xlews")
-}, {
-"duration": 1.0,
-"texture": ExtResource("31_h1wvu")
-}, {
-"duration": 1.0,
-"texture": ExtResource("32_uyfq1")
-}, {
-"duration": 1.0,
-"texture": ExtResource("33_wuk2o")
-}, {
-"duration": 1.0,
-"texture": ExtResource("34_4mmbx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("35_vvmcy")
-}, {
-"duration": 1.0,
-"texture": ExtResource("36_lsmtv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("37_p0ulm")
-}, {
-"duration": 1.0,
-"texture": ExtResource("38_mlddl")
-}, {
-"duration": 1.0,
-"texture": ExtResource("39_wkdmt")
-}, {
-"duration": 1.0,
-"texture": ExtResource("40_j1wx7")
-}, {
-"duration": 1.0,
-"texture": ExtResource("41_byhw6")
-}, {
-"duration": 1.0,
-"texture": ExtResource("42_lim1q")
-}, {
-"duration": 1.0,
-"texture": ExtResource("43_38sq8")
-}],
-"loop": true,
-"name": &"Run Attacking",
-"speed": 20.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": ExtResource("44_17k2e")
 }, {
 "duration": 1.0,
@@ -918,7 +918,7 @@ script = ExtResource("1_5evjr")
 material = SubResource("ShaderMaterial_tt1ha")
 scale = Vector2(0.35, 0.35)
 sprite_frames = SubResource("SpriteFrames_57wnc")
-animation = &"Running"
+animation = &"Bat Swing"
 autoplay = "idle"
 
 [node name="MainCollisionShape" type="CollisionShape2D" parent="."]

@@ -6,11 +6,11 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_likc6"]
 shader = ExtResource("2_qdevi")
-shader_parameter/max_line_width = 10.0
+shader_parameter/max_line_width = 15.0
 shader_parameter/min_line_width = 5.0
 shader_parameter/freq = 1.0
 shader_parameter/block_size = 20.0
-shader_parameter/outline_colour = Vector4(0, 0, 0, 1)
+shader_parameter/outline_colour = Vector4(0.7, 0.7, 0.7, 1)
 shader_parameter/color = Color(1, 1, 0, 1)
 shader_parameter/tint_factor = 0.05
 shader_parameter/fade = 1.0
