@@ -2,11 +2,9 @@
 
 [ext_resource type="Script" path="res://Scenes/Menus/Game Over Menu.gd" id="1_7hun4"]
 [ext_resource type="Texture2D" uid="uid://bp43pmkrcu7uh" path="res://Assets/Background/Background_Layer_Combined.png" id="2_hg2pa"]
+[ext_resource type="PackedScene" uid="uid://b4mefpabease6" path="res://Assets/Fonts/label.tscn" id="3_llfav"]
 [ext_resource type="FontFile" uid="uid://dumj75rt8ukae" path="res://Assets/Fonts/Kaph-Regular.ttf" id="3_t2t50"]
 [ext_resource type="Texture2D" uid="uid://cahasqhe1dbx2" path="res://image-1.png.png" id="4_pyx6w"]
-
-[sub_resource type="FontVariation" id="FontVariation_2ja0q"]
-base_font = ExtResource("3_t2t50")
 
 [sub_resource type="FontVariation" id="FontVariation_pkwmq"]
 base_font = ExtResource("3_t2t50")
@@ -56,19 +54,8 @@ layout_mode = 2
 [node name="Separator3" type="Control" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="Label" parent="VBoxContainer" instance=ExtResource("3_llfav")]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(0.545098, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0.92549, 0.666667, 0, 1)
-theme_override_constants/shadow_offset_x = 5
-theme_override_constants/shadow_offset_y = 5
-theme_override_constants/outline_size = 10
-theme_override_constants/shadow_outline_size = 5
-theme_override_fonts/font = SubResource("FontVariation_2ja0q")
-theme_override_font_sizes/font_size = 70
-text = "YOUR END HAS COME RACCOON!"
-horizontal_alignment = 1
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -77,13 +64,12 @@ anchor_left = 0.523
 anchor_top = 0.63
 anchor_right = 0.523
 anchor_bottom = 0.63
-offset_left = -296.16
-offset_top = -426.4
-offset_right = 99.84
-offset_bottom = 141.6
+offset_left = -204.16
+offset_top = -180.4
+offset_right = 191.84
+offset_bottom = 387.6
 grow_horizontal = 2
 grow_vertical = 0
-scale = Vector2(1.5, 1.5)
 size_flags_horizontal = 0
 size_flags_vertical = 8
 alignment = 1
@@ -175,7 +161,6 @@ theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -189,6 +174,42 @@ offset_bottom = 263.12
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 605.0
+offset_top = 286.0
+offset_right = 1274.0
+offset_bottom = 558.0
+theme_override_constants/separation = 30
+
+[node name="ScoreHBoxContainer" type="HBoxContainer" parent="VBoxContainer5"]
+layout_mode = 2
+
+[node name="ScoreLabel" parent="VBoxContainer5/ScoreHBoxContainer" instance=ExtResource("3_llfav")]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 50
+text = "Score:"
+
+[node name="ScoreValue" parent="VBoxContainer5/ScoreHBoxContainer" instance=ExtResource("3_llfav")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "0"
+
+[node name="HighscoreHBoxContainer" type="HBoxContainer" parent="VBoxContainer5"]
+layout_mode = 2
+
+[node name="HighscoreLabel" parent="VBoxContainer5/HighscoreHBoxContainer" instance=ExtResource("3_llfav")]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 50
+text = "High Score:"
+
+[node name="HighscoreValue" parent="VBoxContainer5/HighscoreHBoxContainer" instance=ExtResource("3_llfav")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "0"
 
 [connection signal="pressed" from="VBoxContainer3/Retry" to="." method="_on_retry_pressed"]
 [connection signal="pressed" from="VBoxContainer4/Quit" to="." method="_on_quit_pressed"]

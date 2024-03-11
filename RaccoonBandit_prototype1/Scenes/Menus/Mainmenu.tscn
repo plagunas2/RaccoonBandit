@@ -472,6 +472,8 @@ position = Vector2(825, 865)
 scale = Vector2(1.65, 1.65)
 motion_mode = 1
 script = SubResource("GDScript_i84wp")
+jump_velocity = -600.0
+double_jump_velocity = -475.0
 
 [node name="TileMap" type="TileMap" parent="."]
 visible = false
