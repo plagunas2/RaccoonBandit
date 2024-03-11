@@ -6,11 +6,11 @@ var trashcollected = 0
 var ulife_scene = preload("res://Scenes/u_ilives.tscn")
 
 signal score_6
+signal score_changed(trashcollected)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$trashcount.text = "Trash: " + str(trashcollected)
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -18,6 +18,9 @@ func _process(_delta):
 	
 func increase_score():
 	trashcollected += 1
+	print("score changed signal emitted")
+	emit_signal("score_changed", trashcollected)
+	print("trash:", trashcollected)
 	if trashcollected % 6 == 0:
 		print("Score is 6, emitting signal")
 		emit_signal("score_6")

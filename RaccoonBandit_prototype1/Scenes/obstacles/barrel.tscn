@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://rbrh6r5gtbru"]
+[gd_scene load_steps=19 format=3 uid="uid://rbrh6r5gtbru"]
 
 [ext_resource type="Script" path="res://Scripts/ObstacleBehavior.gd" id="1_fqxci"]
 [ext_resource type="Texture2D" uid="uid://4noy7pb3r24k" path="res://Assets/Obstacles/Barrel.png" id="1_ss47m"]
+[ext_resource type="Shader" path="res://Shaders/Outlineshader.gdshader" id="2_mildl"]
 [ext_resource type="Texture2D" uid="uid://jhb088cq37mc" path="res://Assets/Explosion/Explosion_8/Explosion_1.png" id="3_eodvb"]
 [ext_resource type="Texture2D" uid="uid://77wrj60jd0l" path="res://Assets/Explosion/Explosion_8/Explosion_2.png" id="4_6fr5g"]
 [ext_resource type="Texture2D" uid="uid://c5ahrbb2qg7oa" path="res://Assets/Explosion/Explosion_8/Explosion_3.png" id="5_d1iy3"]
@@ -12,6 +13,17 @@
 [ext_resource type="Texture2D" uid="uid://bbyt512apes3i" path="res://Assets/Explosion/Explosion_8/Explosion_8.png" id="10_55r81"]
 [ext_resource type="Texture2D" uid="uid://3qkrethagmt8" path="res://Assets/Explosion/Explosion_8/Explosion_9.png" id="11_yc33v"]
 [ext_resource type="Texture2D" uid="uid://dxug2kn370la3" path="res://Assets/Explosion/Explosion_8/Explosion_10.png" id="12_ingsw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qv30y"]
+shader = ExtResource("2_mildl")
+shader_parameter/max_line_width = 10.0
+shader_parameter/min_line_width = 2.0
+shader_parameter/freq = 1.0
+shader_parameter/block_size = 20.0
+shader_parameter/outline_colour = Vector4(0.7, 0.7, 0.7, 1)
+shader_parameter/color = Color(1, 1, 0, 1)
+shader_parameter/tint_factor = 0.05
+shader_parameter/fade = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0q6a4"]
 size = Vector2(100, 128)
@@ -57,15 +69,20 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_trlfe"]
 size = Vector2(100.8, 127.2)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lxrsr"]
+size = Vector2(108.8, 140.8)
+
 [node name="barrel" type="CharacterBody2D"]
 position = Vector2(0, -40)
 scale = Vector2(1.25, 1.25)
 script = ExtResource("1_fqxci")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_qv30y")
 texture = ExtResource("1_ss47m")
 
 [node name="MainCollision" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(2, 46)
 shape = SubResource("RectangleShape2D_0q6a4")
 
@@ -76,7 +93,17 @@ sprite_frames = SubResource("SpriteFrames_q54j3")
 offset = Vector2(0, 50)
 
 [node name="FireballDetection" type="Area2D" parent="."]
+visible = false
 
 [node name="FB" type="CollisionShape2D" parent="FireballDetection"]
 position = Vector2(0.800002, 46)
 shape = SubResource("RectangleShape2D_trlfe")
+
+[node name="BatDetection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BatDetection"]
+position = Vector2(-9.6, 38.4)
+shape = SubResource("RectangleShape2D_lxrsr")
+debug_color = Color(0.890196, 0.0784314, 0.760784, 0.419608)
+
+[connection signal="body_entered" from="BatDetection" to="." method="_on_bat_detection_body_entered"]

@@ -1,8 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://bnrso0j647owu"]
+[gd_scene load_steps=6 format=3 uid="uid://bnrso0j647owu"]
 
 [ext_resource type="Texture2D" uid="uid://bnxlrm2wx0011" path="res://Assets/TextBubbles/panels/panel_05.png" id="1_066tf"]
 [ext_resource type="Script" path="res://Dialogues/dialogue_npc.gd" id="1_s5v7e"]
+[ext_resource type="Shader" path="res://Shaders/ColorTint.gdshader" id="2_4al8a"]
 [ext_resource type="FontFile" uid="uid://dumj75rt8ukae" path="res://Assets/Fonts/Kaph-Regular.ttf" id="3_ybrxe"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6i0pi"]
+shader = ExtResource("2_4al8a")
+shader_parameter/color = Color(1, 1, 0, 1)
+shader_parameter/tint_factor = 0.2
+shader_parameter/fade = 1.0
 
 [node name="Dialogue" type="Control"]
 layout_mode = 3
@@ -13,6 +20,7 @@ script = ExtResource("1_s5v7e")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 modulate = Color(0.631373, 0.87451, 0.85098, 1)
+material = SubResource("ShaderMaterial_6i0pi")
 layout_mode = 0
 offset_left = -231.0
 offset_top = -288.0

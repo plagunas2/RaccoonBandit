@@ -12,6 +12,9 @@ var scroll_speed
 var seconds_in_screen
 var screen_size : Vector2
 
+var top_spawn
+var bottom_spawn
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	min_spawn_interval = 10.0 
@@ -20,19 +23,28 @@ func _ready():
 	#print("timer starts!")
 	$Timer.wait_time = 3.0
 	$Timer.start()
+	bottom_spawn = Vector2(0, 0)
+	top_spawn = Vector2(0, -300)
 
 func _process(_delta):
 	scroll_speed = get_parent().global_speed
 	seconds_in_screen = screen_size.x/scroll_speed
-	min_spawn_interval = seconds_in_screen * 0.2
-	max_spawn_interval = seconds_in_screen * 0.9
+	min_spawn_interval = seconds_in_screen * 0.15
+	max_spawn_interval = seconds_in_screen * 0.8
 
 func _on_timer_timeout():
 	#print("timer timeour!")
 	var food_type = food_types[randi() % food_types.size()].instantiate()
 	#print(food_type) #debugging print statement
 	
-	food_type.global_position = Vector2(0,0)
+	var spawn_num = randi_range(0,1)
+	var spawn
+	if spawn_num == 1:
+		spawn = top_spawn
+	elif spawn_num == 0:
+		spawn = bottom_spawn
+	
+	food_type.global_position = spawn
 	#print("food pos ", food_type.global_position)
 	add_child(food_type)
 	

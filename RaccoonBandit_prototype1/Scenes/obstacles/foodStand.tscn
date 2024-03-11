@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://dtoiwb4fa3xg5"]
+[gd_scene load_steps=17 format=3 uid="uid://dtoiwb4fa3xg5"]
 
 [ext_resource type="Texture2D" uid="uid://dcepmldwimg5m" path="res://Assets/Obstacles/Food_Stand.png" id="1_3klor"]
 [ext_resource type="Script" path="res://Scripts/ObstacleBehavior.gd" id="1_t31x6"]
+[ext_resource type="Shader" path="res://Shaders/Outlineshader.gdshader" id="2_giu5i"]
 [ext_resource type="Texture2D" uid="uid://jhb088cq37mc" path="res://Assets/Explosion/Explosion_8/Explosion_1.png" id="3_c6mdx"]
 [ext_resource type="Texture2D" uid="uid://77wrj60jd0l" path="res://Assets/Explosion/Explosion_8/Explosion_2.png" id="4_v1hhq"]
 [ext_resource type="Texture2D" uid="uid://c5ahrbb2qg7oa" path="res://Assets/Explosion/Explosion_8/Explosion_3.png" id="5_nhgnv"]
@@ -12,6 +13,17 @@
 [ext_resource type="Texture2D" uid="uid://bbyt512apes3i" path="res://Assets/Explosion/Explosion_8/Explosion_8.png" id="10_bghw0"]
 [ext_resource type="Texture2D" uid="uid://3qkrethagmt8" path="res://Assets/Explosion/Explosion_8/Explosion_9.png" id="11_1m5kv"]
 [ext_resource type="Texture2D" uid="uid://dxug2kn370la3" path="res://Assets/Explosion/Explosion_8/Explosion_10.png" id="12_8ku0a"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5x2od"]
+shader = ExtResource("2_giu5i")
+shader_parameter/max_line_width = 12.0
+shader_parameter/min_line_width = 5.0
+shader_parameter/freq = 1.0
+shader_parameter/block_size = 20.0
+shader_parameter/outline_colour = Vector4(0.7, 0.7, 0.7, 1)
+shader_parameter/color = Color(1, 1, 0, 1)
+shader_parameter/tint_factor = 0.05
+shader_parameter/fade = 1.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xqp5n"]
 animations = [{
@@ -51,14 +63,19 @@ animations = [{
 "speed": 15.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q03ri"]
+size = Vector2(184, 344)
+
 [node name="foodstand" type="CharacterBody2D"]
 script = ExtResource("1_t31x6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_5x2od")
 texture = ExtResource("1_3klor")
 offset = Vector2(0, -110)
 
 [node name="MainCollision" type="CollisionPolygon2D" parent="."]
+visible = false
 position = Vector2(0, -112)
 polygon = PackedVector2Array(40, -63, 46, -63, 62, -62, 101, -53, 119, -45, 135, -36, 147, -27, 153, -21, 158, -17, 162, -10, 163, -5, 162, 8, 155, 11, 151, 12, 146, 12, 140, 13, 134, 12, 126, 6, 124, 9, 118, 11, 31, 12, 33, 68, 75, 68, 76, 131, 77, 187, 106, 186, 107, 199, 107, 206, 117, 207, 117, 213, 99, 213, 87, 213, 87, 222, 86, 226, 89, 228, 92, 234, 91, 242, 83, 246, 76, 246, 70, 241, 68, 234, 71, 228, 76, 222, -22, 222, -27, 233, -37, 243, -48, 246, -64, 245, -70, 242, -81, 232, -82, 229, -85, 219, -88, 218, -89, 214, -87, 203, -81, 192, -76, 186, -76, 176, -76, 149, -90, 129, -117, 129, -118, 128, -118, 123, -117, 122, -87, 122, -83, 126, -79, 132, -74, 131, 25, 131, 25, 12, -47, 11, -58, 10, -64, 8, -66, 9, -70, 11, -75, 12, -84, 12, -90, 12, -94, 12.4, -104, 8, -104, 1, -105, -4, -105, -10, -104, -13, -100, -18, -97, -22, -91, -27, -83, -32, -73, -39, -63, -44, -54, -48, -42, -53, -26, -57, -11, -60, 5, -62, 23, -62, 23, -70, 31, -70, 32, -63)
 
@@ -69,7 +86,17 @@ sprite_frames = SubResource("SpriteFrames_xqp5n")
 offset = Vector2(0, 50)
 
 [node name="FireballDetection" type="Area2D" parent="."]
+visible = false
 
 [node name="FB" type="CollisionPolygon2D" parent="FireballDetection"]
 position = Vector2(19, -16)
 polygon = PackedVector2Array(-74, 151, -87, 151, -103, 135, -109, 120, -108, 108, -102, 97, -100, 90, -100, 84, -100, 54, -111, 38, -112, 37, -136, 34, -138, 33, -139, 28, -137, 26, -108, 26, -107, 26, -105, 26, -98, 33, -96, 35, -49, 35, -12, 34, 1, 33, 0, -7, 0, -80, -82, -83, -112, -83, -125, -88, -127, -102, -126, -110, -118, -119, -107, -128, -95, -135, -75, -145, -54, -153, -30, -158, -8, -160, 3, -160, 3, -166, 4, -167, 12, -167, 14, -160, 27, -160, 31, -159, 38, -159, 45, -158, 40, 129, -38, 129, -49, 143, -59, 149)
+
+[node name="BatDetection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BatDetection"]
+position = Vector2(-44, -44)
+shape = SubResource("RectangleShape2D_q03ri")
+debug_color = Color(0.913725, 0, 0.721569, 0.419608)
+
+[connection signal="body_entered" from="BatDetection" to="." method="_on_bat_detection_body_entered"]

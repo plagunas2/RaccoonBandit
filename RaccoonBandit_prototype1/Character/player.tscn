@@ -1,7 +1,8 @@
-[gd_scene load_steps=201 format=3 uid="uid://bl1oakyavckov"]
+[gd_scene load_steps=203 format=3 uid="uid://bl1oakyavckov"]
 
 [ext_resource type="Script" path="res://Character/player.gd" id="1_5evjr"]
 [ext_resource type="Texture2D" uid="uid://s8x12ndkgllp" path="res://Assets/Raccoon/PNG/PNG Sequences/Idle/Idle_000.png" id="1_sbm6y"]
+[ext_resource type="Shader" path="res://Shaders/Outlineshader.gdshader" id="2_65dub"]
 [ext_resource type="Texture2D" uid="uid://be5xaw2vxqyor" path="res://Assets/Raccoon/PNG/PNG Sequences/Dying/Dying_000.png" id="2_wbsrx"]
 [ext_resource type="Texture2D" uid="uid://biy3vk6q26s7i" path="res://Assets/Raccoon/PNG/PNG Sequences/Idle/Idle_001.png" id="3_1tgir"]
 [ext_resource type="Texture2D" uid="uid://bbxva3qvw8sku" path="res://Assets/Raccoon/PNG/PNG Sequences/Dying/Dying_001.png" id="3_ptrbl"]
@@ -197,8 +198,69 @@
 [ext_resource type="Texture2D" uid="uid://dmejuupfu0ct3" path="res://Assets/Raccoon/PNG/PNG Sequences/Walking/Walking_022.png" id="102_eoj3c"]
 [ext_resource type="Texture2D" uid="uid://dqtb3dpwydqp" path="res://Assets/Raccoon/PNG/PNG Sequences/Walking/Walking_023.png" id="103_46sv1"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tt1ha"]
+shader = ExtResource("2_65dub")
+shader_parameter/max_line_width = 10.0
+shader_parameter/min_line_width = 5.0
+shader_parameter/freq = 1.0
+shader_parameter/block_size = 20.0
+shader_parameter/outline_colour = Vector4(0.7, 0.7, 0.7, 1)
+shader_parameter/color = Color(1, 1, 0, 1)
+shader_parameter/tint_factor = 0.05
+shader_parameter/fade = 1.0
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_57wnc"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("29_ewhcr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_xlews")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_h1wvu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_uyfq1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_wuk2o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_4mmbx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_vvmcy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_lsmtv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_p0ulm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_mlddl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_wkdmt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_j1wx7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_byhw6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_lim1q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_38sq8")
+}],
+"loop": true,
+"name": &"Bat Swing",
+"speed": 20.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_wbsrx")
@@ -592,56 +654,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("29_ewhcr")
-}, {
-"duration": 1.0,
-"texture": ExtResource("30_xlews")
-}, {
-"duration": 1.0,
-"texture": ExtResource("31_h1wvu")
-}, {
-"duration": 1.0,
-"texture": ExtResource("32_uyfq1")
-}, {
-"duration": 1.0,
-"texture": ExtResource("33_wuk2o")
-}, {
-"duration": 1.0,
-"texture": ExtResource("34_4mmbx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("35_vvmcy")
-}, {
-"duration": 1.0,
-"texture": ExtResource("36_lsmtv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("37_p0ulm")
-}, {
-"duration": 1.0,
-"texture": ExtResource("38_mlddl")
-}, {
-"duration": 1.0,
-"texture": ExtResource("39_wkdmt")
-}, {
-"duration": 1.0,
-"texture": ExtResource("40_j1wx7")
-}, {
-"duration": 1.0,
-"texture": ExtResource("41_byhw6")
-}, {
-"duration": 1.0,
-"texture": ExtResource("42_lim1q")
-}, {
-"duration": 1.0,
-"texture": ExtResource("43_38sq8")
-}],
-"loop": true,
-"name": &"Run Attacking",
-"speed": 20.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": ExtResource("44_17k2e")
 }, {
 "duration": 1.0,
@@ -903,12 +915,14 @@ height = 114.872
 script = ExtResource("1_5evjr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_tt1ha")
 scale = Vector2(0.35, 0.35)
 sprite_frames = SubResource("SpriteFrames_57wnc")
-animation = &"Running"
+animation = &"Bat Swing"
 autoplay = "idle"
 
 [node name="MainCollisionShape" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(4, 0)
 shape = SubResource("CapsuleShape2D_0rsjk")
 
@@ -925,6 +939,7 @@ one_shot = true
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenNotifier2D" parent="."]
 
 [node name="FireballDetection" type="Area2D" parent="."]
+visible = false
 
 [node name="MainFireBallCollision" type="CollisionShape2D" parent="FireballDetection"]
 position = Vector2(3, -3)
@@ -936,6 +951,11 @@ position = Vector2(-27, 23)
 rotation = 1.58025
 shape = SubResource("CapsuleShape2D_hed7n")
 
+[node name="BatTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="MagnetTimer" to="." method="_on_timer_timeout"]
 [connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
+[connection signal="timeout" from="BatTimer" to="." method="_on_bat_timer_timeout"]
