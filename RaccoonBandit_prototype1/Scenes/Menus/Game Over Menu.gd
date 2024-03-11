@@ -8,6 +8,10 @@ var current_score = 0
 
 func _ready():
 	set_process_input(true)  # Enable input processing for this script
+	score_value.text = str(current_score)
+	if current_score > highscore:
+		highscore = current_score
+		highscore_value.text = str(highscore)
 
 func _process(_delta):
 	# Check for mouse click in the _process function
@@ -20,9 +24,20 @@ func _on_retry_pressed():
 func _on_quit_pressed():
 	get_tree().quit()
 
-func _on_score_changed(trashcollected):
-	print("on score changed called")
-	score_value.text = str(trashcollected)
+func _on_score_changed(new_score):
+	print("on score changed called with new_score: " , new_score)
+	current_score = new_score
+	#print("score_value node: ", $VBoxContainer5/ScoreHBoxContainer/ScoreValue)
+	#print("highscore_value node: ", $VBoxContainer5/HighscoreHBoxContainer/HighscoreValue)
+	#$VBoxContainer5/ScoreHBoxContainer/ScoreValue.text = "Test"
+	#$VBoxContainer5/HighscoreHBoxContainer/HighscoreValue.text = "Test"
+	score_value.text = str(current_score)
 	if current_score > highscore:
-		highscore = trashcollected
+		highscore = current_score
 		highscore_value.text = str(highscore)
+		
+#func set_score(value):
+	#score_value.text = "Score: " + str(value)
+	#
+#func set_high_score(value):
+	#highscore_value.text = "Hi-Score: " + str(value)

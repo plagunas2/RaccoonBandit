@@ -12,7 +12,6 @@ signal score_changed(trashcollected)
 func _ready():
 	$trashcount.text = "Trash: " + str(trashcollected)
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	$trashcount.text  = "Trash: " + str(trashcollected)
@@ -20,7 +19,7 @@ func _process(_delta):
 func increase_score():
 	trashcollected += 1
 	print("score changed signal emitted")
-	score_changed.emit(trashcollected)
+	emit_signal("score_changed", trashcollected)
 	print("trash:", trashcollected)
 	if trashcollected % 6 == 0:
 		print("Score is 6, emitting signal")
