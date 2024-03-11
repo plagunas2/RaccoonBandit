@@ -21,3 +21,5 @@ motion_mirroring = Vector2(11520, 0)
 material = SubResource("ShaderMaterial_50c07")
 position = Vector2(108, -12)
 texture = ExtResource("2_lny5d")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]

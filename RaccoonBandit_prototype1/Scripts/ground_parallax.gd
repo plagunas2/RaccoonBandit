@@ -9,3 +9,6 @@ func _ready():
 func _process(delta):
 	scroll_speed = get_parent().get_node("ParallaxBackground").scroll_speed
 	scroll_base_offset -= Vector2(scroll_speed,0) * delta
+	
+func _set_gradient(value):
+	$CanvasModulate.color = value
