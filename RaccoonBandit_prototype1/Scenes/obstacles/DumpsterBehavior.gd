@@ -1,7 +1,13 @@
 extends Area2D
 
 #var magnet = preload("res://Scenes/Powerups/magnet.tscn")
-var powerups = ["magnet"]
+var powerups = ["magnet", "life", "bat"]
+var power_type
+
+var redDump = "res://Assets/Obstacles/Containers_1.png"
+var yellowDump = "res://Assets/Obstacles/Containers_2.png"
+var blueDump = "res://Assets/Obstacles/Containers_3.png"
+#var power_type
 
 var parallax_background
 var sound
@@ -20,6 +26,9 @@ func _ready():
 	powerPop = root.get_node("PowerupPopUp")
 	add_to_group("obstacle_fire_shape")
 	$Dumpster1/AnimatedSprite2D.visible = false
+	
+	power_type = powerups[randi() % powerups.size()] #set random powertype on instantiation
+	get_dumpster(power_type)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -48,7 +57,6 @@ func _on_body_entered(body):
 		print("distance of p and d: ", yDistance)
 		
 		if(yDistance < -100): #make sure player is ABOVE the dumpster to destroy it
-			var power_type = powerups[randi() % powerups.size()]
 			sound.playSmash()
 			powerPop.PowerPop(power_type)
 			player.getPowerup(power_type)
@@ -65,3 +73,11 @@ func _on_area_entered(area):
 		var timer = get_tree().create_timer(0.65)
 		await timer.timeout
 		queue_free()
+		
+func get_dumpster(power_type): #change dumpster sprite depending on powerup type
+	if(power_type == "magnet"):
+		$Dumpster1/Sprite2D.set_texture(load(redDump))
+	if(power_type == "life"):
+		$Dumpster1/Sprite2D.set_texture(load(blueDump))
+	if(power_type == "bat"):
+		$Dumpster1/Sprite2D.set_texture(load(yellowDump))

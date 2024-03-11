@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6dowxtfdwg1n"]
+
+[ext_resource type="Script" path="res://Scenes/Powerups/pop_animation.gd" id="1_qm0wb"]
+[ext_resource type="Texture2D" uid="uid://cv7b6hefmu0lo" path="res://Assets/Raccoon/PNG/Vector Parts/Full Head copy.png" id="1_sah6p"]
+
+[node name="life_pop" type="Node2D"]
+script = ExtResource("1_qm0wb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_sah6p")

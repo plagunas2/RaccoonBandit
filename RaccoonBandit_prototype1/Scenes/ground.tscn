@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://bnkxp5qhfcpkv"]
+
+[ext_resource type="Script" path="res://Scripts/ground_parallax.gd" id="1_63tom"]
+[ext_resource type="Shader" path="res://Shaders/ColorTint.gdshader" id="2_i4a5h"]
+[ext_resource type="Texture2D" uid="uid://cj1f5h7ltsddu" path="res://Assets/dirty_assets/building_props/shutter/Raccoon_Bandit_Level_Ground.png" id="2_lny5d"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_50c07"]
+shader = ExtResource("2_i4a5h")
+shader_parameter/color = Color(0, 0.105882, 1, 1)
+shader_parameter/tint_factor = 0.2
+shader_parameter/fade = 1.0
+
+[node name="ParallaxBackground2" type="ParallaxBackground"]
+script = ExtResource("1_63tom")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+position = Vector2(5649, 566)
+motion_mirroring = Vector2(11520, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+material = SubResource("ShaderMaterial_50c07")
+position = Vector2(108, -12)
+texture = ExtResource("2_lny5d")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
