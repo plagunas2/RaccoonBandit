@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bnkxp5qhfcpkv"]
 
-[ext_resource type="Script" path="res://ground_parallax.gd" id="1_63tom"]
+[ext_resource type="Script" path="res://Scripts/ground_parallax.gd" id="1_63tom"]
 [ext_resource type="Shader" path="res://Shaders/ColorTint.gdshader" id="2_i4a5h"]
 [ext_resource type="Texture2D" uid="uid://cj1f5h7ltsddu" path="res://Assets/dirty_assets/building_props/shutter/Raccoon_Bandit_Level_Ground.png" id="2_lny5d"]
 

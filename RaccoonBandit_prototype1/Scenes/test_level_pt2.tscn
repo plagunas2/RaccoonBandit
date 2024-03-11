@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dxoduqoma00oh"]
+[gd_scene load_steps=17 format=3 uid="uid://dxoduqoma00oh"]
 
 [ext_resource type="Script" path="res://Scenes/npc_player_connection.gd" id="1_q5ohh"]
 [ext_resource type="PackedScene" uid="uid://bl1oakyavckov" path="res://Character/player.tscn" id="2_c6vkw"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://o3ujw3rh2i6u" path="res://Scenes/Menus/pause_menu.tscn" id="9_2bejn"]
 [ext_resource type="PackedScene" uid="uid://cbmbky5ui0234" path="res://Scenes/Powerups/powerup_pop_up.tscn" id="13_587wi"]
 [ext_resource type="AudioStream" uid="uid://ekcytjdjm4aw" path="res://Sounds/vacuum-cleaner-23145.mp3" id="15_eg12x"]
+[ext_resource type="PackedScene" uid="uid://bnkxp5qhfcpkv" path="res://Scenes/ground.tscn" id="16_il8y6"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_q5ohh")
@@ -73,3 +74,5 @@ position = Vector2(944, 453)
 [node name="Vacuum" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("15_eg12x")
 volume_db = 15.0
+
+[node name="ParallaxBackground2" parent="." instance=ExtResource("16_il8y6")]
