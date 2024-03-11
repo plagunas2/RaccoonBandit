@@ -53,6 +53,8 @@ shader_parameter/fade = 1.0
 [node name="ParallaxBackground" type="ParallaxBackground"]
 script = ExtResource("1_rf7i6")
 
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+
 [node name="Timer" type="Timer" parent="."]
 wait_time = 15.0
 
