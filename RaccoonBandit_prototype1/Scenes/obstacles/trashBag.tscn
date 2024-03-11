@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://d016bph5na7m0"]
+[gd_scene load_steps=16 format=3 uid="uid://d016bph5na7m0"]
 
 [ext_resource type="Script" path="res://Scripts/ObstacleBehavior.gd" id="1_nadgf"]
 [ext_resource type="Texture2D" uid="uid://mxyltokbc0j1" path="res://Assets/Obstacles/Garbage_Bag.png" id="1_x881d"]
+[ext_resource type="Shader" path="res://Shaders/Outlineshader.gdshader" id="2_25stw"]
 [ext_resource type="Texture2D" uid="uid://jhb088cq37mc" path="res://Assets/Explosion/Explosion_8/Explosion_1.png" id="3_f4ydu"]
 [ext_resource type="Texture2D" uid="uid://77wrj60jd0l" path="res://Assets/Explosion/Explosion_8/Explosion_2.png" id="4_coiwy"]
 [ext_resource type="Texture2D" uid="uid://c5ahrbb2qg7oa" path="res://Assets/Explosion/Explosion_8/Explosion_3.png" id="5_q26xv"]
@@ -12,6 +13,17 @@
 [ext_resource type="Texture2D" uid="uid://bbyt512apes3i" path="res://Assets/Explosion/Explosion_8/Explosion_8.png" id="10_tf7gs"]
 [ext_resource type="Texture2D" uid="uid://3qkrethagmt8" path="res://Assets/Explosion/Explosion_8/Explosion_9.png" id="11_vmhqd"]
 [ext_resource type="Texture2D" uid="uid://dxug2kn370la3" path="res://Assets/Explosion/Explosion_8/Explosion_10.png" id="12_xb66b"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5msbq"]
+shader = ExtResource("2_25stw")
+shader_parameter/max_line_width = 3.0
+shader_parameter/min_line_width = 1.0
+shader_parameter/freq = 1.0
+shader_parameter/block_size = 20.0
+shader_parameter/outline_colour = Vector4(0, 0, 0, 1)
+shader_parameter/color = Color(1, 1, 0, 1)
+shader_parameter/tint_factor = 0.05
+shader_parameter/fade = 1.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7cbyf"]
 animations = [{
@@ -55,11 +67,13 @@ animations = [{
 script = ExtResource("1_nadgf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_5msbq")
 scale = Vector2(2, 2)
 texture = ExtResource("1_x881d")
 offset = Vector2(0, 30)
 
 [node name="MainCollision" type="CollisionPolygon2D" parent="."]
+visible = false
 position = Vector2(0, 56)
 scale = Vector2(2, 2)
 polygon = PackedVector2Array(9, -26.5, 9, -22.5, 11.5, -23, 13.5, -26.5, 17.5, -29, 20.5, -27.5, 19.5, -25.5, 25, -22, 33.5, -9.5, 37.5, 2, 36.5, 31.5, 38, 37.5, 35, 39, 31, 39, 4, 39.5, -4, 39.5, -17.5, 36.5, -14, 30, -13.5, 25.5, -16, -6, -13, -10.5, -8, -18, -4, -21, 7, -19, 7, -24, 2, -28, 2, -31, 4.5, -31.5, 7, -29)
@@ -71,6 +85,7 @@ sprite_frames = SubResource("SpriteFrames_7cbyf")
 offset = Vector2(0, 50)
 
 [node name="FireballDetection" type="Area2D" parent="."]
+visible = false
 
 [node name="FB" type="CollisionPolygon2D" parent="FireballDetection"]
 position = Vector2(6.40002, 23.2)

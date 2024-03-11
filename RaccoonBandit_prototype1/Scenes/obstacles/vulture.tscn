@@ -1,8 +1,20 @@
-[gd_scene load_steps=34 format=3 uid="uid://8vmehrt106de"]
+[gd_scene load_steps=36 format=3 uid="uid://8vmehrt106de"]
 
 [ext_resource type="Script" path="res://Scenes/obstacles/vulture.gd" id="1_ncapb"]
+[ext_resource type="Shader" path="res://Shaders/Outlineshader.gdshader" id="2_al5gt"]
 [ext_resource type="Texture2D" uid="uid://bn0rx5vwmesa1" path="res://Assets/Vulture/spritesheets/__vulture_face_one_flying.png" id="2_r7e8d"]
 [ext_resource type="Texture2D" uid="uid://bvy8uqs86whbf" path="res://Assets/Vulture/spritesheets/__vulture_face_one_die.png" id="3_2cngy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4u1au"]
+shader = ExtResource("2_al5gt")
+shader_parameter/max_line_width = 10.0
+shader_parameter/min_line_width = 5.0
+shader_parameter/freq = 1.0
+shader_parameter/block_size = 20.0
+shader_parameter/outline_colour = Vector4(0, 0, 0, 1)
+shader_parameter/color = Color(1, 1, 0, 1)
+shader_parameter/tint_factor = 0.05
+shader_parameter/fade = 1.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7p0aq"]
 atlas = ExtResource("2_r7e8d")
@@ -222,11 +234,10 @@ scale = Vector2(0.355, 0.355)
 script = ExtResource("1_ncapb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_4u1au")
 sprite_frames = SubResource("SpriteFrames_17gn5")
-animation = &"dying"
+animation = &"Flying"
 autoplay = "Flying"
-frame = 11
-frame_progress = 1.0
 
 [node name="PlayerDetection" type="CollisionShape2D" parent="."]
 rotation = -1.90073

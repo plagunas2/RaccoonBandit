@@ -1,7 +1,19 @@
-[gd_scene load_steps=17 format=3 uid="uid://csj5ygpse0ims"]
+[gd_scene load_steps=19 format=3 uid="uid://csj5ygpse0ims"]
 
 [ext_resource type="Script" path="res://Scenes/obstacles/bird.gd" id="1_t1bhv"]
 [ext_resource type="Texture2D" uid="uid://uokb860ba5bm" path="res://Assets/Vulture/birdspritesheets/__yellow_flying_bird_1_flying.png" id="2_2gx6e"]
+[ext_resource type="Shader" path="res://Shaders/Outlineshader.gdshader" id="2_uihig"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v2l3w"]
+shader = ExtResource("2_uihig")
+shader_parameter/max_line_width = 10.0
+shader_parameter/min_line_width = 5.0
+shader_parameter/freq = 1.0
+shader_parameter/block_size = 20.0
+shader_parameter/outline_colour = Vector4(0, 0, 0, 1)
+shader_parameter/color = Color(1, 1, 0, 1)
+shader_parameter/tint_factor = 0.05
+shader_parameter/fade = 1.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t7dtn"]
 atlas = ExtResource("2_2gx6e")
@@ -104,6 +116,7 @@ scale = Vector2(0.355, 0.355)
 script = ExtResource("1_t1bhv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_v2l3w")
 sprite_frames = SubResource("SpriteFrames_03nwk")
 autoplay = "default"
 

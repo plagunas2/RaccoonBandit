@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://b2lsj1cx5v84e"]
+[gd_scene load_steps=18 format=3 uid="uid://b2lsj1cx5v84e"]
 
 [ext_resource type="Texture2D" uid="uid://dpqnqif1p3m52" path="res://Assets/Obstacles/Bin_1.png" id="1_im7qx"]
 [ext_resource type="Script" path="res://Scripts/ObstacleBehavior.gd" id="1_rnmfe"]
+[ext_resource type="Shader" path="res://Shaders/Outlineshader.gdshader" id="2_oggfd"]
 [ext_resource type="Texture2D" uid="uid://jhb088cq37mc" path="res://Assets/Explosion/Explosion_8/Explosion_1.png" id="3_2b4nn"]
 [ext_resource type="Texture2D" uid="uid://77wrj60jd0l" path="res://Assets/Explosion/Explosion_8/Explosion_2.png" id="4_fcb2a"]
 [ext_resource type="Texture2D" uid="uid://c5ahrbb2qg7oa" path="res://Assets/Explosion/Explosion_8/Explosion_3.png" id="5_xuuhd"]
@@ -12,6 +13,17 @@
 [ext_resource type="Texture2D" uid="uid://bbyt512apes3i" path="res://Assets/Explosion/Explosion_8/Explosion_8.png" id="10_ccb4u"]
 [ext_resource type="Texture2D" uid="uid://3qkrethagmt8" path="res://Assets/Explosion/Explosion_8/Explosion_9.png" id="11_txvak"]
 [ext_resource type="Texture2D" uid="uid://dxug2kn370la3" path="res://Assets/Explosion/Explosion_8/Explosion_10.png" id="12_xu8ta"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eowaw"]
+shader = ExtResource("2_oggfd")
+shader_parameter/max_line_width = 5.0
+shader_parameter/min_line_width = 3.0
+shader_parameter/freq = 1.0
+shader_parameter/block_size = 20.0
+shader_parameter/outline_colour = Vector4(0, 0, 0, 1)
+shader_parameter/color = Color(1, 1, 0, 1)
+shader_parameter/tint_factor = 0.05
+shader_parameter/fade = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hm8fa"]
 size = Vector2(68, 95)
@@ -61,12 +73,14 @@ size = Vector2(141, 191)
 script = ExtResource("1_rnmfe")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_eowaw")
 position = Vector2(0, 0.5)
 scale = Vector2(2, 2)
 texture = ExtResource("1_im7qx")
 offset = Vector2(0, -25)
 
 [node name="MainCollision" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(21, 41)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_hm8fa")
@@ -78,6 +92,7 @@ sprite_frames = SubResource("SpriteFrames_d4ypo")
 offset = Vector2(0, 50)
 
 [node name="FireballDetection" type="Area2D" parent="."]
+visible = false
 
 [node name="FB" type="CollisionShape2D" parent="FireballDetection"]
 position = Vector2(17.5, 39.5)

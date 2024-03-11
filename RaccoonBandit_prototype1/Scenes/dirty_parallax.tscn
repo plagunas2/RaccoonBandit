@@ -1,13 +1,54 @@
-[gd_scene load_steps=9 format=3 uid="uid://bxr7rpvkg4eas"]
+[gd_scene load_steps=15 format=3 uid="uid://bxr7rpvkg4eas"]
 
 [ext_resource type="Script" path="res://Scenes/parallax_background.gd" id="1_rf7i6"]
-[ext_resource type="Texture2D" uid="uid://mqyo0qa0cb7p" path="res://Assets/dirty_assets/background/sky_colour.png" id="2_t5wrh"]
-[ext_resource type="Texture2D" uid="uid://cv1i084v4xww" path="res://Assets/Background/Background_Layer_2.png" id="3_wh7lu"]
+[ext_resource type="Texture2D" uid="uid://bjc8x5jn2rea" path="res://Assets/dirty_assets/building_props/shutter/sky_colour.png" id="2_6406k"]
+[ext_resource type="Shader" path="res://Shaders/ColorTint.gdshader" id="2_rvbqc"]
+[ext_resource type="Texture2D" uid="uid://bght4jai2iifm" path="res://Assets/dirty_assets/building_props/shutter/Raccoon_Bandit_Level_Design_middle.png" id="3_wtuft"]
+[ext_resource type="Texture2D" uid="uid://38d2fmsnmq6d" path="res://Assets/dirty_assets/building_props/shutter/Raccoon_Bandit_Level_Design_middle2.png" id="4_5ryey"]
 [ext_resource type="Texture2D" uid="uid://caobqhbefna5f" path="res://Assets/Background/Background_Layer_3.png" id="4_m3wc4"]
-[ext_resource type="Texture2D" uid="uid://sv4edsgg2obq" path="res://Assets/dirty_assets/background/background_separated.png" id="4_uty06"]
 [ext_resource type="Texture2D" uid="uid://dq8u0mx2prcbr" path="res://Assets/dirty_assets/building_props/shutter/Raccoon_Bandit_Level_Design.png" id="6_233k6"]
-[ext_resource type="Texture2D" uid="uid://8s4xxmis7y7i" path="res://Assets/dirty_assets/road/repeating_road_piece.png" id="7_cj65p"]
-[ext_resource type="Texture2D" uid="uid://dgjjqfhkgls0j" path="res://Assets/dirty_assets/road/road_color.png" id="8_xvg2l"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2uekj"]
+shader = ExtResource("2_rvbqc")
+shader_parameter/color = Color(0.27451, 0.67451, 1, 1)
+shader_parameter/tint_factor = 0.85
+shader_parameter/fade = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lnf1u"]
+shader = ExtResource("2_rvbqc")
+shader_parameter/color = Color(0.180392, 0.0392157, 0.494118, 1)
+shader_parameter/tint_factor = 0.4
+shader_parameter/fade = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_na1re"]
+shader = ExtResource("2_rvbqc")
+shader_parameter/color = Color(0.380392, 0.403922, 1, 1)
+shader_parameter/tint_factor = 0.35
+shader_parameter/fade = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_unbkg"]
+shader = ExtResource("2_rvbqc")
+shader_parameter/color = Color(0, 0.105882, 1, 1)
+shader_parameter/tint_factor = 0.3
+shader_parameter/fade = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1dubd"]
+shader = ExtResource("2_rvbqc")
+shader_parameter/color = Color(0, 0.105882, 1, 1)
+shader_parameter/tint_factor = 0.35
+shader_parameter/fade = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xynra"]
+shader = ExtResource("2_rvbqc")
+shader_parameter/color = Color(0, 0.105882, 1, 1)
+shader_parameter/tint_factor = 0.25
+shader_parameter/fade = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0t7l1"]
+shader = ExtResource("2_rvbqc")
+shader_parameter/color = Color(0.14902, 0.384314, 1, 1)
+shader_parameter/tint_factor = 0.2
+shader_parameter/fade = 1.0
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
 script = ExtResource("1_rf7i6")
@@ -20,74 +61,48 @@ motion_scale = Vector2(0.3, 0.3)
 motion_mirroring = Vector2(11520, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Background"]
+material = SubResource("ShaderMaterial_2uekj")
 position = Vector2(5760.67, 540.028)
 scale = Vector2(-11521.3, 0.586012)
-texture = ExtResource("2_t5wrh")
+texture = ExtResource("2_6406k")
 
 [node name="MiddleLayer" type="ParallaxLayer" parent="."]
 motion_scale = Vector2(0.5, 0.5)
 motion_mirroring = Vector2(11520, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="MiddleLayer"]
-position = Vector2(456, 456)
-scale = Vector2(0.2, 0.283056)
-texture = ExtResource("3_wh7lu")
-
-[node name="Sprite2D3" type="Sprite2D" parent="MiddleLayer"]
-position = Vector2(3032, 326.4)
-scale = Vector2(0.35, 0.409778)
-texture = ExtResource("3_wh7lu")
-
-[node name="Sprite2D5" type="Sprite2D" parent="MiddleLayer"]
-position = Vector2(5056, 520)
-scale = Vector2(0.185778, 0.291111)
-texture = ExtResource("3_wh7lu")
+[node name="Sprite2D6" type="Sprite2D" parent="MiddleLayer"]
+material = SubResource("ShaderMaterial_lnf1u")
+position = Vector2(5760, 544)
+texture = ExtResource("3_wtuft")
 
 [node name="MiddleLayer2" type="ParallaxLayer" parent="."]
-motion_scale = Vector2(0.55, 0.55)
+motion_scale = Vector2(0.6, 0.6)
 motion_mirroring = Vector2(11520, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="MiddleLayer2"]
-position = Vector2(644, 520)
-scale = Vector2(0.3, 0.45)
-texture = ExtResource("4_uty06")
-
-[node name="Sprite2D2" type="Sprite2D" parent="MiddleLayer2"]
-position = Vector2(1868, 520)
-scale = Vector2(0.27, 0.45)
-texture = ExtResource("4_uty06")
-
-[node name="Sprite2D3" type="Sprite2D" parent="MiddleLayer2"]
-position = Vector2(2995.63, 520)
-scale = Vector2(0.255414, 0.45)
-texture = ExtResource("4_uty06")
-
-[node name="Sprite2D4" type="Sprite2D" parent="MiddleLayer2"]
-position = Vector2(3973.13, 520)
-scale = Vector2(0.25099, 0.45)
-texture = ExtResource("4_uty06")
-
 [node name="Sprite2D5" type="Sprite2D" parent="MiddleLayer2"]
-position = Vector2(4788, 520)
-scale = Vector2(0.452725, 0.45)
-texture = ExtResource("4_uty06")
+material = SubResource("ShaderMaterial_na1re")
+position = Vector2(5760, 544)
+texture = ExtResource("4_5ryey")
 
 [node name="ForefrontLayer" type="ParallaxLayer" parent="."]
 motion_scale = Vector2(0.7, 0.7)
 motion_mirroring = Vector2(11520, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ForefrontLayer"]
+material = SubResource("ShaderMaterial_unbkg")
 position = Vector2(1224, 264)
 scale = Vector2(0.4, 0.749138)
 texture = ExtResource("4_m3wc4")
 
 [node name="Sprite2D2" type="Sprite2D" parent="ForefrontLayer"]
+material = SubResource("ShaderMaterial_1dubd")
 position = Vector2(2504, 176)
 scale = Vector2(0.4, 1.00568)
 texture = ExtResource("4_m3wc4")
 flip_h = true
 
 [node name="Sprite2D3" type="Sprite2D" parent="ForefrontLayer"]
+material = SubResource("ShaderMaterial_xynra")
 position = Vector2(3432, 528)
 scale = Vector2(0.333333, 0.535022)
 texture = ExtResource("4_m3wc4")
@@ -97,21 +112,9 @@ flip_h = true
 motion_mirroring = Vector2(11520, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ForefrontLayer2"]
-position = Vector2(5760, 546)
+material = SubResource("ShaderMaterial_0t7l1")
+position = Vector2(5760, 544)
 scale = Vector2(1, 1.01111)
 texture = ExtResource("6_233k6")
-
-[node name="Ground" type="ParallaxLayer" parent="."]
-motion_mirroring = Vector2(11520, 0)
-
-[node name="RepeatingRoadPiece" type="Sprite2D" parent="Ground"]
-position = Vector2(5760, 936)
-scale = Vector2(7.68, 0.307328)
-texture = ExtResource("7_cj65p")
-
-[node name="RoadColor" type="Sprite2D" parent="Ground"]
-position = Vector2(5760, 1028)
-scale = Vector2(45, 0.46875)
-texture = ExtResource("8_xvg2l")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
