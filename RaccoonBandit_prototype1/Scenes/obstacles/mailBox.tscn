@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b2lsj1cx5v84e"]
+[gd_scene load_steps=17 format=3 uid="uid://b2lsj1cx5v84e"]
 
 [ext_resource type="Texture2D" uid="uid://dpqnqif1p3m52" path="res://Assets/Obstacles/Bin_1.png" id="1_im7qx"]
 [ext_resource type="Script" path="res://Scripts/ObstacleBehavior.gd" id="1_rnmfe"]
@@ -69,6 +69,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4dacj"]
 size = Vector2(141, 191)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o3ptd"]
+size = Vector2(160, 224)
+
 [node name="mailbox" type="CharacterBody2D"]
 script = ExtResource("1_rnmfe")
 
@@ -97,3 +100,12 @@ visible = false
 [node name="FB" type="CollisionShape2D" parent="FireballDetection"]
 position = Vector2(17.5, 39.5)
 shape = SubResource("RectangleShape2D_4dacj")
+
+[node name="BatDetection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BatDetection"]
+position = Vector2(8, 32)
+shape = SubResource("RectangleShape2D_o3ptd")
+debug_color = Color(0.831373, 0, 0.945098, 0.419608)
+
+[connection signal="body_entered" from="BatDetection" to="." method="_on_bat_detection_body_entered"]

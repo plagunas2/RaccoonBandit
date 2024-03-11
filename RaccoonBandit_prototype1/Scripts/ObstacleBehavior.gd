@@ -39,3 +39,8 @@ func _on_obstacle_entered(area):
 		var timer = get_tree().create_timer(0.65)
 		await timer.timeout
 		queue_free()
+
+func _on_bat_detection_body_entered(body):
+	if(body.get_name() == "Player" && body.bat == true):
+		print("bat detected!")
+		queue_free()

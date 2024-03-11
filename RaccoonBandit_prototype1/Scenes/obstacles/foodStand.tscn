@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dtoiwb4fa3xg5"]
+[gd_scene load_steps=15 format=3 uid="uid://dtoiwb4fa3xg5"]
 
 [ext_resource type="Texture2D" uid="uid://dcepmldwimg5m" path="res://Assets/Obstacles/Food_Stand.png" id="1_3klor"]
 [ext_resource type="Script" path="res://Scripts/ObstacleBehavior.gd" id="1_t31x6"]
@@ -63,6 +63,9 @@ animations = [{
 "speed": 15.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q03ri"]
+size = Vector2(184, 344)
+
 [node name="foodstand" type="CharacterBody2D"]
 script = ExtResource("1_t31x6")
 
@@ -88,3 +91,12 @@ visible = false
 [node name="FB" type="CollisionPolygon2D" parent="FireballDetection"]
 position = Vector2(19, -16)
 polygon = PackedVector2Array(-74, 151, -87, 151, -103, 135, -109, 120, -108, 108, -102, 97, -100, 90, -100, 84, -100, 54, -111, 38, -112, 37, -136, 34, -138, 33, -139, 28, -137, 26, -108, 26, -107, 26, -105, 26, -98, 33, -96, 35, -49, 35, -12, 34, 1, 33, 0, -7, 0, -80, -82, -83, -112, -83, -125, -88, -127, -102, -126, -110, -118, -119, -107, -128, -95, -135, -75, -145, -54, -153, -30, -158, -8, -160, 3, -160, 3, -166, 4, -167, 12, -167, 14, -160, 27, -160, 31, -159, 38, -159, 45, -158, 40, 129, -38, 129, -49, 143, -59, 149)
+
+[node name="BatDetection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BatDetection"]
+position = Vector2(-44, -44)
+shape = SubResource("RectangleShape2D_q03ri")
+debug_color = Color(0.913725, 0, 0.721569, 0.419608)
+
+[connection signal="body_entered" from="BatDetection" to="." method="_on_bat_detection_body_entered"]

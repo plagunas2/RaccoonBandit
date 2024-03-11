@@ -951,6 +951,11 @@ position = Vector2(-27, 23)
 rotation = 1.58025
 shape = SubResource("CapsuleShape2D_hed7n")
 
+[node name="BatTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="MagnetTimer" to="." method="_on_timer_timeout"]
 [connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
+[connection signal="timeout" from="BatTimer" to="." method="_on_bat_timer_timeout"]

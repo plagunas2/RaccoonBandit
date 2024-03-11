@@ -11,6 +11,8 @@ extends CharacterBody2D
 @onready var parallax = get_parent().get_node("ParallaxBackground")
 @onready var sound = get_parent().get_node("AudioStreamPlayer2D")
 
+@onready var vacuumSFX = get_parent().get_node("Vacuum")
+
 @onready var hud = get_parent().get_node("HUD")
 
 signal final_death
@@ -246,9 +248,20 @@ func getPowerup(string):
 	if(string == "magnet"):
 		print("magnet power up!")
 		magnet = true
+		vacuumSFX.play()
 		$MagnetTimer.start()
+	if(string == "life"):
+		print("life power up!")
+		lives += 1
+	if(string == "bat"):
+		print("Weapon power up!")
+		bat = true
+		$BatTimer.start()
+		#TODO activate bat animation
+	
 		
 func _on_timer_timeout():
+	vacuumSFX.stop()
 	magnet = false
 
 func _on_visible_on_screen_enabler_2d_screen_exited():
@@ -256,3 +269,13 @@ func _on_visible_on_screen_enabler_2d_screen_exited():
 		is_dead = true
 		out_screen = true
 		_livescounter()
+
+func batDetectCol():
+	pass
+	#TODO base on timer
+	#while timer on, if collision detected in front of player, DESTROY!!!
+	#also activate bat swing animation
+
+
+func _on_bat_timer_timeout():
+	bat = false
