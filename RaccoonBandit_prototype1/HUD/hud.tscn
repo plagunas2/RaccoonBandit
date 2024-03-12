@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://dei8g5ul1uts2"]
+[gd_scene load_steps=3 format=3 uid="uid://dei8g5ul1uts2"]
 
+[ext_resource type="PackedScene" uid="uid://cubehaq1mxm5p" path="res://Scenes/Powerups/powerup_timers.tscn" id="2_yp35j"]
 [sub_resource type="SystemFont" id="SystemFont_f3v4l"]
 font_names = PackedStringArray("Impact")
 subpixel_positioning = 0
@@ -26,3 +27,7 @@ offset_top = 8.0
 offset_right = 3093.0
 offset_bottom = 228.0
 scale = Vector2(0.3, 0.3)
+
+[node name="timerBars" parent="." instance=ExtResource("2_yp35j")]
+position = Vector2(69, 5)
+scale = Vector2(2.5, 2.5)

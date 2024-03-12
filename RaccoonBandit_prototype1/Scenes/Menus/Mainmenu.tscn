@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://bhjnd5n5y7gqg"]
 
 [ext_resource type="Script" path="res://Scenes/Menus/Mainmenu.gd" id="1_t6wwb"]
-[ext_resource type="Texture2D" uid="uid://2db1ccwgmw61" path="res://Scenes/Menus/Screenshot 2024-01-31 at 16.51.25.png" id="2_6irju"]
+[ext_resource type="Texture2D" uid="uid://bb6eb1idmdhx4" path="res://Assets/Obstacles/raccoonbandit2.png" id="2_s75mg"]
 [ext_resource type="FontFile" uid="uid://dumj75rt8ukae" path="res://Assets/Fonts/Kaph-Regular.ttf" id="3_t13eg"]
 [ext_resource type="FontFile" uid="uid://ct5tickuppry1" path="res://Assets/Fonts/Kaph-Italic.ttf" id="4_d81cj"]
 [ext_resource type="PackedScene" uid="uid://bl1oakyavckov" path="res://Character/player.tscn" id="5_s4duc"]
@@ -335,7 +335,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_6irju")
+texture = ExtResource("2_s75mg")
 expand_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -400,7 +400,7 @@ layout_mode = 2
 mouse_force_pass_scroll_events = false
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0.92549, 0.666667, 0, 1)
-theme_override_constants/outline_size = 5
+theme_override_constants/outline_size = 10
 theme_override_constants/h_separation = 0
 theme_override_fonts/font = SubResource("FontVariation_oyc3k")
 theme_override_font_sizes/font_size = 50
@@ -415,7 +415,7 @@ layout_mode = 2
 size_flags_vertical = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0.92549, 0.666667, 0, 1)
-theme_override_constants/outline_size = 5
+theme_override_constants/outline_size = 10
 theme_override_constants/h_separation = 2
 theme_override_font_sizes/font_size = 50
 button_mask = 7
@@ -445,7 +445,7 @@ alignment = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0.92549, 0.666667, 0, 1)
-theme_override_constants/outline_size = 5
+theme_override_constants/outline_size = 10
 theme_override_constants/h_separation = 2
 theme_override_font_sizes/font_size = 50
 text = "Tutorial"
@@ -455,7 +455,7 @@ flat = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0.92549, 0.666667, 0, 1)
-theme_override_constants/outline_size = 5
+theme_override_constants/outline_size = 10
 theme_override_constants/h_separation = 2
 theme_override_font_sizes/font_size = 50
 text = "Settings"
