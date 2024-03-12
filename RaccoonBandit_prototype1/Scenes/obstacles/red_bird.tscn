@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://brey46xy86k5v"]
+[gd_scene load_steps=20 format=3 uid="uid://brey46xy86k5v"]
 
 [ext_resource type="Script" path="res://Scenes/obstacles/bird.gd" id="1_l1i1u"]
 [ext_resource type="Shader" path="res://Shaders/Outlineshader.gdshader" id="2_qs8j8"]
@@ -111,6 +111,9 @@ animations = [{
 radius = 56.7622
 height = 341.865
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uuvf5"]
+size = Vector2(405.634, 315.493)
+
 [node name="Node2D" type="CharacterBody2D"]
 scale = Vector2(0.355, 0.355)
 script = ExtResource("1_l1i1u")
@@ -123,3 +126,12 @@ autoplay = "default"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.49529
 shape = SubResource("CapsuleShape2D_qjb52")
+
+[node name="BatDetection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BatDetection"]
+position = Vector2(-90.1409, 22.5352)
+shape = SubResource("RectangleShape2D_uuvf5")
+debug_color = Color(0.858824, 0, 0.878431, 0.419608)
+
+[connection signal="body_entered" from="BatDetection" to="." method="_on_bat_detection_body_entered"]

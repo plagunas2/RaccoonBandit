@@ -34,3 +34,10 @@ func _on_player_entered(area):
 func left_screen():
 	if (xpos < -100):
 		queue_free()
+
+
+func _on_bat_detection_body_entered(body):
+	if(body.get_name() == "Player" && body.bat == true):
+		print("bat detected!")
+		body.bat_swing()
+		queue_free()

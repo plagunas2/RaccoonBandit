@@ -164,7 +164,8 @@ func update_animation():
 	if not animation_locked:
 		if not is_on_floor():
 			animated_sprite.play("Jump Loop")
-		
+		if(bat == true):
+			animated_sprite.play("Bat Swing")
 		else:
 			animated_sprite.play("Running")
 	
@@ -209,6 +210,10 @@ func slide():
 func idle():
 	animated_sprite.play("idle")
 	animation_locked = true
+	
+func bat_swing():
+	animated_sprite.play("Bat Swing")
+	animation_locked = true
 
 func respawn():
 	print("respawned")
@@ -247,7 +252,7 @@ func update_position(delta):
 			position += Vector2(parallax.scroll_speed, 0) * delta
 
 func _on_animated_sprite_2d_animation_finished():
-	if(["Jump End", "Jump Start", "Jump Double", "Sliding"].has(animated_sprite.animation)):
+	if(["Jump End", "Jump Start", "Jump Double", "Sliding", "Bat Swing"].has(animated_sprite.animation)):
 		animation_locked = false
 		
 func getPowerup(string):
@@ -255,7 +260,6 @@ func getPowerup(string):
 		print("magnet power up!")
 		magnet = true
 		vacuumSFX.play()
-		#timer_bars.get_node("Vacuum").value = 10
 		timer_bars.vacTimer()
 		$MagnetTimer.start()
 	if(string == "life"):
@@ -266,7 +270,6 @@ func getPowerup(string):
 		bat = true
 		timer_bars.batTimer()
 		$BatTimer.start()
-		#TODO activate bat animation
 	
 		
 func _on_timer_timeout():

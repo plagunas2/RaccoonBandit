@@ -18,7 +18,6 @@ func _ready():
 	#else:
 		#high_score = 0
 		#save_game()
-	
 	parallax_background = $ParallaxBackground
 	ground_parallax = $ParallaxBackground2
 	HUD = $HUD

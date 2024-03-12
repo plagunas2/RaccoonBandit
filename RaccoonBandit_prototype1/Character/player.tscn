@@ -920,6 +920,8 @@ scale = Vector2(0.35, 0.35)
 sprite_frames = SubResource("SpriteFrames_57wnc")
 animation = &"Bat Swing"
 autoplay = "idle"
+frame = 9
+frame_progress = 0.882429
 
 [node name="MainCollisionShape" type="CollisionShape2D" parent="."]
 visible = false
