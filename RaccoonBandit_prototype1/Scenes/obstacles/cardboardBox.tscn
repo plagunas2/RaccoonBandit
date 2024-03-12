@@ -118,6 +118,7 @@ size = Vector2(181, 181)
 
 [node name="cardboardBox" type="CharacterBody2D"]
 material = SubResource("ShaderMaterial_g33oj")
+position = Vector2(0, -10)
 script = SubResource("GDScript_ldhs0")
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
@@ -141,7 +142,8 @@ texture = ExtResource("1_wggdy")
 offset = Vector2(0, 25)
 
 [node name="MainCollision" type="CollisionPolygon2D" parent="."]
-position = Vector2(55, 58)
+position = Vector2(55, 49.7026)
+scale = Vector2(1, 0.938945)
 polygon = PackedVector2Array(-68, -81, -65, -84, 18, -84, 53, -84, 56, -82, 57, -8, 99, -8, 104, -7, 106, -4, 105, 85, 102, 89, -17, 89, -20, 88, -102, 88, -106, 84, -106, -5, -105, -7, -103, -9, -69, -9)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -159,7 +161,7 @@ polygon = PackedVector2Array(-100, 93, -100, -3, -96, -6, -63, -6, -63, -77, -59
 [node name="BatDetection" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BatDetection"]
-position = Vector2(20.5, 54.5)
+position = Vector2(21, 45)
 shape = SubResource("RectangleShape2D_4cy2m")
 debug_color = Color(0.870588, 0, 0.85098, 0.419608)
 
