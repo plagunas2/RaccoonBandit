@@ -1,6 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dei8g5ul1uts2"]
 
 [ext_resource type="PackedScene" uid="uid://cubehaq1mxm5p" path="res://Scenes/Powerups/powerup_timers.tscn" id="2_yp35j"]
+
 [sub_resource type="SystemFont" id="SystemFont_f3v4l"]
 font_names = PackedStringArray("Impact")
 subpixel_positioning = 0

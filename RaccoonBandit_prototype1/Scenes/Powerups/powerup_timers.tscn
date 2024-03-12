@@ -18,9 +18,9 @@ texture = ExtResource("1_ryhwp")
 expand_mode = 1
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_left = -16.0
+offset_left = -21.0
 offset_top = 48.0
-offset_right = 1.0
+offset_right = -4.0
 offset_bottom = 90.0
 texture = ExtResource("2_cvb4s")
 expand_mode = 1
