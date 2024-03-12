@@ -29,7 +29,6 @@ expand_mode = 1
 offset_right = 512.0
 offset_bottom = 512.0
 scale = Vector2(0.0720542, 0.0749741)
-max_value = 10.0
 fill_mode = 5
 texture_under = ExtResource("4_7tlcd")
 texture_progress = ExtResource("5_3yavl")
@@ -39,9 +38,6 @@ offset_top = 48.0
 offset_right = 512.0
 offset_bottom = 560.0
 scale = Vector2(0.0720542, 0.0749741)
-max_value = 10.0
 fill_mode = 5
 texture_under = ExtResource("4_7tlcd")
 texture_progress = ExtResource("5_3yavl")
-
-[node name="batTimer" type="Timer" parent="."]

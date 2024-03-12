@@ -253,6 +253,7 @@ func getPowerup(string):
 		print("magnet power up!")
 		magnet = true
 		vacuumSFX.play()
+		#timer_bars.get_node("Vacuum").value = 10
 		timer_bars.vacTimer()
 		$MagnetTimer.start()
 	if(string == "life"):
