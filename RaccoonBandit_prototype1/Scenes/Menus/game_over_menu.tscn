@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/Menus/Game Over Menu.gd" id="1_7hun4"]
 [ext_resource type="PackedScene" uid="uid://b4mefpabease6" path="res://Assets/Fonts/label.tscn" id="3_llfav"]
 [ext_resource type="FontFile" uid="uid://dumj75rt8ukae" path="res://Assets/Fonts/Kaph-Regular.ttf" id="3_t2t50"]
-[ext_resource type="Texture2D" uid="uid://cahasqhe1dbx2" path="res://image-1.png.png" id="4_pyx6w"]
+[ext_resource type="Texture2D" uid="uid://brrw0jjugqak0" path="res://Untitled design (3).png" id="4_re0ea"]
 
 [sub_resource type="FontVariation" id="FontVariation_pkwmq"]
 base_font = ExtResource("3_t2t50")
@@ -55,7 +55,18 @@ layout_mode = 2
 [node name="Label" parent="VBoxContainer" instance=ExtResource("3_llfav")]
 layout_mode = 2
 
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 2
+offset_left = 698.0
+offset_top = 452.0
+offset_right = 1347.0
+offset_bottom = 1042.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("4_re0ea")
+
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.523
