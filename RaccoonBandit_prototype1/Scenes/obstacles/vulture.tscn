@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://8vmehrt106de"]
+[gd_scene load_steps=37 format=3 uid="uid://8vmehrt106de"]
 
 [ext_resource type="Script" path="res://Scenes/obstacles/vulture.gd" id="1_ncapb"]
 [ext_resource type="Shader" path="res://Shaders/Outlineshader.gdshader" id="2_al5gt"]
@@ -229,6 +229,9 @@ animations = [{
 radius = 64.8296
 height = 318.058
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2rpug"]
+size = Vector2(495.775, 405.634)
+
 [node name="Node2D" type="Area2D"]
 scale = Vector2(0.355, 0.355)
 script = ExtResource("1_ncapb")
@@ -242,3 +245,12 @@ autoplay = "Flying"
 [node name="PlayerDetection" type="CollisionShape2D" parent="."]
 rotation = -1.90073
 shape = SubResource("CapsuleShape2D_tp8j6")
+
+[node name="BatDetection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BatDetection"]
+position = Vector2(-90.1408, 45.0704)
+shape = SubResource("RectangleShape2D_2rpug")
+debug_color = Color(0.862745, 0, 0.870588, 0.419608)
+
+[connection signal="body_entered" from="BatDetection" to="." method="_on_bat_detection_body_entered"]

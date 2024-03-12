@@ -1,10 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://oytv8vljxari"]
+[gd_scene load_steps=3 format=3 uid="uid://oytv8vljxari"]
 
 [ext_resource type="Script" path="res://Scenes/Menus/volume_slider.gd" id="1_syjx0"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_1lhuh"]
+color = Color(0.92549, 0.666667, 0, 1)
+thickness = 5
 
 [node name="HSlider" type="HSlider"]
 offset_right = 8.0
 offset_bottom = 16.0
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_1lhuh")
 max_value = 1.0
 step = 0.001
 script = ExtResource("1_syjx0")

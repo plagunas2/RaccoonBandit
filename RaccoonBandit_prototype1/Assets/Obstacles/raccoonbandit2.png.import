@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxkvbs1upohmk"
-path="res://.godot/imported/Screenshot 2024-03-12 at 10.15.52.png-ad9e2c01b52cbbf511b4c35ab55b42c5.ctex"
+uid="uid://bb6eb1idmdhx4"
+path="res://.godot/imported/raccoonbandit2.png-9e027c60cb05fe50e242b0ee1bb4c1fd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/Menus/Screenshot 2024-03-12 at 10.15.52.png"
-dest_files=["res://.godot/imported/Screenshot 2024-03-12 at 10.15.52.png-ad9e2c01b52cbbf511b4c35ab55b42c5.ctex"]
+source_file="res://Assets/Obstacles/raccoonbandit2.png"
+dest_files=["res://.godot/imported/raccoonbandit2.png-9e027c60cb05fe50e242b0ee1bb4c1fd.ctex"]
 
 [params]
 

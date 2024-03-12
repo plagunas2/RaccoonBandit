@@ -61,6 +61,11 @@ func _on_body_entered(body):
 			powerPop.PowerPop(power_type)
 			player.getPowerup(power_type)
 			queue_free()
+	if(body.name == "Player" && body.bat == true):
+			sound.playSmash()
+			powerPop.PowerPop(power_type)
+			player.getPowerup(power_type)
+			queue_free()
 
 func _on_area_entered(area):
 	if area.is_in_group("fireball_area"):

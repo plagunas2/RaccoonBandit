@@ -15,9 +15,9 @@
 [ext_resource type="PackedScene" uid="uid://o3ujw3rh2i6u" path="res://Scenes/Menus/pause_menu.tscn" id="9_2bejn"]
 [ext_resource type="Script" path="res://HUD/HUD.gd" id="10_e0yie"]
 [ext_resource type="PackedScene" uid="uid://cbmbky5ui0234" path="res://Scenes/Powerups/powerup_pop_up.tscn" id="13_587wi"]
-[ext_resource type="AudioStream" path="res://Sounds/vacuum-cleaner-23145.mp3" id="15_eg12x"]
+[ext_resource type="AudioStream" uid="uid://ekcytjdjm4aw" path="res://Sounds/vacuum-cleaner-23145.mp3" id="15_eg12x"]
 [ext_resource type="PackedScene" uid="uid://cchg0xy6ahlqh" path="res://Scenes/Menus/game_over_menu.tscn" id="15_vrmyi"]
-[ext_resource type="PackedScene" path="res://Scenes/ground.tscn" id="16_il8y6"]
+[ext_resource type="PackedScene" uid="uid://bnkxp5qhfcpkv" path="res://Scenes/ground.tscn" id="16_il8y6"]
 [ext_resource type="Script" path="res://Scenes/dayNightCycle.gd" id="17_2cin8"]
 [ext_resource type="Texture2D" uid="uid://bnuipv66afk70" path="res://Assets/Background/daynightcycle-gradient-texture.tres" id="18_6yrld"]
 

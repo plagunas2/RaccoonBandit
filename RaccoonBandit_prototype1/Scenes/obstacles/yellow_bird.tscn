@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://csj5ygpse0ims"]
+[gd_scene load_steps=20 format=3 uid="uid://csj5ygpse0ims"]
 
 [ext_resource type="Script" path="res://Scenes/obstacles/bird.gd" id="1_t1bhv"]
 [ext_resource type="Texture2D" uid="uid://uokb860ba5bm" path="res://Assets/Vulture/birdspritesheets/__yellow_flying_bird_1_flying.png" id="2_2gx6e"]
@@ -111,6 +111,9 @@ animations = [{
 radius = 56.7622
 height = 341.865
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r2ark"]
+size = Vector2(450.704, 360.563)
+
 [node name="Node2D" type="CharacterBody2D"]
 scale = Vector2(0.355, 0.355)
 script = ExtResource("1_t1bhv")
@@ -123,3 +126,12 @@ autoplay = "default"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.49529
 shape = SubResource("CapsuleShape2D_qjb52")
+
+[node name="BatDetection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BatDetection"]
+position = Vector2(-90.1408, 22.5352)
+shape = SubResource("RectangleShape2D_r2ark")
+debug_color = Color(0.858824, 0, 0.87451, 0.419608)
+
+[connection signal="body_entered" from="BatDetection" to="." method="_on_bat_detection_body_entered"]

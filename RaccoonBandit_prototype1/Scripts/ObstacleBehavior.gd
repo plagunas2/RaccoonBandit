@@ -43,6 +43,7 @@ func _on_obstacle_entered(area):
 func _on_bat_detection_body_entered(body):
 	if(body.get_name() == "Player" && body.bat == true):
 		print("bat detected!")
+		#body.bat_swing()
 		$MainCollision.set_deferred("disabled", true)
 		$FireballDetection/FB.set_deferred("disabled", true)
 		$Sprite2D.visible = false
