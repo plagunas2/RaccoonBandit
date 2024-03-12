@@ -1,5 +1,7 @@
 extends Node2D
 
+signal game_over
+
 var _paused:bool = false:
 	set(value):
 		_paused = value
@@ -11,8 +13,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		_paused = !_paused
 
 func _on_quit_button_pressed():
-		get_tree().change_scene_to_file("res://Scenes/Menus/game_over_menu.tscn")
-
+		visible = false
+		emit_signal("game_over")
 
 func _on_resume_button_pressed():
 	_paused = false

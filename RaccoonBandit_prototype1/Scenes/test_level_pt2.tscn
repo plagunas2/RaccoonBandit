@@ -1,8 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://dxoduqoma00oh"]
+[gd_scene load_steps=21 format=3 uid="uid://dxoduqoma00oh"]
 
 [ext_resource type="Script" path="res://Scenes/npc_player_connection.gd" id="1_q5ohh"]
-[ext_resource type="PackedScene" uid="uid://cv0j6kgntrc6w" path="res://Scenes/parallax_background.tscn" id="1_qa4be"]
 [ext_resource type="PackedScene" uid="uid://bl1oakyavckov" path="res://Character/player.tscn" id="2_c6vkw"]
+[ext_resource type="PackedScene" uid="uid://bxr7rpvkg4eas" path="res://Scenes/dirty_parallax.tscn" id="3_hb2sf"]
 [ext_resource type="PackedScene" uid="uid://4dfn8auyjbgg" path="res://Scenes/GroundStuff/ground_tile.tscn" id="4_h6uak"]
 [ext_resource type="PackedScene" uid="uid://dnw4bgmjccngu" path="res://Scenes/obstacles/obs_generator.tscn" id="4_md4bb"]
 [ext_resource type="PackedScene" uid="uid://dwre4s3tegjwg" path="res://Scenes/Food/food_generator.tscn" id="5_15tit"]
@@ -13,38 +13,45 @@
 [ext_resource type="PackedScene" uid="uid://ex06u32pjcji" path="res://NPC/npc.tscn" id="7_yfiwp"]
 [ext_resource type="AudioStream" uid="uid://bn1olh38hgngo" path="res://Sounds/swingMusic.mp3" id="8_6qowf"]
 [ext_resource type="PackedScene" uid="uid://o3ujw3rh2i6u" path="res://Scenes/Menus/pause_menu.tscn" id="9_2bejn"]
+[ext_resource type="Script" path="res://HUD/HUD.gd" id="10_e0yie"]
 [ext_resource type="PackedScene" uid="uid://cbmbky5ui0234" path="res://Scenes/Powerups/powerup_pop_up.tscn" id="13_587wi"]
+[ext_resource type="AudioStream" uid="uid://ekcytjdjm4aw" path="res://Sounds/vacuum-cleaner-23145.mp3" id="15_eg12x"]
+[ext_resource type="PackedScene" uid="uid://cchg0xy6ahlqh" path="res://Scenes/Menus/game_over_menu.tscn" id="15_vrmyi"]
+[ext_resource type="PackedScene" uid="uid://bnkxp5qhfcpkv" path="res://Scenes/ground.tscn" id="16_il8y6"]
+[ext_resource type="Script" path="res://Scenes/dayNightCycle.gd" id="17_2cin8"]
+[ext_resource type="Texture2D" uid="uid://de4y8wndip12d" path="res://Assets/Background/daynightcycle-gradient-texture.tres" id="18_6yrld"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_q5ohh")
 
-[node name="ParallaxBackground" parent="." instance=ExtResource("1_qa4be")]
+[node name="ParallaxBackground" parent="." instance=ExtResource("3_hb2sf")]
 
 [node name="Player" parent="." instance=ExtResource("2_c6vkw")]
-position = Vector2(825, 860)
+position = Vector2(825, 885)
 scale = Vector2(1.65, 1.65)
 
 [node name="ground" parent="." instance=ExtResource("4_h6uak")]
-position = Vector2(1408, 1028)
+position = Vector2(1408, 1045)
 scale = Vector2(10, 1)
 
 [node name="ObGenerator" parent="." instance=ExtResource("4_md4bb")]
-position = Vector2(2095, 815)
+position = Vector2(2095, 843)
 script = ExtResource("6_j4vqs")
 
 [node name="AirObGenerator" parent="." instance=ExtResource("4_md4bb")]
-position = Vector2(2100, 425)
+position = Vector2(2100, 460)
 
 [node name="AirObGenerator2" parent="." instance=ExtResource("4_md4bb")]
-position = Vector2(2250, 275)
+position = Vector2(2250, 300)
 
 [node name="FoodGenerator" parent="." instance=ExtResource("5_15tit")]
-position = Vector2(2170, 640)
+position = Vector2(2170, 730)
 
 [node name="GNDGenerator" parent="." instance=ExtResource("7_1ougk")]
-position = Vector2(2056, 1027)
+position = Vector2(2056, 1045)
 
 [node name="HUD" parent="." instance=ExtResource("6_7rpvi")]
+script = ExtResource("10_e0yie")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 volume_db = 8.0
@@ -57,14 +64,36 @@ autoplay = true
 bus = &"bgrnd_music"
 
 [node name="npc" parent="." instance=ExtResource("7_yfiwp")]
-position = Vector2(200, 763)
+position = Vector2(200, 772)
 scale = Vector2(6.7, 6.7)
 
 [node name="PauseMenu" parent="." instance=ExtResource("9_2bejn")]
 
 [node name="ground2" parent="." instance=ExtResource("4_h6uak")]
-position = Vector2(1616, 1026)
+position = Vector2(1616, 1045)
 scale = Vector2(8, 1)
 
 [node name="PowerupPopUp" parent="." instance=ExtResource("13_587wi")]
 position = Vector2(944, 453)
+
+[node name="Vacuum" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_eg12x")
+volume_db = 15.0
+
+[node name="ParallaxBackground2" parent="." instance=ExtResource("16_il8y6")]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+script = ExtResource("17_2cin8")
+gradient_text = ExtResource("18_6yrld")
+
+[node name="Game Over Menu" parent="." instance=ExtResource("15_vrmyi")]
+visible = false
+top_level = true
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -99.0
+offset_right = 2052.0
+offset_bottom = 1113.0
+grow_horizontal = 1
+grow_vertical = 1

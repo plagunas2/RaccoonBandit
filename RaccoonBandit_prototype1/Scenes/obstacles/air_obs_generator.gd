@@ -20,9 +20,6 @@ var min_spawn_interval
 var max_spawn_interval
 
 var parallax_background
-var parallax_layer
-var groundNode
-var ground
 var scroll_speed
 var seconds_in_screen
 
@@ -30,11 +27,7 @@ var seconds_in_screen
 func _ready():
 	# Start the timer when the scene is ready
 	parallax_background = get_parent().get_node("ParallaxBackground")
-	parallax_layer =  parallax_background.get_node("ParallaxLayer")
-	groundNode = parallax_layer.get_node("Ground")
-	ground = groundNode.get_node("Sprite2D")
 	screen_size = get_viewport().content_scale_size
-	
 	min_spawn_interval = 3.0 
 	max_spawn_interval = 8.0
 	
