@@ -195,18 +195,15 @@ theme_override_font_sizes/font_size = 50
 text = "0"
 
 [node name="HighscoreHBoxContainer" type="HBoxContainer" parent="VBoxContainer5"]
-visible = false
 layout_mode = 2
 
 [node name="HighscoreLabel" parent="VBoxContainer5/HighscoreHBoxContainer" instance=ExtResource("3_llfav")]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 50
 text = "High Score:"
 
 [node name="HighscoreValue" parent="VBoxContainer5/HighscoreHBoxContainer" instance=ExtResource("3_llfav")]
-visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "0"
