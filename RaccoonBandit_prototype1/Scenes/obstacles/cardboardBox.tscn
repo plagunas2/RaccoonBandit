@@ -59,7 +59,9 @@ func _on_obstacle_entered(area):
 
 
 func _on_bat_detection_body_entered(body):
-	pass # Replace with function body.
+	if(body.get_name() == \"Player\" && body.bat == true):
+		print(\"bat detected!\")
+		queue_free()
 "
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ai1lu"]
