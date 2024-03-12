@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cchg0xy6ahlqh"]
 
 [ext_resource type="Script" path="res://Scenes/Menus/Game Over Menu.gd" id="1_7hun4"]
-[ext_resource type="PackedScene" uid="uid://b4mefpabease6" path="res://Assets/Fonts/label.tscn" id="3_llfav"]
+[ext_resource type="PackedScene" path="res://Assets/Fonts/label.tscn" id="3_llfav"]
 [ext_resource type="FontFile" uid="uid://dumj75rt8ukae" path="res://Assets/Fonts/Kaph-Regular.ttf" id="3_t2t50"]
 [ext_resource type="Texture2D" uid="uid://cahasqhe1dbx2" path="res://image-1.png.png" id="4_pyx6w"]
 
@@ -56,6 +56,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.523
@@ -80,17 +81,17 @@ texture = ExtResource("4_pyx6w")
 
 [node name="VBoxContainer6" type="VBoxContainer" parent="."]
 layout_mode = 2
-offset_left = 801.0
-offset_top = 360.0
-offset_right = 1180.0
-offset_bottom = 526.0
+offset_left = 674.0
+offset_top = 363.0
+offset_right = 1234.0
+offset_bottom = 653.0
 grow_horizontal = 0
 grow_vertical = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 focus_neighbor_right = NodePath("../VBoxContainer4")
 focus_neighbor_bottom = NodePath("../VBoxContainer2")
-theme_override_constants/separation = 17
+theme_override_constants/separation = 30
 alignment = 1
 
 [node name="Separator3" type="Control" parent="VBoxContainer6"]
@@ -103,7 +104,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0.92549, 0.666667, 0, 1)
-theme_override_constants/outline_size = 5
+theme_override_constants/outline_size = 10
 theme_override_fonts/font = SubResource("FontVariation_pkwmq")
 theme_override_font_sizes/font_size = 50
 text = "Play Again"
@@ -116,13 +117,14 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0.92549, 0.666667, 0, 1)
-theme_override_constants/outline_size = 5
+theme_override_constants/outline_size = 10
 theme_override_fonts/font = SubResource("FontVariation_grft5")
 theme_override_font_sizes/font_size = 50
 text = "Quit Game"
 flat = true
 
 [node name="VBoxContainer4" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.793
@@ -176,9 +178,10 @@ alignment = 1
 layout_mode = 0
 offset_left = 605.0
 offset_top = 286.0
-offset_right = 1274.0
-offset_bottom = 400.0
+offset_right = 1164.0
+offset_bottom = 443.0
 theme_override_constants/separation = 30
+alignment = 1
 
 [node name="ScoreHBoxContainer" type="HBoxContainer" parent="VBoxContainer5"]
 layout_mode = 2
@@ -195,18 +198,15 @@ theme_override_font_sizes/font_size = 50
 text = "0"
 
 [node name="HighscoreHBoxContainer" type="HBoxContainer" parent="VBoxContainer5"]
-visible = false
 layout_mode = 2
 
 [node name="HighscoreLabel" parent="VBoxContainer5/HighscoreHBoxContainer" instance=ExtResource("3_llfav")]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 50
 text = "High Score:"
 
 [node name="HighscoreValue" parent="VBoxContainer5/HighscoreHBoxContainer" instance=ExtResource("3_llfav")]
-visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "0"

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/Menus/settings_menu.gd" id="1_2ga0s"]
 [ext_resource type="FontFile" uid="uid://ct5tickuppry1" path="res://Assets/Fonts/Kaph-Italic.ttf" id="1_h1h5q"]
-[ext_resource type="Texture2D" uid="uid://bxkvbs1upohmk" path="res://Scenes/Menus/Screenshot 2024-03-12 at 10.15.52.png" id="2_e7gjv"]
+[ext_resource type="Texture2D" uid="uid://bb6eb1idmdhx4" path="res://Assets/Obstacles/raccoonbandit2.png" id="2_je436"]
 [ext_resource type="PackedScene" uid="uid://oytv8vljxari" path="res://Scenes/Menus/volume_slider.tscn" id="4_7s7f2"]
 
 [sub_resource type="FontVariation" id="FontVariation_pkp8l"]
@@ -25,7 +25,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_e7gjv")
+texture = ExtResource("2_je436")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
