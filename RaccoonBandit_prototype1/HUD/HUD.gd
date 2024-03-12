@@ -18,8 +18,7 @@ func _process(_delta):
 	
 func increase_score():
 	trashcollected += 1
-	print("score changed signal emitted")
-	emit_signal("score_changed", trashcollected)
+	score_changed.emit(trashcollected)
 	print("trash:", trashcollected)
 	if trashcollected % 6 == 0:
 		print("Score is 6, emitting signal")

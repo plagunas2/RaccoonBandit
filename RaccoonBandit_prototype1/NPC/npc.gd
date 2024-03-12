@@ -10,6 +10,7 @@ var fireball_scene = ResourceLoader.load("res://Scenes/fireball.tscn", "PackedSc
 
 signal police_attack
 signal fireball_shot
+signal game_is_over
 
 var character_state : CharacterState = CharacterState.RUNNING
 var police_officer : AnimatedSprite2D
@@ -39,10 +40,10 @@ func _ready():
 	chat_bubble.hide_dialogue()
 	
 	#check to see if the fireball_scene loaded successfully here
-	if not fireball_scene:
-		print("Failed to load fireball scene.")
-	else:
-		print("Fireball scene loaded successfully.")
+	#if not fireball_scene:
+	#	print("Failed to load fireball scene.")
+	#else:
+	#	print("Fireball scene loaded successfully.")
 	
  	# Assuming the signal is connected through the Godot editor. If not, uncomment the next line.
 	$Area2D.connect("body_entered", Callable(self, "_on_body_entered"))
@@ -79,8 +80,7 @@ func _after_police_attack():
 	police_animated_sprite.play("idle")
 	var timer = get_tree().create_timer(2)
 	await timer.timeout
-	get_tree().change_scene_to_file("res://Scenes/Menus/game_over_menu.tscn")
-	print("switch to game over screen")
+	emit_signal("game_is_over")
 	
 func _idle():
 	police_animated_sprite.play("idle")
