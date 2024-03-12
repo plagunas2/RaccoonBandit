@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://bhjnd5n5y7gqg"]
 
 [ext_resource type="Script" path="res://Scenes/Menus/Mainmenu.gd" id="1_t6wwb"]
-[ext_resource type="Texture2D" uid="uid://bxkvbs1upohmk" path="res://Scenes/Menus/Screenshot 2024-03-12 at 10.15.52.png" id="2_mspdh"]
+[ext_resource type="Texture2D" uid="uid://bxkvbs1upohmk" path="res://Scenes/Menus/newbackground.png" id="2_mspdh"]
 [ext_resource type="FontFile" uid="uid://dumj75rt8ukae" path="res://Assets/Fonts/Kaph-Regular.ttf" id="3_t13eg"]
 [ext_resource type="FontFile" uid="uid://ct5tickuppry1" path="res://Assets/Fonts/Kaph-Italic.ttf" id="4_d81cj"]
 [ext_resource type="PackedScene" uid="uid://bl1oakyavckov" path="res://Character/player.tscn" id="5_s4duc"]
