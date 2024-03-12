@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/npc_player_connection.gd" id="1_q5ohh"]
 [ext_resource type="PackedScene" uid="uid://bl1oakyavckov" path="res://Character/player.tscn" id="2_c6vkw"]
-[ext_resource type="PackedScene" uid="uid://bxr7rpvkg4eas" path="res://Scenes/dirty_parallax.tscn" id="3_hb2sf"]
+[ext_resource type="PackedScene" path="res://Scenes/dirty_parallax.tscn" id="3_hb2sf"]
 [ext_resource type="PackedScene" uid="uid://4dfn8auyjbgg" path="res://Scenes/GroundStuff/ground_tile.tscn" id="4_h6uak"]
 [ext_resource type="PackedScene" uid="uid://dnw4bgmjccngu" path="res://Scenes/obstacles/obs_generator.tscn" id="4_md4bb"]
 [ext_resource type="PackedScene" uid="uid://dwre4s3tegjwg" path="res://Scenes/Food/food_generator.tscn" id="5_15tit"]
@@ -15,11 +15,11 @@
 [ext_resource type="PackedScene" uid="uid://o3ujw3rh2i6u" path="res://Scenes/Menus/pause_menu.tscn" id="9_2bejn"]
 [ext_resource type="Script" path="res://HUD/HUD.gd" id="10_e0yie"]
 [ext_resource type="PackedScene" uid="uid://cbmbky5ui0234" path="res://Scenes/Powerups/powerup_pop_up.tscn" id="13_587wi"]
-[ext_resource type="AudioStream" uid="uid://ekcytjdjm4aw" path="res://Sounds/vacuum-cleaner-23145.mp3" id="15_eg12x"]
+[ext_resource type="AudioStream" path="res://Sounds/vacuum-cleaner-23145.mp3" id="15_eg12x"]
 [ext_resource type="PackedScene" uid="uid://cchg0xy6ahlqh" path="res://Scenes/Menus/game_over_menu.tscn" id="15_vrmyi"]
-[ext_resource type="PackedScene" uid="uid://bnkxp5qhfcpkv" path="res://Scenes/ground.tscn" id="16_il8y6"]
+[ext_resource type="PackedScene" path="res://Scenes/ground.tscn" id="16_il8y6"]
 [ext_resource type="Script" path="res://Scenes/dayNightCycle.gd" id="17_2cin8"]
-[ext_resource type="Texture2D" uid="uid://de4y8wndip12d" path="res://Assets/Background/daynightcycle-gradient-texture.tres" id="18_6yrld"]
+[ext_resource type="Texture2D" uid="uid://bnuipv66afk70" path="res://Assets/Background/daynightcycle-gradient-texture.tres" id="18_6yrld"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_q5ohh")

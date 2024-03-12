@@ -1,29 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://bufwea0iee3ny"]
+[gd_scene load_steps=3 format=3 uid="uid://bufwea0iee3ny"]
 
 [ext_resource type="Script" path="res://Scenes/obstacles/dumpster_1.gd" id="1_4r8eg"]
 [ext_resource type="Texture2D" uid="uid://bcqk01bmt5ax7" path="res://Assets/Obstacles/Containers_1.png" id="1_gr5ql"]
-[ext_resource type="Shader" path="res://Shaders/Outlineshader.gdshader" id="2_evusc"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_rqq2r"]
-shader = ExtResource("2_evusc")
-shader_parameter/max_line_width = 25.0
-shader_parameter/min_line_width = 5.0
-shader_parameter/freq = 1.0
-shader_parameter/block_size = 20.0
-shader_parameter/outline_colour = Vector4(0.8, 0.8, 0.8, 1)
-shader_parameter/color = Color(1, 1, 0, 1)
-shader_parameter/tint_factor = 0.05
-shader_parameter/fade = 1.0
 
 [node name="Dumpster1" type="CharacterBody2D"]
 script = ExtResource("1_4r8eg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_rqq2r")
 position = Vector2(6.59001, 32)
 texture = ExtResource("1_gr5ql")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-visible = false
 position = Vector2(6.59001, 32)
 polygon = PackedVector2Array(83, -42.6, 83, -35.5, 93, -18.5, 93, -15.3, 99, 2.7, 99, 12, 95, 15, 95, 22, 94, 22, 94, 102, 92.3, 102, 88.3, 111, 85, 111, -89, 112, -89, 109.7, -94.9, 103, -102, 103, -102, 100.5, -105.3, 95, -104.2, 93, -102.3, 93, -97, 90.7, -97, 22.7, -104, 13.7, -104, 8.8, -102.6, 3, -101.3, 3, -91.3, -18, -90, -18, -77, -34, -74.7, -34, -72, -36, -72, -39.8, -68.8, -43, -63, -43, 69, -44, 69, -45.4)
