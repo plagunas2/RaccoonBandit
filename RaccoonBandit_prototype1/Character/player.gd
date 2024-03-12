@@ -271,6 +271,10 @@ func _on_visible_on_screen_enabler_2d_screen_exited():
 		is_dead = true
 		out_screen = true
 		_livescounter()
+	elif(self.global_position.y > 900):
+		is_dead = true
+		out_screen = true
+		_livescounter()
 
 func batDetectCol():
 	pass

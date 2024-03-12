@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dxoduqoma00oh"]
+[gd_scene load_steps=21 format=3 uid="uid://dxoduqoma00oh"]
 
 [ext_resource type="Script" path="res://Scenes/npc_player_connection.gd" id="1_q5ohh"]
 [ext_resource type="PackedScene" uid="uid://bl1oakyavckov" path="res://Character/player.tscn" id="2_c6vkw"]
@@ -16,10 +16,10 @@
 [ext_resource type="Script" path="res://HUD/HUD.gd" id="10_e0yie"]
 [ext_resource type="PackedScene" uid="uid://cbmbky5ui0234" path="res://Scenes/Powerups/powerup_pop_up.tscn" id="13_587wi"]
 [ext_resource type="AudioStream" uid="uid://ekcytjdjm4aw" path="res://Sounds/vacuum-cleaner-23145.mp3" id="15_eg12x"]
+[ext_resource type="PackedScene" uid="uid://cchg0xy6ahlqh" path="res://Scenes/Menus/game_over_menu.tscn" id="15_vrmyi"]
 [ext_resource type="PackedScene" uid="uid://bnkxp5qhfcpkv" path="res://Scenes/ground.tscn" id="16_il8y6"]
 [ext_resource type="Script" path="res://Scenes/dayNightCycle.gd" id="17_2cin8"]
 [ext_resource type="Texture2D" uid="uid://de4y8wndip12d" path="res://Assets/Background/daynightcycle-gradient-texture.tres" id="18_6yrld"]
-[ext_resource type="PackedScene" uid="uid://cchg0xy6ahlqh" path="res://Scenes/Menus/game_over_menu.tscn" id="15_vrmyi"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_q5ohh")
@@ -76,8 +76,6 @@ scale = Vector2(8, 1)
 [node name="PowerupPopUp" parent="." instance=ExtResource("13_587wi")]
 position = Vector2(944, 453)
 
-
-
 [node name="Vacuum" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("15_eg12x")
 volume_db = 15.0
@@ -90,7 +88,12 @@ gradient_text = ExtResource("18_6yrld")
 
 [node name="Game Over Menu" parent="." instance=ExtResource("15_vrmyi")]
 visible = false
-offset_left = 1652.75
-offset_top = 502.503
-offset_right = 1652.75
-offset_bottom = 502.503
+top_level = true
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -99.0
+offset_right = 2052.0
+offset_bottom = 1113.0
+grow_horizontal = 1
+grow_vertical = 1
