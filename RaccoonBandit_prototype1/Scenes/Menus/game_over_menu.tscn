@@ -79,22 +79,23 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 texture = ExtResource("4_pyx6w")
 
-[node name="VBoxContainer6" type="VBoxContainer" parent="."]
+[node name="VBoxContainer6" type="HBoxContainer" parent="."]
 layout_mode = 2
-offset_left = 674.0
-offset_top = 363.0
-offset_right = 1234.0
-offset_bottom = 653.0
+offset_left = 320.0
+offset_top = 434.0
+offset_right = 1506.0
+offset_bottom = 668.0
 grow_horizontal = 0
 grow_vertical = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 focus_neighbor_right = NodePath("../VBoxContainer4")
 focus_neighbor_bottom = NodePath("../VBoxContainer2")
-theme_override_constants/separation = 30
+theme_override_constants/separation = 200
 alignment = 1
 
 [node name="Separator3" type="Control" parent="VBoxContainer6"]
+visible = false
 layout_mode = 2
 
 [node name="Retry" type="Button" parent="VBoxContainer6"]
@@ -160,6 +161,7 @@ theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -174,13 +176,13 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="VBoxContainer5" type="VBoxContainer" parent="."]
+[node name="VBoxContainer5" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 605.0
-offset_top = 286.0
-offset_right = 1164.0
-offset_bottom = 443.0
-theme_override_constants/separation = 30
+offset_left = 410.0
+offset_top = 295.0
+offset_right = 1484.0
+offset_bottom = 491.0
+theme_override_constants/separation = 200
 alignment = 1
 
 [node name="ScoreHBoxContainer" type="HBoxContainer" parent="VBoxContainer5"]
