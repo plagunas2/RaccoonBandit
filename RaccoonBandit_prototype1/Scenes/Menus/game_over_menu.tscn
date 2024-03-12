@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cchg0xy6ahlqh"]
 
 [ext_resource type="Script" path="res://Scenes/Menus/Game Over Menu.gd" id="1_7hun4"]
-[ext_resource type="PackedScene" path="res://Assets/Fonts/label.tscn" id="3_llfav"]
+[ext_resource type="PackedScene" uid="uid://b4mefpabease6" path="res://Assets/Fonts/label.tscn" id="3_llfav"]
 [ext_resource type="FontFile" uid="uid://dumj75rt8ukae" path="res://Assets/Fonts/Kaph-Regular.ttf" id="3_t2t50"]
 [ext_resource type="Texture2D" uid="uid://cahasqhe1dbx2" path="res://image-1.png.png" id="4_pyx6w"]
 
@@ -11,17 +11,11 @@ base_font = ExtResource("3_t2t50")
 [sub_resource type="FontVariation" id="FontVariation_grft5"]
 base_font = ExtResource("3_t2t50")
 
-[node name="Game Over Menu" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Game Over Menu" type="CanvasLayer"]
+layer = 10
 script = ExtResource("1_7hun4")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -34,7 +28,6 @@ grow_vertical = 2
 expand_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
@@ -57,7 +50,6 @@ layout_mode = 2
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
 visible = false
-layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.523
 anchor_top = 0.63
@@ -79,22 +71,22 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 texture = ExtResource("4_pyx6w")
 
-[node name="VBoxContainer6" type="VBoxContainer" parent="."]
-layout_mode = 2
-offset_left = 674.0
-offset_top = 363.0
-offset_right = 1234.0
-offset_bottom = 653.0
+[node name="VBoxContainer6" type="HBoxContainer" parent="."]
+offset_left = 320.0
+offset_top = 434.0
+offset_right = 1506.0
+offset_bottom = 668.0
 grow_horizontal = 0
 grow_vertical = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 focus_neighbor_right = NodePath("../VBoxContainer4")
 focus_neighbor_bottom = NodePath("../VBoxContainer2")
-theme_override_constants/separation = 30
+theme_override_constants/separation = 200
 alignment = 1
 
 [node name="Separator3" type="Control" parent="VBoxContainer6"]
+visible = false
 layout_mode = 2
 
 [node name="Retry" type="Button" parent="VBoxContainer6"]
@@ -125,7 +117,6 @@ flat = true
 
 [node name="VBoxContainer4" type="VBoxContainer" parent="."]
 visible = false
-layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.793
 anchor_top = 0.435
@@ -148,7 +139,6 @@ layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 visible = false
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -160,7 +150,7 @@ theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 1
+visible = false
 anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.351
@@ -174,13 +164,12 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="VBoxContainer5" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 605.0
-offset_top = 286.0
-offset_right = 1164.0
-offset_bottom = 443.0
-theme_override_constants/separation = 30
+[node name="VBoxContainer5" type="HBoxContainer" parent="."]
+offset_left = 410.0
+offset_top = 295.0
+offset_right = 1484.0
+offset_bottom = 491.0
+theme_override_constants/separation = 200
 alignment = 1
 
 [node name="ScoreHBoxContainer" type="HBoxContainer" parent="VBoxContainer5"]
