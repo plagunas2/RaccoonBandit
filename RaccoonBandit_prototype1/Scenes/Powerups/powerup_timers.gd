@@ -13,12 +13,12 @@ func _process(delta):
 func vacTimer():
 	$Vacuum.value = 10
 	var tween = get_tree().create_tween()
-	tween.tween_property($Vacuum, "value", 2, 10)
+	tween.tween_property($Vacuum, "value", 2.25, 10)
 
 func batTimer():
 	$Bat.value = 10
 	var tween = get_tree().create_tween()
-	tween.tween_property($Bat, "value", 2, 10)
+	tween.tween_property($Bat, "value", 2.25, 10)
 	
 	
 	#$Bat.value = 10
