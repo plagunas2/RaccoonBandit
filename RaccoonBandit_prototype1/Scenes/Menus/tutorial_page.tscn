@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://7y4dxrssbhhd"]
 
 [ext_resource type="Script" path="res://Scenes/Menus/tutorial_page.gd" id="1_qommu"]
-[ext_resource type="Texture2D" uid="uid://bxkvbs1upohmk" path="res://Scenes/Menus/newbackground.png" id="2_s1y13"]
+[ext_resource type="Texture2D" uid="uid://bb6eb1idmdhx4" path="res://Assets/Obstacles/raccoonbandit2.png" id="2_7cnpy"]
 [ext_resource type="Texture2D" uid="uid://df21k2qjen46m" path="res://Assets/Obstacles/Containers_3.png" id="4_8ng6r"]
 [ext_resource type="FontFile" uid="uid://ct5tickuppry1" path="res://Assets/Fonts/Kaph-Italic.ttf" id="4_10y2f"]
 [ext_resource type="Texture2D" uid="uid://csvv2nsxjgu20" path="res://Assets/Obstacles/Containers_2.png" id="5_mjf7u"]
@@ -28,7 +28,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_s1y13")
+texture = ExtResource("2_7cnpy")
 expand_mode = 1
 
 [node name="Button" type="Button" parent="."]
