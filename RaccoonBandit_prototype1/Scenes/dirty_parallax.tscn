@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bxr7rpvkg4eas"]
+[gd_scene load_steps=15 format=3 uid="uid://ce6herwc6gni1"]
 
 [ext_resource type="Script" path="res://Scenes/parallax_background.gd" id="1_rf7i6"]
 [ext_resource type="Texture2D" uid="uid://bjc8x5jn2rea" path="res://Assets/dirty_assets/building_props/shutter/sky_colour.png" id="2_6406k"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://7y4dxrssbhhd"]
 
 [ext_resource type="Script" path="res://Scenes/Menus/tutorial_page.gd" id="1_qommu"]
-[ext_resource type="Texture2D" uid="uid://2db1ccwgmw61" path="res://Scenes/Menus/Screenshot 2024-01-31 at 16.51.25.png" id="2_dhvnd"]
+[ext_resource type="Texture2D" uid="uid://bxkvbs1upohmk" path="res://Scenes/Menus/Screenshot 2024-03-12 at 10.15.52.png" id="2_s1y13"]
 [ext_resource type="FontFile" uid="uid://ct5tickuppry1" path="res://Assets/Fonts/Kaph-Italic.ttf" id="4_10y2f"]
 
 [sub_resource type="FontVariation" id="FontVariation_lblnd"]
@@ -25,7 +25,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_dhvnd")
+texture = ExtResource("2_s1y13")
 expand_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
