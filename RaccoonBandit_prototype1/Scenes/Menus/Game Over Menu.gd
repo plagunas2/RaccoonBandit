@@ -13,7 +13,6 @@ func _ready():
 	highscore = 0
 	current_score = 0
 
-
 func _process(_delta):
 	# Check for mouse click in the _process function
 	#if Input.is_action_just_pressed("retry"):

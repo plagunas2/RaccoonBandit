@@ -31,4 +31,3 @@ func init_lives(amount):
 		print("added child")
 		var ul = ulife_scene.instantiate()
 		$Livecount.add_child(ul)
-		
