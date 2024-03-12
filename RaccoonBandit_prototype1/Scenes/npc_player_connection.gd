@@ -43,7 +43,7 @@ func _process(_delta):
 	global_speed = parallax_background.scroll_speed
 	
 func _game_over():
-	game_over_menu.move_to_front()
+	#game_over_menu.move_to_front()
 	game_over_menu.visible = true
 	
 func _retry():
