@@ -20,3 +20,6 @@ func _on_timer_timeout():
 	#default = 15
 	#Fast testing = 5
 	$Timer.wait_time = 15
+	
+func _set_gradient(value):
+	$CanvasModulate.color = value

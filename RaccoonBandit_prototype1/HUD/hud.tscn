@@ -1,14 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://dei8g5ul1uts2"]
+[gd_scene load_steps=3 format=3 uid="uid://dei8g5ul1uts2"]
 
-[ext_resource type="Script" path="res://HUD/HUD.gd" id="1_sif55"]
 [ext_resource type="PackedScene" uid="uid://cubehaq1mxm5p" path="res://Scenes/Powerups/powerup_timers.tscn" id="2_yp35j"]
-
 [sub_resource type="SystemFont" id="SystemFont_f3v4l"]
 font_names = PackedStringArray("Impact")
 subpixel_positioning = 0
 
 [node name="HUD" type="CanvasLayer"]
-script = ExtResource("1_sif55")
 
 [node name="trashcount" type="Label" parent="."]
 anchors_preset = 1

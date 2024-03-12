@@ -1,5 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://2cv6qsoqsghw"]
+[gd_scene load_steps=17 format=3 uid="uid://2cv6qsoqsghw"]
 
+[ext_resource type="Shader" path="res://Shaders/Outlineshader.gdshader" id="1_gh257"]
 [ext_resource type="Texture2D" uid="uid://dawbkmsevavii" path="res://Assets/Obstacles/Cardboard_Box.png" id="1_wggdy"]
 [ext_resource type="Texture2D" uid="uid://jhb088cq37mc" path="res://Assets/Explosion/Explosion_8/Explosion_1.png" id="3_vglre"]
 [ext_resource type="Texture2D" uid="uid://77wrj60jd0l" path="res://Assets/Explosion/Explosion_8/Explosion_2.png" id="4_p36yq"]
@@ -11,6 +12,17 @@
 [ext_resource type="Texture2D" uid="uid://bbyt512apes3i" path="res://Assets/Explosion/Explosion_8/Explosion_8.png" id="10_wsurp"]
 [ext_resource type="Texture2D" uid="uid://3qkrethagmt8" path="res://Assets/Explosion/Explosion_8/Explosion_9.png" id="11_kpxg3"]
 [ext_resource type="Texture2D" uid="uid://dxug2kn370la3" path="res://Assets/Explosion/Explosion_8/Explosion_10.png" id="12_24ian"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g33oj"]
+shader = ExtResource("1_gh257")
+shader_parameter/max_line_width = 8.0
+shader_parameter/min_line_width = 5.0
+shader_parameter/freq = 1.0
+shader_parameter/block_size = 20.0
+shader_parameter/outline_colour = Vector4(0.7, 0.7, 0.7, 1)
+shader_parameter/color = Color(1, 1, 0, 1)
+shader_parameter/tint_factor = 0.05
+shader_parameter/fade = 1.0
 
 [sub_resource type="GDScript" id="GDScript_ldhs0"]
 script/source = "extends CharacterBody2D
@@ -105,20 +117,24 @@ animations = [{
 size = Vector2(181, 181)
 
 [node name="cardboardBox" type="CharacterBody2D"]
+material = SubResource("ShaderMaterial_g33oj")
 script = SubResource("GDScript_ldhs0")
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
+use_parent_material = true
 position = Vector2(38, -75)
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("1_wggdy")
 offset = Vector2(0, 25)
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
+use_parent_material = true
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("1_wggdy")
 offset = Vector2(0, 25)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+use_parent_material = true
 position = Vector2(87, 1)
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("1_wggdy")

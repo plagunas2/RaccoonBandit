@@ -18,6 +18,7 @@ extends CharacterBody2D
 
 signal final_death
 signal fireball_hitting_raccoon
+signal killed
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -86,6 +87,7 @@ func _livescounter():
 		elif(out_screen == true):
 			explode()
 		emit_signal("final_death")
+		emit_signal("killed")
 	else:
 		out_screen = false
 		respawn()
@@ -273,6 +275,10 @@ func _on_timer_timeout():
 
 func _on_visible_on_screen_enabler_2d_screen_exited():
 	if(self.global_position.x < 0):
+		is_dead = true
+		out_screen = true
+		_livescounter()
+	elif(self.global_position.y > 900):
 		is_dead = true
 		out_screen = true
 		_livescounter()
