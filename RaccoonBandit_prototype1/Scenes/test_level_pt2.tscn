@@ -31,8 +31,8 @@ position = Vector2(825, 885)
 scale = Vector2(1.65, 1.65)
 
 [node name="ground" parent="." instance=ExtResource("4_h6uak")]
-position = Vector2(1408, 1045)
-scale = Vector2(10, 1)
+position = Vector2(1054, 1048)
+scale = Vector2(16, 1)
 
 [node name="ObGenerator" parent="." instance=ExtResource("4_md4bb")]
 position = Vector2(2095, 843)
@@ -48,7 +48,7 @@ position = Vector2(2250, 300)
 position = Vector2(2170, 730)
 
 [node name="GNDGenerator" parent="." instance=ExtResource("7_1ougk")]
-position = Vector2(2056, 1045)
+position = Vector2(2056, 1051)
 
 [node name="HUD" parent="." instance=ExtResource("6_7rpvi")]
 script = ExtResource("10_e0yie")
@@ -70,7 +70,7 @@ scale = Vector2(6.7, 6.7)
 [node name="PauseMenu" parent="." instance=ExtResource("9_2bejn")]
 
 [node name="ground2" parent="." instance=ExtResource("4_h6uak")]
-position = Vector2(1616, 1045)
+position = Vector2(1616, 1048)
 scale = Vector2(8, 1)
 
 [node name="PowerupPopUp" parent="." instance=ExtResource("13_587wi")]
