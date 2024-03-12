@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://cubehaq1mxm5p"]
+
+[ext_resource type="Script" path="res://Scenes/Powerups/powerup_timers.gd" id="1_r3o0g"]
+[ext_resource type="Texture2D" uid="uid://c6tsgkko83rnj" path="res://Scenes/obstacles/vacuum.png" id="1_ryhwp"]
+[ext_resource type="Texture2D" uid="uid://f0f1ejahj7is" path="res://Assets/Raccoon/PNG/Vector Parts/Weapon.png" id="2_cvb4s"]
+[ext_resource type="Texture2D" uid="uid://bbld07jp20cag" path="res://Assets/UIassets/circleImg.png" id="4_7tlcd"]
+[ext_resource type="Texture2D" uid="uid://cqwa4mfshn3v8" path="res://Assets/UIassets/circleImgWhite.png" id="5_3yavl"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_r3o0g")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_left = -26.0
+offset_top = 4.0
+offset_right = 2.0
+offset_bottom = 39.0
+texture = ExtResource("1_ryhwp")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -16.0
+offset_top = 48.0
+offset_right = 1.0
+offset_bottom = 90.0
+texture = ExtResource("2_cvb4s")
+expand_mode = 1
+
+[node name="Vacuum" type="TextureProgressBar" parent="."]
+offset_right = 512.0
+offset_bottom = 512.0
+scale = Vector2(0.0720542, 0.0749741)
+max_value = 10.0
+fill_mode = 5
+texture_under = ExtResource("4_7tlcd")
+texture_progress = ExtResource("5_3yavl")
+
+[node name="Bat" type="TextureProgressBar" parent="."]
+offset_top = 48.0
+offset_right = 512.0
+offset_bottom = 560.0
+scale = Vector2(0.0720542, 0.0749741)
+max_value = 10.0
+fill_mode = 5
+texture_under = ExtResource("4_7tlcd")
+texture_progress = ExtResource("5_3yavl")
+
+[node name="batTimer" type="Timer" parent="."]
